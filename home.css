@@ -1,0 +1,32 @@
+/* Your existing styles */
+.container {
+  text-align: center;
+  margin-top: 50vh; /* Adjust this to make the container visible after some scrolling */
+  padding-bottom: 50vh; /* Add space to scroll down */
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.circle {
+  background-color: deepskyblue;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  margin: 4rem auto;
+  
+  /* Initial state: hidden and off-screen */
+  opacity: 0;
+  transform: translateY(50px);
+  
+  /* The transition that creates the animation */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* The class that triggers the animation */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
