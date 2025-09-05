@@ -285,11 +285,13 @@ body::after {
   }
 }
 .what-we-do{
-  background-color: black;
+  background-color: rgb(190, 190, 190);
   height:7rem;
   width: 20rem;
   border-radius:15px;
   justify-self: right;
+  margin-right: 2rem;
+  border: #2987c1 5px solid;
 }
 .what-we-do-txt{
   text-align:center;
