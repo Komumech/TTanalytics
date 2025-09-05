@@ -37,7 +37,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2rem;
+  padding: 2rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
