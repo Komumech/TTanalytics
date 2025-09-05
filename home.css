@@ -285,13 +285,14 @@ body::after {
   }
 }
 .what-we-do{
-  background-color: blue;
+  background-color: grey;
   height:7rem;
   width: 20rem;
   border-radius:15px;
-  position:absolute;  right: 10%;
+  position:absolute;  
+  margin-right: 30px;
 }
 .what-we-do-txt{
   text-align:center;
-  color: #000000;
+  color: white;
 }
