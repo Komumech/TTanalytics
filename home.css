@@ -16,6 +16,7 @@ body {
 /* Add a background image overlay using ::after */
 body::after {
   content: "";
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
