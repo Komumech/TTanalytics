@@ -1,32 +1,281 @@
-/* Your existing styles */
-.container {
-  text-align: center;
-  margin-top: 50vh; /* Adjust this to make the container visible after some scrolling */
-  padding-bottom: 50vh; /* Add space to scroll down */
+/* === Reset and Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #ffffff;
+  color: #142150;
+  min-height: 100vh;
+}
+
+/* Add a background image overlay using ::after */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(bg1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* === Navbar === */
+.navbar {
+  width: 100%;
+  background: rgba(231, 229, 229, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo-div {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  font-size: 2rem;
-  font-weight: bold;
+  width: 48px;
+  height: 48px;
+  margin-right: 0.75rem;
+  transition: transform 0.3s;
 }
 
-.circle {
-  background-color: deepskyblue;
-  width: 20rem;
-  height: 20rem;
-  border-radius: 50%;
-  margin: 4rem auto;
-  
-  /* Initial state: hidden and off-screen */
-  opacity: 0;
-  transform: translateY(50px);
-  
-  /* The transition that creates the animation */
-  transition: opacity 1s ease-out, transform 1s ease-out;
+.logo-div:hover .logo {
+  transform: scale(1.1) rotate(-8deg);
 }
 
-/* The class that triggers the animation */
-.show {
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #142150;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.logo-div:hover .logo-text {
   opacity: 1;
-  transform: translateY(0);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: #858b9c;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.nav-links li a:hover {
+  color: #142150;
+}
+
+/* === Main Container & 3D Section === */
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 4.5rem; /* space for navbar */
+  position: relative;
+  overflow: hidden;
+}
+
+#three-bg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.95rem;
+    visibility: hidden;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+  .logo-text {
+    font-size: 0.95rem;
+     visibility: hidden;
+  }
+  .container {
+    padding-top: 3.5rem;
+  }
+  #three-bg {
+    height: 60vh;
+  }
+  .tagline{
+    max-width:70;
+    font-size:2rem;
+  }
+}
+.tagline{
+  font-size: 3rem;
+  color: #142150;
+  justify-self: center;
+  text-align: center;
+  font-weight: 600;
+  max-width: 35rem;
+  font-family: sans-serif;
+  animation: fadein 0.8s ease-in forwards;
+}
+.color-green{
+  color: #013cc8;
+}
+.body-text{
+  color: #142150;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 35rem;
+  justify-self: center;
+  line-height: 2rem;
+  padding: 30px;
+  animation: fadein 0.7s ease-in forwards;
+}
+.headline{
+  margin-top: 15vh;
+  justify-content: center;
+  width: 100vw;
+}
+.txt{
+  
+}
+
+.CTA1-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CTA1-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.CTA1 {
+  background-color: #84ccb6;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 29px;
+  margin: 0 auto;
+  display: flex;
+  box-shadow: 0 4px 16px 0 #ccd6f6;
+  animation: fadein 0.5s ease-in forwards;
+  position: relative;
+  z-index: 2;
+  color: #142150;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.call-icon {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Remove the old ::after scribble background-image! */
+
+/* Scribble SVG under the button */
+/* ...existing code... */
+
+.cta-scribble {
+  position: absolute;
+  left: 50%;
+  bottom: -45px;
+  transform: translateX(-50%);
+  width: 30rem;
+  height: 70px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-scribble path {
+  stroke: #013cc8;
+  stroke-width: 5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  /* No animation by default */
+  transition: stroke 0.3s;
+}
+
+/* Animate the scribble only when .CTA1 is hovered */
+.CTA1:hover ~ .cta-scribble path {
+  animation: scribble-draw-undraw 1.5s cubic-bezier(0.80,0.29,0.20,1);
+}
+
+@keyframes scribble-draw-undraw {
+  0% {
+    stroke-dashoffset: 900;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+/* ...existing code... */
+
+@keyframes scribble-draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.CTA1:hover {
+  color: #ffffff;
+  background-color: #142150;
+  transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+}
+.CTA1:hover > .call-icon path{
+  stroke: white;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

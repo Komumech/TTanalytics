@@ -1,0 +1,88 @@
+**Deep Tech Blue**
+#1E3A8A
+
+**Sky Efficiency**
+#60A5FA
+
+**AI Lavender**
+#A78BFA
+
+**Clean White**
+#FFFFFF
+
+**Slate Gray**
+#64748B
+
+
+#2987c
+/* CSS HEX */
+--tiara: #d2d8d6;
+--finch: #646e48;
+--curious-blue: #2987c1;
+--regent-gray: #8e97a0;
+--shark: #2c2d2e;
+--nevada: #5d6365;
+--monte-carlo: #84ccb6;
+--matisse: #2258a2;
+--picton-blue: #2aa5f0;
+--crimson: #e11216;
+
+/* SCSS HEX */
+$tiara: #d2d8d6;
+$finch: #646e48;
+$curious-blue: #2987c1;
+$regent-gray: #8e97a0;
+$shark: #2c2d2e;
+$nevada: #5d6365;
+$monte-carlo: #84ccb6;
+$matisse: #2258a2;
+$picton-blue: #2aa5f0;
+$crimson: #e11216;
+
+/* SCSS RGB */
+$tiara: rgba(210,216,214,1);
+$finch: rgba(100,110,72,1);
+$curious-blue: rgba(41,135,193,1);
+$regent-gray: rgba(142,151,160,1);
+$shark: rgba(44,45,46,1);
+$nevada: rgba(93,99,101,1);
+$monte-carlo: rgba(132,204,182,1);
+$matisse: rgba(34,88,162,1);
+$picton-blue: rgba(42,165,240,1);
+$crimson: rgba(225,18,22,1);
+
+
+/* CSS HEX */
+--ghost: #c5cad7;
+--sapphire: #2a4596;
+--rangoon-green: #262918;
+--royal-blue: #366ce8;
+--manatee: #858b9c;
+--portage: #91b3ec;
+--storm-gray: #6b6d8d;
+--blue-zodiac: #142150;
+--cobalt: #013cc8;
+--santa-fe: #a47454;
+
+/* SCSS HEX */
+$ghost: #c5cad7;
+$sapphire: #2a4596;
+$rangoon-green: #262918;
+$royal-blue: #366ce8;
+$manatee: #858b9c;
+$portage: #91b3ec;
+$storm-gray: #6b6d8d;
+$blue-zodiac: #142150;
+$cobalt: #013cc8;
+$santa-fe: #a47454;
+
+/* SCSS RGB */
+$ghost: rgba(197,202,215,1);
+$sapphire: rgba(42,69,150,1);
+$rangoon-green: rgba(38,41,24,1);
+$royal-blue: rgba(54,108,232,1);
+$manatee: rgba(133,139,156,1);
+$portage: rgba(145,179,236,1);
+$storm-gray: rgba(107,109,141,1);
+$blue-zodiac: rgba(20,33,80,1);
+$santa-fe: rgba(164,116,84,1);
