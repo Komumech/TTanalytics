@@ -289,6 +289,7 @@ body::after {
   height:7rem;
   width: 20rem;
   border-radius:15px;
+  justify-self: right;
 }
 .what-we-do-txt{
   text-align:center;
