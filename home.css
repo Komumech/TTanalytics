@@ -1,4 +1,4 @@
-/* === Reset and Base Styles === */
+d/* === Reset and Base Styles === */
 * {
   margin: 0;
   padding: 0;
@@ -289,8 +289,7 @@ body::after {
   height:7rem;
   width: 20rem;
   border-radius:15px;
-  position:absolute;
-  right: 90%;
+  position:absolute;  right: 90%;
 }
 .what-we-do-txt{
   text-align:center;
