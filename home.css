@@ -293,6 +293,9 @@ body::after {
   margin-right: 2rem;
   border: #2987c1 5px solid;
 }
+.what-we-do:hover{
+  border: #013cc8 5px solid;
+}
 .what-we-do-txt{
   text-align:center;
   color: #142150;
