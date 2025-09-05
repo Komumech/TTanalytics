@@ -292,6 +292,7 @@ body::after {
   justify-self: right;
   margin-right: 2rem;
   border: #2987c1 5px solid;
+  transition: border 0.5s ease-in-out;
 }
 .what-we-do:hover{
   border: #013cc8 5px solid;
