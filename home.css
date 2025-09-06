@@ -293,11 +293,11 @@ body::after {
   border-radius:15px;
   justify-self: right;
   margin-right: 2rem;
-  border: #2987c1 5px solid;
+  border: #013cc8 5px solid;
   transition: border 0.5s ease-in-out;
 }
 .what-we-do:hover{
-  border: #013cc8 5px solid;
+  border: #032c8bb2 5px solid;
 }
 .what-we-do-txt{
   text-align:center;
