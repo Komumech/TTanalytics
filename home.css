@@ -21,7 +21,7 @@ body::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url(imag.png);
+  background-image: url(bg1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
