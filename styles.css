@@ -87,7 +87,7 @@ body{
   .tagline{
     font-size: 2.5rem;
     max-width: 350px;
-    padding: 0rem;
+    padding-right: 15px;
     width: 100vw;
     padding-right: 20px;
     justify-self: center;
