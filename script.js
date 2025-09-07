@@ -21,6 +21,6 @@ tl.to(".sect2", {
     ease: "none"
 })
 .to(".sect2", { 
-    x: 1000, // Complete the animation
+    x: 500, // Complete the animation
     ease: "none"
 });

@@ -69,7 +69,7 @@ body{
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     padding-left: rem;
-    margin-top: 0.2rem;
+    margin-top: -4rem;
     margin-left: 3rem;
 }
 .italic{
@@ -121,6 +121,9 @@ body{
     justify-self: center;
     padding: 0px;
     left: -10%
+  }
+  .sect2{
+    margin-left: -20rem;
   }
 }
 .CTA1 {
