@@ -2,7 +2,9 @@ body{
   width: 100vw;
   height: 300vh;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100vh; 
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 .container{
   width: 100vw;
@@ -123,8 +125,17 @@ body{
     left: -10%
   }
   .sect2{
-    margin-left: -20rem;
+    margin-left: 9rem;
   }
+  body{
+    overflow-x: hidden;
+  }
+  .body-text-main{
+  color: white;
+  text-align: center;
+  max-width: 20rem;
+  justify-self: center;
+}
 }
 .CTA1 {
   background-color: #3884efff;
@@ -163,4 +174,32 @@ body{
   margin-left: -7rem;
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 60% 40%;
+  justify-content: center;
+}
+.topic{
+  justify-self: center;
+  color: white;
+  font-size: 2rem;
+  padding-top: 30px;
+  text-align: center;
+}
+.body-text-main{
+  justify-self: center;
+  color: white;
+  text-align: center;
+  max-width: 20rem;
+}
+.txt{
+  padding-left: 20px;
+  justify-content: center;
+  padding-top: 10rem;
+}
+.img > img{
+  width: 300px;
+  height: 300px;
+}
+.img{
+  padding-top: 10rem;
 }

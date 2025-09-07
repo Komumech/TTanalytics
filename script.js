@@ -4,9 +4,9 @@ gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".sect2",
-        start: "top bottom",
+        start: "top center",
         end: "bottom top", // Use a longer end point to create more scroll time
-        scrub: 1,
+        scrub: 2,
         //markers: true
     }
 });
