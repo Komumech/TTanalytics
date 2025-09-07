@@ -20,10 +20,10 @@
 --finch: #646e48;
 --curious-blue: #2987c1;
 --regent-gray: #8e97a0;
---shark: #2c2d2e;
+--shark: #2c2d2e; links
 --nevada: #5d6365;
 --monte-carlo: #84ccb6;
---matisse: #2258a2;
+--matisse: #2258a2; links hover
 --picton-blue: #2aa5f0;
 --crimson: #e11216;
 
