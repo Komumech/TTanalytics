@@ -217,7 +217,7 @@ body {
         height: 178rem;
         width: 80vw;
         justify-content: center;
-        margin-top: 5rem;
+        margin-top: 9rem;
     }
     .imgsect{
         justify-self: center;
@@ -247,7 +247,7 @@ body {
         visibility: hidden;
     }
     .header{
-        font-size: 2.5rem;
+        font-size: 2rem;
         justify-self: center;
     }
     .content-container{
