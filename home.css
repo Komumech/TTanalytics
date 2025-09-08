@@ -217,7 +217,7 @@ body {
         height: 178rem;
         width: 80vw;
         justify-content: center;
-        margin-top: 15rem;
+        margin-top: 7rem;
     }
     .imgsect{
         justify-self: center;
@@ -232,15 +232,16 @@ body {
         width: 80vw;
     }
     .vid2{
-       width: 500px;
-       padding: 0rem;
+       height:200px;
+       width: 90vw;
+       padding: 0px;
        margin: 0 auto;
        justify-self: center;
     }
     .video-class{
         width:500px;
-        justify-self: center;
-        margin-top: 3rem;
+        justify-content: center;
+        margin-top: 0rem;
         height: fit-content;
     }
     .nav-links a{
@@ -250,14 +251,16 @@ body {
         font-size: 2rem;
         justify-self: center;
         padding-left: 0px;
-        max-width: 340px;
     }
     .content-container{
         height: fit-content;
-        padding-left: 0px;
+        padding-left: -10px;
+        line-height: 2rem;
     }
     .text-under-header{
         max-width: 340px;
-        
+        justify-self: center;
+        padding-left: 0px;
+        line-height: 1.3rem;
     }
 }
