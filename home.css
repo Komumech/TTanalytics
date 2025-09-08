@@ -1,306 +1,97 @@
-d/* === Reset and Base Styles === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Using a font that is similar to the original site. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-  font-family: 'Segoe UI', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-image: url('bg2.png');
-  color: #142150;
-  min-height: 100vh;
-  width: 100vw;
+    background-color: black;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Add a background image overlay using ::after */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url(bg1.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.2;
-  z-index: 0;
-  pointer-events: none;
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    padding: 20px 40px;
+    box-sizing: border-box;
 }
 
-/* === Navbar === */
-.navbar {
-  width: 100%;
-  background: rgba(231, 229, 229, 0);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
+.video-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.logo-div {
-  display: flex;
-  align-items: center;
+.video-text {
+    text-align: center;
 }
 
 .logo {
-  width: 48px;
-  height: 48px;
-  margin-right: 0.75rem;
-  transition: transform 0.3s;
+    max-width: 80%;
+    height: auto;
 }
 
-.logo-div:hover .logo {
-  transform: scale(1.1) rotate(-8deg);
+.video-controls-container {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    z-index: 10;
 }
 
-.logo-text {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  opacity: 0.85;
-  transition: opacity 0.3s;
+.control-button {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
 }
 
-.logo-div:hover .logo-text {
-  opacity: 1;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin-right: 3rem;
-}
-
-.nav-links li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-}
-
-.nav-links li a:hover {
-  color: #142150;
-}
-
-/* === Main Container & 3D Section === */
-.container {
-  width: 100vw;
-  min-height: 100vh;
-  padding-top: 4.5rem; /* space for navbar */
-  position: relative;
-  overflow: hidden;
-}
-
-#three-bg {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-/* === Responsive Design === */
-@media (max-width: 768px) {
-  .navbar {
+.side-buttons-container {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    display: flex;
     flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+
+.side-button {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.side-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
-    padding: 0.5rem 1rem;
-  }
-  .nav-links {
-    gap: 1rem;
-    font-size: 0.95rem;
-    visibility: hidden;
-  }
-  .logo {
-    width: 60px;
-    height: 60px;
-  }
-  .logo-text {
-    font-size: 0.95rem;
-     visibility: hidden;
-  }
-  .container {
-    padding-top: 3.5rem;
-  }
-  #three-bg {
-    height: 60vh;
-  }
-  .tagline{
-    max-width:20rem;
-    font-size:1.9rem;
-  }
-}
-.tagline{
-  font-size: 2rem;
-  color: #ffffff;
-  justify-self: center;
-  text-align: center;
-  font-weight: 600;
-  max-width: 25rem;
-  font-family: sans-serif;
-  animation: fadein 0.8s ease-in forwards;
-}
-@media (max-width:768px;){
-  .tagline{
-    max-width:10rem;
-  }
-}
-.color-green{
-  color: #013cc8;
-}
-.body-text{
-  color: #ffffff;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 400;
-  max-width: 35rem;
-  justify-self: center;
-  line-height: 2rem;
-  padding: 30px;
-  animation: fadein 0.7s ease-in forwards;
-}
-.headline{
-  margin-top: 15vh;
-  justify-content: center;
-  width: 100vw;
-}
-.txt{
-  
+    padding-left: 5%;
 }
 
-.CTA1-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.learn-more-button {
+    background-color: #6a0dad;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.CTA1-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.CTA1 {
-  background-color: #013cc8;
-  border-radius: 15px;
-  border: none;
-  padding: 11px 30px;
-  margin: 0 auto;
-  display: flex;
-  box-shadow: 0 4px 16px 0 #00000000;
-  animation: fadein 0.5s ease-in forwards;
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 500;
-}
-.call-icon {
-  width: 1.2em;
-  height: 1.2em;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-/* Remove the old ::after scribble background-image! */
-
-/* Scribble SVG under the button */
-/* ...existing code... */
-
-.cta-scribble {
-  position: absolute;
-  left: 50%;
-  bottom: -45px;
-  transform: translateX(-50%);
-  width: 30rem;
-  height: 90px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.cta-scribble path {
-  stroke: #013cc8;
-  stroke-width: 5;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 900;
-  stroke-dashoffset: 900;
-  /* No animation by default */
-  transition: stroke 0.3s;
-}
-
-/* Animate the scribble only when .CTA1 is hovered */
-.CTA1:hover ~ .cta-scribble path {
-  animation: scribble-draw-undraw 1.5s cubic-bezier(0.80,0.29,0.20,1);
-}
-
-@keyframes scribble-draw-undraw {
-  0% {
-    stroke-dashoffset: 900;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 900;
-  }
-}
-
-/* ...existing code... */
-
-@keyframes scribble-draw-path {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.CTA1:hover {
-  color: #ffffff;
-  background-color: #142150;
-  transition: color 0.3s ease-in-out, background-color 0.5s ease-in-out;
-}
-.CTA1:hover > .call-icon path{
-  stroke: white;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.what-we-do{
-  background-color: #ffffff00;
-  height:7rem;
-  width: 20rem;
-  border-radius:15px;
-  justify-self: right;
-  margin-right: 2rem;
-  border: #013cc8 5px solid;
-  transition: border 0.5s ease-in-out;
-}
-.what-we-do:hover{
-  border: #032c8bb2 5px solid;
-}
-.what-we-do-txt{
-  text-align:center;
-  color: #ffffff;
-  max-width: 18rem;
+.learn-more-button:hover {
+    background-color: #5b0a94;
 }
