@@ -10,6 +10,79 @@ body {
     overflow-x: hidden;
 }
 
+.navbar{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    position: fixed;
+}
+.logo{
+    height: 25px;
+    width: 50px;
+    position: absolute;
+    left: 5%;
+    padding: 10px;
+}
+.logo-txt{
+    font-size: 1rem;
+    position: absolute;
+    left: 5%;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.logo:hover{
+    transform: scale(0.5) translateX(100px) translateY(-30px);
+    transition: transform 0.5s ease-in-out;
+
+}
+.logo-div{
+    width: fit-content;
+    height: fit-content;
+}
+.logo-div:hover > .logo-txt{
+    visibility: visible;
+    opacity: 1;
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+.nav-links a{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+}
+.header{
+    font-size: 3rem;
+
+}
+.text-under-header{
+    font-size: 1.1rem;
+    line-height: 35px;
+}
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0%;
+    margin-top:-5rem;
+    line-height: 3rem;
+    width: 100vw;
+    height: 100vh;
+}
+.vid2{
+    width: 800px;
+    margin-top: 1rem;
+    padding: 0px;
+}
+.video-class{
+    width: 700px;
+}
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -35,63 +108,146 @@ body {
     height: auto;
 }
 
-.video-controls-container {
-    position: absolute;
-    bottom: 20%;
-    left: 10%;
-    z-index: 10;
-}
 
-.control-button {
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.side-buttons-container {
-    position: absolute;
-    bottom: 10%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 10;
-}
-
-.side-button {
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.side-button img {
-    width: 20px;
-    height: 20px;
-}
-
-.content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 5%;
-}
 
 .learn-more-button {
-    background-color: #6a0dad;
+    position: relative; /* Essential for positioning the pseudo-element */
+    background-color: #3884efff;
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 9999px;
-    font-size: 1.25rem;
+    padding: 1rem 1.2rem;
+    border: none;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    overflow: hidden; /* Hides the pseudo-element until it's ready to slide */
+    z-index: 1; /* Ensures the button text is on top */
 }
 
-.learn-more-button:hover {
-    background-color: #5b0a94;
+/* Pseudo-element for the sliding background */
+.learn-more-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Initially has no width */
+    height: 100%;
+    background-color: #2258a2; /* The new background color */
+    transition: width 0.5s ease-in-out; /* Animates the width */
+    z-index: -1; /* Positions it behind the button text */
+}
+
+/* Hover state: expand the pseudo-element to cover the button */
+.learn-more-button:hover::after {
+    width: 100%;
+}
+.sect2{
+    width: 80vw;
+    height: 55rem;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+    justify-self: center;
+    padding-left: 10rem;
+}
+.imgsect {
+    color: black;
+    background-image: url(bg2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 12rem;
+    height: 20rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.5s ease-in-out; /* Add a transition for the background image */
+}
+
+.imgsect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(30, 30, 30);
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.5s ease-in-out; /* Use a consistent transition for the overlay */
+    transform-origin: center center; 
+    z-index: 1;
+}
+
+.imgsect:hover::after {
+    opacity: 0; /* You can adjust this value for the desired level of dimming */
+}
+
+.imgsect:hover {
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.txt {
+    justify-self: center;
+    z-index: 2;
+}
+
+.txt2 {
+    justify-self: right;
+    opacity: 0;
+    visibility: hidden;
+    padding-top: 4rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    z-index: 99;
+    transform: translateX(0px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0s 0.5s; /* Delay visibility on mouse leave */
+}
+
+.imgsect:hover > .txt2 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Reset transition for hover state */
+}
+@media (max-width: 768px){
+    .sect2{
+        grid-template-columns: 100%;
+        grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+        padding-left: 0rem;
+        height: 178rem;
+        width: 80vw;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+    .imgsect{
+        justify-self: center;
+    }
+    html{
+        overflow-x: hidden;
+    }
+    .main-container{
+        diplay: grid;
+        grid-template-columns: 100%;
+        
+        width: 80vw;
+    }
+    .vid2{
+       width: 500px;
+       padding: 0rem;
+       margin: 0 auto;
+       justify-self: center;
+    }
+    .video-class{
+        width:500px;
+        justify-self: center;
+        margin-top: 7rem;
+        height: fit-content;
+    }
+    .nav-links a{
+        visibility: hidden;
+    }
+    .header{
+        font-size: 2.5rem;
+        justify-self: center;
+    }
 }
