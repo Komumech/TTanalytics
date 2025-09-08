@@ -250,4 +250,11 @@ body {
         font-size: 2.5rem;
         justify-self: center;
     }
+    .content-container{
+        height: fit-content;
+    }
+    .text-under-header{
+        max-width: 380px;
+        
+    }
 }
