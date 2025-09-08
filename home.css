@@ -217,7 +217,7 @@ body {
         height: 178rem;
         width: 80vw;
         justify-content: center;
-        margin-top: 9rem;
+        margin-top: 15rem;
     }
     .imgsect{
         justify-self: center;
@@ -249,12 +249,15 @@ body {
     .header{
         font-size: 2rem;
         justify-self: center;
+        padding-left: 0px;
+        max-width: 340px;
     }
     .content-container{
         height: fit-content;
+        padding-left: 0px;
     }
     .text-under-header{
-        max-width: 360px;
+        max-width: 340px;
         
     }
 }
