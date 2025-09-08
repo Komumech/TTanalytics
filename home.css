@@ -240,7 +240,7 @@ body {
     .video-class{
         width:500px;
         justify-self: center;
-        margin-top: 7rem;
+        margin-top: 3rem;
         height: fit-content;
     }
     .nav-links a{
@@ -254,7 +254,7 @@ body {
         height: fit-content;
     }
     .text-under-header{
-        max-width: 380px;
+        max-width: 360px;
         
     }
 }
