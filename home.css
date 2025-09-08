@@ -245,7 +245,7 @@ body {
     overflow-x: scroll; /* This will now work */
 }
     .imgsect{
-        padding-left: 40px;
+        padding-left: 80px;
     }
     /* Style the entire scrollbar */
 .sect2::-webkit-scrollbar {
