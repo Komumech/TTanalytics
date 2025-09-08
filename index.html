@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-black text-white font-roboto">
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="logo-div">
         <img src="logo.png" alt="" class="logo">
          <p class="logo-txt">Team Tech Analytics</p>
@@ -43,38 +43,54 @@
             
         </div>
                  <div class="sect2">
-            <div class="imgsect">
-                <p class="txt">hello</p>
+            <div class="imgsect img1">
+                <p class="txt">REPORT</p>
+                <p class="txt2">hime</p>
+            </div>
+                        <div class="imgsect img2">
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
             </div>
                         <div class="imgsect">
-                <p class="txt">hello</p>
-                <p class="txt2">hime</p>
-            </div>
-                        <div class="imgsect">
-                <p class="txt">hello</p>
+                <p class="txt">REPORT</p>
                 <p class="txt2">hime</p>
                         </div>
     </div>
+    <script>
+        let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    
+    if (prevScrollPos > currentScrollPos) {
+        // User is scrolling up, show the navbar
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        // User is scrolling down, hide the navbar by moving it up
+        document.getElementById("navbar").style.top = "-80px"; // Adjust this value to the navbar's height
+    }
+    prevScrollPos = currentScrollPos;
+}
+    </script>
 </body>
 </html>

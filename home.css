@@ -10,9 +10,14 @@ body {
 
 .navbar{
     display: flex;
-    width: 100vw;
+    width: 110vw;
+    height: 80px;
     justify-content: center;
     position: fixed;
+    z-index: 99;
+    top: 0;
+    background-color: black;
+    transition: top 0.5s ease-in-out;
 }
 .logo{
     height: 25px;
@@ -46,6 +51,7 @@ body {
     display: flex;
     list-style: none;
     justify-content: space-between;
+    padding-top: 17px;
 }
 .nav-links a{
     padding-left: 10px;
@@ -56,30 +62,37 @@ body {
 }
 .header{
     font-size: 3rem;
-
+    line-height: 4rem;
+    margin-bottom: 0px;
 }
 .text-under-header{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 35px;
+    max-width: 45vw;
+    width: inherit;
 }
 .content-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
     align-items: flex-start;
-    margin-top:-5rem;
+    margin-top:0rem;
     line-height: 3rem;
     width: 100vw;
     height: 100vh;
 }
 .vid2{
-    width: 800px;
-    margin-top: 3rem;
+    width: 600px;
+    height: fit-content;
+    margin-top: 7rem;
     padding: 0px;
 }
 .video-class{
-    width: 700px;
+    width: 600px;
+    height: fit-content;
 }
+
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -138,26 +151,31 @@ body {
     width: 100%;
 }
 .sect2{
-    width: 80vw;
+    width: 95vw;
     height: 55rem;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 50% 50%;
     justify-self: center;
-    padding-left: 10rem;
+    padding-left: 30px;
 }
 .imgsect {
     color: black;
-    background-image: url(bg2.jpeg);
+    
     background-repeat: no-repeat;
     background-size: cover;
-    width: 12rem;
-    height: 20rem;
+    width: 16.7rem;
+    height: 25rem;
     position: relative;
     overflow: hidden;
     transition: background-image 0.5s ease-in-out; /* Add a transition for the background image */
 }
-
+.img1{
+    background-image: url(card-img1.webp);
+}
+.img2{
+    background-image: url(card-img2.webp);
+}
 .imgsect::after {
     content: '';
     position: absolute;
@@ -165,27 +183,35 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(30, 30, 30);
-    opacity: 0;
+    /* Apply the gradient to the pseudo-element */
+    background-image: linear-gradient(to right bottom, rgb(255, 255, 255), rgb(0, 0, 0));
+    opacity: 0; /* Starts as fully transparent */
     transform: scale(1);
-    transition: opacity 0.5s ease-in-out; /* Use a consistent transition for the overlay */
-    transform-origin: center center; 
+    transition: opacity 0.5s ease-in-out;
+    transform-origin: center center;
     z-index: 1;
 }
 
 .imgsect:hover::after {
-    opacity: 0; /* You can adjust this value for the desired level of dimming */
+    opacity: 1; /* You can adjust this value for the desired level of dimming */
 }
 
-.imgsect:hover {
-    background-color: rgb(255, 255, 255);
-    background-image: none;
-    transition: all 0.5s ease-in-out;
-}
 
 .txt {
     justify-self: center;
     z-index: 2;
+    font-weight: 700;
+    padding-right: 30px;
+    color: white;
+}
+.txt, .txt2 {
+    position: relative; /* This is crucial for z-index to work */
+    z-index: 2; /* Set to a higher value than the ::after element's z-index */
+    transition: transform 0.5s ease; /* Add a transition for the lift effect */
+}
+.imgsect:hover .txt,
+.imgsect:hover .txt2{
+    transform: translateY(-10px);
 }
 
 .txt2 {
@@ -207,18 +233,41 @@ body {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Reset transition for hover state */
 }
 @media (max-width: 768px){
-    .sect2{
-        grid-template-columns: 100%;
-        grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-        padding-left: 0rem;
-        height: 178rem;
-        width: 80vw;
-        justify-content: center;
-        margin-top: 7rem;
-    }
+.sect2 {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(8, 15rem); /* Change to fixed units */
+    padding-left: 0rem;
+    height: 178rem;
+    width: 100%; /* Set a fixed width to create overflow */
+    justify-content: start; /* Change to start to prevent centering issues */
+    margin-top: 7rem;
+    overflow-x: scroll; /* This will now work */
+}
     .imgsect{
-        justify-self: center;
+        padding-left: 40px;
     }
+    /* Style the entire scrollbar */
+.sect2::-webkit-scrollbar {
+    height: 12px; /* Set the height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar track */
+.sect2::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 10px;
+}
+
+/* Style the scrollbar handle (the draggable part) */
+.sect2::-webkit-scrollbar-thumb {
+    background: #ff0000; /* Dark gray handle */
+    border-radius: 10px;
+}
+
+/* Change the handle color on hover */
+.sect2::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Even darker gray on hover */
+}
     html{
         overflow-x: hidden;
     }
@@ -260,4 +309,5 @@ body {
         padding-left: 0px;
         line-height: 1.3rem;
     }
+
 }
