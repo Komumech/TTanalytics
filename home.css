@@ -167,7 +167,6 @@ body {
     overflow: hidden;
 }
 
-
 .imgsect::before {
     content: '';
     position: absolute;
