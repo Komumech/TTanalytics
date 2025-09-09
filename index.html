@@ -8,11 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-black text-white font-roboto">
     <nav class="navbar" id="navbar">
         <div class="logo-div">
-        <img src="logo.png" alt="" class="logo">
+        <img src="logo2.png" alt="" class="logo">
          <p class="logo-txt">Team Tech Analytics</p>
          </div>
                 <ul class="nav-links">
@@ -90,6 +92,18 @@
 
                         </div>
     </div>
+    <div class="sect3">
+        <div class="img-tag">
+            <img src="img2.png" alt="" class="tag-img">
+        </div>
+        <div class="text-sect3">
+            <p class="tag">"AI is only a technology. The value comes from reinvention of how we work, our workforces and the tools we use… We are making sure that we are leading the way with our own reinvention."</p>
+            <p class="under-tag">Julie Sweet, quoted in Fortune, August/September 2025 <span class="read-more">Read more <button class="read-more-btn">></button></span></p>
+        </div>
+    </div>
+    <div class="sect4">
+        <img src="bg2.jpeg" alt="" class="sect3-img">
+    </div>
     <script>
         let prevScrollPos = window.pageYOffset;
 
@@ -105,6 +119,49 @@ window.onscroll = function() {
     }
     prevScrollPos = currentScrollPos;
 }
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Create a GSAP timeline for the main animation
+const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".sect4",
+        start: "top center",
+        end: "bottom top",
+        scrub: 2,
+        // markers: true,
+    }
+});
+
+// Add the tweens to the main timeline
+tl.to(".sect4", { 
+    x: 270,
+    ease: "none"
+})
+.to(".sect4", {
+    x: 270,
+    ease: "none"
+})
+.to(".sect4", {
+    x: 500,
+    ease: "none"
+});
+
+// Create a separate GSAP animation for the image
+gsap.to(".sect3-img", {
+    width: "20vw", // Change this value to your desired final size
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".sect4",
+        start: "top center",
+        end: "bottom top",
+        scrub: 2,
+        pin: true, // This pins the .sect3 container, effectively fixing the image
+        // markers: true,
+    }
+});
     </script>
+
 </body>
 </html>
