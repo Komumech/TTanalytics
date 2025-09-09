@@ -67,7 +67,7 @@ body {
 }
 .text-under-header{
     font-size: 1.3rem;
-    line-height: 35px;
+    line-height: 28px;
     max-width: 45vw;
     width: inherit;
 }
@@ -122,7 +122,7 @@ body {
 
 .learn-more-button {
     position: relative; /* Essential for positioning the pseudo-element */
-    background-color: #3884efff;
+    background-color: rgb(0, 47, 255);
     color: white;
     padding: 1rem 1.2rem;
     border: none;
@@ -141,7 +141,7 @@ body {
     left: 0;
     width: 0; /* Initially has no width */
     height: 100%;
-    background-color: #2258a2; /* The new background color */
+    background-color: rgb(4, 28, 139); /* The new background color */
     transition: width 0.5s ease-in-out; /* Animates the width */
     z-index: -1; /* Positions it behind the button text */
 }
@@ -177,7 +177,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     
-    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition-property: all;
+   transition-duration: 0.3s;
+   transition-timing-function: cubic-bezier(0.2, 0.2, 0.8, 1.0);
     z-index: 0; /* Place behind the other pseudo-element and content */
 }
 
@@ -190,10 +192,33 @@ body {
     background-image: url(card-img2.webp);
 }
 
+.img3::before {
+    background-image: url(card-img3.webp);
+}
+
+.img4::before {
+    background-image: url(card-img4.webp);
+}
+
+.img5::before {
+    background-image: url(card-img5.webp);
+}
+
+.img6::before {
+    background-image: url(card-img6.webp);
+}
+
+.img7::before {
+    background-image: url(card-img7.webp);
+}
+
+.img8::before {
+    background-image: url(card-img8.webp);
+}
 /* Apply the blur to the new pseudo-element on hover */
 .imgsect:hover::before {
     filter: blur(30px);
-    transform: scale(3);
+    transform: scale(4) translateY(60px);
 }
 .imgsect::after {
     content: '';
@@ -246,9 +271,7 @@ body {
     font-size: 1rem;
     font-weight: 100;
 }
-.imgsect:hover .txt,
-.imgsect:hover .txt2 {
-}
+
 .topic{
     font-size: 1.2rem;
     font-weight: 600;
@@ -278,6 +301,37 @@ body {
     visibility: visible;
     transform: translateX(-50px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Reset transition for hover state */
+}
+@media (max-width: 880px){ 
+    .sect2 {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        height: 70rem;
+        width: 120vw;
+        justify-content: space-between;
+        justify-items: center;
+        justify-self: center;
+        margin: 0 auto;
+        
+    }
+    .imgsect{
+        width: 14rem;
+        height: 20rem;
+        padding-left: 80px;
+    }
+    .txt{
+        font-size: 0.7rem;
+        padding-left: 10px;
+    }
+    .txt2{
+        font-size: 1rem;
+        padding-top: 3rem;
+    }
+    .topic{
+        font-size: 1rem;
+        max-width: 14rem;
+        padding-left: 10px;
+    }
 }
 @media (max-width: 768px){
 .sect2 {
@@ -355,6 +409,10 @@ body {
         justify-self: center;
         padding-left: 0px;
         line-height: 1.3rem;
+    }
+    .txt{
+        justify-self: left ;
+        padding: 0px;
     }
 
 }
