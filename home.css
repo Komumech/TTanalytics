@@ -337,7 +337,7 @@ body {
 .sect2 {
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: repeat(8, 19rem); /* Change to fixed units */
+    grid-template-columns: repeat(8, 22rem); /* Change to fixed units */
     padding-left: 0rem;
     height: 178rem;
     width: 100%; /* Set a fixed width to create overflow */
