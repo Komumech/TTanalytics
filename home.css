@@ -334,6 +334,8 @@ body {
         max-width: 14rem;
         padding-left: 10px;
     }
+
+
 }
 @media (max-width: 768px){
 .sect2 {
@@ -341,7 +343,7 @@ body {
     grid-template-rows: 100%;
     grid-template-columns: repeat(8, 20rem); /* Change to fixed units */
     padding-left: 0rem;
-    height: 178rem;
+    height: fit-content;
     width: 100%; /* Set a fixed width to create overflow */
     justify-content: start; /* Change to start to prevent centering issues */
     margin-top: 7rem;
@@ -357,19 +359,19 @@ body {
 
 /* Style the scrollbar track */
 .sect2::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light gray background */
+    background: #151515; /* Light gray background */
     border-radius: 10px;
 }
 
 /* Style the scrollbar handle (the draggable part) */
 .sect2::-webkit-scrollbar-thumb {
-    background: #ff0000; /* Dark gray handle */
+    background: rgb(2, 15, 78); /* Dark gray handle */
     border-radius: 10px;
 }
 
 /* Change the handle color on hover */
 .sect2::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Even darker gray on hover */
+    background: #0e0e0e; /* Even darker gray on hover */
 }
     html{
         overflow-x: hidden;
@@ -432,6 +434,11 @@ body {
     justify-self: left;
     
 }
+/* This is the general, non-media query .sect3 rule */
+
+/* All other general styles that are not media queries should go here */
+
+
 .tag-img{
     width: 450px;
     justify-self: center;
@@ -500,14 +507,41 @@ body {
 
 .sect4 {
   /* Give the container height to create the scroll effect */
-  height: 150vh;
+  height: 100vh;
 }
 
 .sect3-img {
   /* Initial state of the image */
-  width: 90vw;
+  width: 100vw;
   /* Use a position for centering the image */
-  top: 50%;
-  margin-top: -25vh;
-  position: absolute;
+  top: 0%;
+  left: 0%;
+  position: relative;
+  justify-self: left;
+}
+
+@media (max-width: 768px) {
+
+    .sect3 {
+        flex-direction: column;
+        height: fit-content;
+        padding-left: 0px;
+        margin-top: 3rem;
+        align-items: center;
+        text-align: left;
+        justify-self: center;
+    }
+   .text-sect3{
+    justify-self: center;
+    align-self: center;
+    padding-left: 0rem;
+    max-width: 21rem;
+}
+.tag{
+    font-size: 1.2rem;
+}
+.tag-img{
+    justify-self: center;
+    padding: 20px
+}
 }

@@ -102,7 +102,7 @@
         </div>
     </div>
     <div class="sect4">
-        <img src="bg2.jpeg" alt="" class="sect3-img">
+        <img src="bg3.webp" alt="" class="sect3-img">
     </div>
     <script>
         let prevScrollPos = window.pageYOffset;
@@ -120,47 +120,60 @@ window.onscroll = function() {
     prevScrollPos = currentScrollPos;
 }
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-// Create a GSAP timeline for the main animation
-const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".sect4",
-        start: "top center",
-        end: "bottom top",
-        scrub: 2,
-        // markers: true,
-    }
-});
+ScrollTrigger.matchMedia({
 
-// Add the tweens to the main timeline
-tl.to(".sect4", { 
-    x: 270,
-    ease: "none"
-})
-.to(".sect4", {
-    x: 270,
-    ease: "none"
-})
-.to(".sect4", {
-    x: 500,
-    ease: "none"
-});
+    // Desktop animation (for screens wider than 768px)
+    "(min-width: 769px)": function() {
+        console.log("Desktop Animation Active"); // For debugging
 
-// Create a separate GSAP animation for the image
-gsap.to(".sect3-img", {
-    width: "20vw", // Change this value to your desired final size
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".sect4",
-        start: "top center",
-        end: "bottom top",
-        scrub: 2,
-        pin: true, // This pins the .sect3 container, effectively fixing the image
-        // markers: true,
+        gsap.to(".sect3-img", {
+            scale: 0.5, // Shrink to 50% of original size
+            x: -250,    // Move the image 250 pixels to the left
+            transformOrigin: "center center",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".sect3-img",
+                start: "top center",
+                scrub: 2,
+                end: "+=900", // Animation lasts for 900px of scrolling after the start point. (Note: changed from -=900 which is invalid in most cases for 'end')
+                pin: true,
+                //markers: true, // Keep markers for debugging desktop
+            }
+        });
+    },
+
+    // Mobile animation (for screens up to 768px)
+    "(max-width: 768px)": function() {
+        console.log("Mobile Animation Active"); // For debugging
+
+        gsap.to(".sect3-img", {
+            scale: 1.2, // Slightly larger scale for mobile
+            x: 0,       // No horizontal movement, keeping it centered (assuming CSS centers it)
+                        // If you want it to move slightly, use a positive or negative value like x: -20 or x: 20
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".sect3-img",
+                start: "top center",
+                scrub: 1,
+                end: "+=50", // Shorter pin duration for mobile
+                pin: true,
+                //markers: true, // Keep markers for debugging mobile
+            }
+        });
+    },
+
+    // "all" breakpoint for anything that should run regardless of screen size
+    "all": function() {
+        // You could put common setup here if needed
+        // For example, if you wanted transformOrigin to always be center center for all breakpoints,
+        // you could set it with gsap.set(".sect3-img", { transformOrigin: "center center" });
     }
-});
+
+}); // <-- This is the crucial closing brace and parenthesis for ScrollTrigger.matchMedia()
+
+
     </script>
 
 </body>
