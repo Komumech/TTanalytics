@@ -354,23 +354,22 @@ body {
     }
     /* Style the entire scrollbar */
 .sect2::-webkit-scrollbar {
-    height: 12px; /* Set the height of the horizontal scrollbar */
+    height: 10px;/* Set the height of the horizontal scrollbar */
+    padding: 30px; 
 }
 
 /* Style the scrollbar track */
 .sect2::-webkit-scrollbar-track {
-    background: #000000; /* Light gray background */
-    border-radius: 0px;
-    border: 20px solid black;
-    width: 70%;
-    height: 8px;
+    background: #a9a7a7; /* Light gray background */
 }
 
 /* Style the scrollbar handle (the draggable part) */
 .sect2::-webkit-scrollbar-thumb {
     background: rgb(255, 255, 255); /* Dark gray handle */
     border-radius: 0px;
-    border: 3px solid black;
+    border-width: 1px 12px; /* Top/Bottom is 3px, Left/Right is 5px */
+    border-style: solid;
+    border-color: black;
 }
 
 /* Change the handle color on hover */
@@ -406,6 +405,8 @@ body {
         font-size: 2rem;
         justify-self: center;
         padding-left: 0px;
+        line-height: 2.5rem;
+        max-width: 340px;
     }
     .content-container{
         height: fit-content;
@@ -417,6 +418,7 @@ body {
         justify-self: center;
         padding-left: 0px;
         line-height: 1.3rem;
+        font-size: 1rem;
     }
     .txt{
         justify-self: left ;
@@ -585,7 +587,7 @@ body {
 .sect4-txt{
     margin-top: 4rem;
     max-width: 100vw;
-    padding: 20px 10px;
+    padding: 37px 10px;
     line-height: 2rem;
 }
 .header2{
