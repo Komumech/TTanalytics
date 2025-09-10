@@ -464,7 +464,7 @@ body {
 }
 .under-tag{
     font-size: 1rem;
-    line-height: 40px;
+    line-height: 50px;
 }
 .text-sect3{
     justify-self: center;
@@ -519,7 +519,7 @@ body {
 }
 
 .sect4 {
-
+  padding-top: 4rem;
   /* Give the container height to create the scroll effect */
   height: 100vh;
 }
