@@ -1,6 +1,13 @@
 /* Using a font that is similar to the original site. */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+::selection {
+  background-color: rgb(21, 2, 143); 
+}
 
+/* For older WebKit browsers (like some Safari versions) */
+::-moz-selection {
+  background-color: rgb(21, 2, 143)
+}
 body {
     background-color: black;
     color: white;
