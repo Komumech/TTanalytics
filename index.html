@@ -103,6 +103,15 @@
     </div>
     <div class="sect4">
         <img src="bg3.webp" alt="" class="sect3-img">
+        <p class="sect4-txt">
+           <span class="txt3">Careers</span>
+           <br>
+           <span class="header2">Grow your career at the heart of change</span>
+           <br>
+           <span class="under-tag2">It's your time to shine. Bring your ingenuity, curiosity and big ideas.</span>
+           <br>
+           <span class="read-more">Join us <button class="read-more-btn">></button></span>
+        </p>
     </div>
     <script>
         let prevScrollPos = window.pageYOffset;
@@ -130,14 +139,14 @@ ScrollTrigger.matchMedia({
 
         gsap.to(".sect3-img", {
             scale: 0.5, // Shrink to 50% of original size
-            x: -250,    // Move the image 250 pixels to the left
+            x: -300,    // Move the image 250 pixels to the left
             transformOrigin: "center center",
             ease: "none",
             scrollTrigger: {
                 trigger: ".sect3-img",
-                start: "top center",
-                scrub: 2,
-                end: "+=900", // Animation lasts for 900px of scrolling after the start point. (Note: changed from -=900 which is invalid in most cases for 'end')
+                start: "top top",
+                scrub: 1,
+                end: "+=100", // Animation lasts for 900px of scrolling after the start point. (Note: changed from -=900 which is invalid in most cases for 'end')
                 pin: true,
                 //markers: true, // Keep markers for debugging desktop
             }
