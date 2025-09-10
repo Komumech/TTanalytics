@@ -343,7 +343,7 @@ body {
     grid-template-rows: 100%;
     grid-template-columns: repeat(8, 20rem); /* Change to fixed units */
     padding-left: 0rem;
-    height: fit-content;
+    height: 22rem;
     width: 100%; /* Set a fixed width to create overflow */
     justify-content: start; /* Change to start to prevent centering issues */
     margin-top: 7rem;
@@ -359,14 +359,18 @@ body {
 
 /* Style the scrollbar track */
 .sect2::-webkit-scrollbar-track {
-    background: #151515; /* Light gray background */
-    border-radius: 10px;
+    background: #000000; /* Light gray background */
+    border-radius: 0px;
+    border: 20px solid black;
+    width: 70%;
+    height: 8px;
 }
 
 /* Style the scrollbar handle (the draggable part) */
 .sect2::-webkit-scrollbar-thumb {
-    background: rgb(2, 15, 78); /* Dark gray handle */
-    border-radius: 10px;
+    background: rgb(255, 255, 255); /* Dark gray handle */
+    border-radius: 0px;
+    border: 3px solid black;
 }
 
 /* Change the handle color on hover */
