@@ -277,7 +277,6 @@ body {
     transition: transform 0.5s ease; /* Add a transition for the lift effect */
 }
 .explore-btn {
-    color: white;
     visibility: hidden;
     padding-right: 30px;
     justify-self: right;
