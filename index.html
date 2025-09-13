@@ -424,17 +424,17 @@
                 console.log("Mobile Animation Active"); // For debugging
                 gsap.utils.toArray(".sect3-img").forEach(img => {
                     gsap.to(img, {
-                        scale: 2.5, // Slightly larger scale for a more pronounced effect
+                        scale: 2, // Slightly larger scale for a more pronounced effect
                         x: 20, // Add slight horizontal movement
                         transformOrigin: "center center",
                         ease: "none",
                         scrollTrigger: {
                             trigger: img.parentElement, // Trigger on the parent section for better control
-                            start: "top 20%", // Start the animation when the section enters the bottom 20% of the viewport
+                            start: "top 10%", // Start the animation when the section enters the bottom 20% of the viewport
                             end: "bottom top", // End the animation when the section leaves the top of the viewport
                             scrub: 1,
                             pin: true,
-                            //markers: true, // Keep markers for debugging mobile
+                            markers: true, // Keep markers for debugging mobile
                         }
                     });
                 });

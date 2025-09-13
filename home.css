@@ -427,6 +427,7 @@ body {
     .header{
         font-size: 2rem;
         justify-self: center;
+        text-ali
         padding-left: 0px;
         line-height: 2.5rem;
         max-width: 340px;
@@ -747,7 +748,7 @@ padding: 20px;
     max-width: 21rem;
 }
 .sect3-img{
-    transform: scale(2);
+    transform: scale(1.8);
 }
 .tag{
     font-size: 1.2rem;
@@ -775,7 +776,7 @@ padding: 20px;
     line-height: 3rem;
 }
 .ftxt1{
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 .design-foot{
     display: flex;
@@ -799,5 +800,10 @@ padding: 20px;
     padding-top: 3rem;
     max-width: 90vw;
     text-align: left;
+}
+.footerp{
+    justify-self:center;
+    max-width: 95vw;
+    padding:0px;
 }
 }
