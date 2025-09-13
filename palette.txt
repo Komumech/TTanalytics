@@ -4,6 +4,9 @@
 --purple: #b10eb3;
 --pelorous: #43a4c5;
 --cerulean-blue: #2552ac;
+--cerulean-blue: #0055ffff;
+--cerulean-blue: #003cffff;
+
 --dorado: #5d504d;
 --deep-sapphire: #092e6b;
 --chathams-blue: #0f4673;
