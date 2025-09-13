@@ -405,7 +405,8 @@ body {
     .main-container{
         diplay: grid;
         grid-template-columns: 100%;
-        
+        justify-self: center;
+        justify-content: center;
         width: 80vw;
     }
     .vid2{
@@ -427,7 +428,7 @@ body {
     .header{
         font-size: 2rem;
         justify-self: center;
-        text-ali
+        text-align: center;
         padding-left: 0px;
         line-height: 2.5rem;
         max-width: 340px;
@@ -442,6 +443,7 @@ body {
         justify-self: center;
         padding-left: 0px;
         line-height: 1.3rem;
+        text-align: center;
         font-size: 1rem;
     }
     .txt{
@@ -556,6 +558,7 @@ body {
     margin-top: -35rem;
     max-width: 20rem;
     height: fit-content;
+    line
     padding-right: 10rem;
     opacity: 1; /* Start hidden */
 }
@@ -678,7 +681,7 @@ body {
     font-weight: 600;
     position: absolute;
     background-color: black;
-    height: 10rem;
+    height: 7rem;
     width: fit-content;
     justify-content: center;
     padding-top: 30px;
@@ -742,7 +745,7 @@ padding: 20px;
         justify-self: center;
     }
    .text-sect3{
-    justify-self: center;
+    justify-self: center; 
     align-self: center;
     padding-left: 0rem;
     max-width: 21rem;
