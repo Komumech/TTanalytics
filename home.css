@@ -485,6 +485,7 @@ body {
 .tag-img{
     width: 450px;
     justify-self: center;
+    filter: brightness(0.5);
 }
 .tag{
     font-size: 1.5rem;
@@ -693,6 +694,9 @@ body {
     min-width: fit-content;
     width: 20rem;
 }
+#canvas-container{
+    visibility: hidden;
+}
 .design-foot{
     bottom: 20;
     display: flex;
@@ -725,11 +729,9 @@ body {
 }
 
 .footer-link:hover::after {
-    width: 100%;
+    width: 70%;
 }
-.footer-link:hover::after {
-    width: 100%; /* On hover, expand the width to 100% */
-}
+
 .ftxt1{
     font-size: 9rem;
     font-weight: 600;
