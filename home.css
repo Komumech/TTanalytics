@@ -39,9 +39,12 @@ body {
 .logo-txt{
     font-size: 1rem;
     position: absolute;
-    left: 5%;
+    left: 8%;
     padding: 10px;
-    opacity: 0;
+    opacity: 1;
+    padding-left: 20px;
+    padding-top: 10px;
+    font-weight: 600;
     transition: opacity 0.5s ease-in-out;
 }
 .logo:hover{
@@ -111,7 +114,8 @@ body {
     width: 400px;
     height: fit-content;
     margin-top: 7rem;
-    padding: 0px;
+    padding-left: 5rem;
+    padding-top: 10rem;
 }
 .video-class{
     width: 600px;
@@ -642,6 +646,7 @@ body {
     line-height: 50px;
     font-family: "Raleway", sans-serif;
     font-weight: 600;
+    margin-top: -25rem;
 }
 .footer-logo{
     position: absolute;
@@ -654,13 +659,13 @@ body {
 .footerp{
     position: absolute;
     padding-left: 5rem;
-    padding-top: 15rem;
+    padding-top: 10rem;
     justify-self: left;
     line-height: 2rem;
     z-index:-2;
     max-width: 90vh;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin: 0 auto;
 }
 
@@ -701,13 +706,13 @@ body {
     bottom: 20;
     display: flex;
     flex-direction: row;
-    margin-top: -5rem;
+    margin-top: -15rem;
     width: 40rem;
     height: 12rem;
     position: absolute;
     justify-self: right;
     justify-content: center;
-    padding-right: 40px;
+    padding-right: 7rem;
     
 }
 .footer-link {
