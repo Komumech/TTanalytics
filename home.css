@@ -489,10 +489,9 @@ body {
 .tag-img{
     width: 450px;
     justify-self: center;
-    filter: brightness(0.5);
 }
 .tag{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
     max-width: 26rem;
     text-align: flex-start;
@@ -505,6 +504,7 @@ body {
     justify-self: center;
     align-self: center;
     padding-left: 5rem;
+    margin-top: -7rem;
     max-width: 26rem;
 }
 .read-more{
