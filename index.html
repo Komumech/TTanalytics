@@ -102,10 +102,10 @@
         </div>
         <div class="content-container">
             <h1 class="header">
-                Unlock<br>The Power of <br>Your Data.
+                Your Partner<br>in Data-Driven<br>Innovation
             </h1>
             <p class="text-under-header">
-                Transforming raw data into actionable strategies that drive growth and efficiency
+                In today's competitive landscape, data is your most valuable asset. T&T Analytics provides the expertise you need to harness this power. We work with you to build custom AI and data solutions that solve your biggest challenges and uncover new opportunities.
             </p>
             <button class="learn-more-button">
                 Book a Call
@@ -177,16 +177,53 @@
     </div>
     <!-- Added a second sect4 at the bottom -->
     <div class="sect4">
+        <div class="img-sect3">
         <img src="bg3.webp" alt="" class="sect3-img">
-        <p class="sect4-txt">
-            <span class="txt3">Careers</span>
-            <br>
-            <span class="header2">Grow your career at the heart of change</span>
-            <br>
-            <span class="under-tag2">It's your time to shine. Bring your ingenuity, curiosity and big ideas.</span>
-            <br>
-            <span class="read-more">Join us <button class="read-more-btn">></button></span>
-        </p>
+        </div>
+<div class="our-services">
+        <button id="scroll-left-btn" class="scroll-button left-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+     <div class="sect2b">
+            <div class="imgsect img8">
+            <p class="txt black">REPORT</p>
+            <p class="txt topic black">Ethical AI: A Business Imperative<br></p>
+            <p class="txt2 black">Beyond the hype, responsible AI is a cornerstone of success. Explore why ethical development is essential for building long-term trust.</p>
+            <p class="explore-btn black">Explore <span class="font-sizeinc">></span></p>
+        </div>
+                    <div class="imgsect img8">
+            <p class="txt black">REPORT</p>
+            <p class="txt topic black">Ethical AI: A Business Imperative<br></p>
+            <p class="txt2 black">Beyond the hype, responsible AI is a cornerstone of success. Explore why ethical development is essential for building long-term trust.</p>
+            <p class="explore-btn black">Explore <span class="font-sizeinc">></span></p>
+        </div>
+                    <div class="imgsect img8">
+            <p class="txt black">REPORT</p>
+            <p class="txt topic black">Ethical AI: A Business Imperative<br></p>
+            <p class="txt2 black">Beyond the hype, responsible AI is a cornerstone of success. Explore why ethical development is essential for building long-term trust.</p>
+            <p class="explore-btn black">Explore <span class="font-sizeinc">></span></p>
+        </div>
+                            <div class="imgsect img8">
+            <p class="txt black">REPORT</p>
+            <p class="txt topic black">Ethical AI: A Business Imperative<br></p>
+            <p class="txt2 black">Beyond the hype, responsible AI is a cornerstone of success. Explore why ethical development is essential for building long-term trust.</p>
+            <p class="explore-btn black">Explore <span class="font-sizeinc">></span></p>
+        </div>
+                            <div class="imgsect img8">
+            <p class="txt black">REPORT</p>
+            <p class="txt topic black">Ethical AI: A Business Imperative<br></p>
+            <p class="txt2 black">Beyond the hype, responsible AI is a cornerstone of success. Explore why ethical development is essential for building long-term trust.</p>
+            <p class="explore-btn black">Explore <span class="font-sizeinc">></span></p>
+        </div>
+    </div>
+        <button id="scroll-right-btn" class="scroll-button right-btn">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+</div>
     </div>
     <div class="sect5">
     <div id="canvas-container"></div>
@@ -422,20 +459,24 @@
             "(max-width: 768px)": function() {
                 console.log("Mobile Animation Active"); // For debugging
                 gsap.utils.toArray(".sect3-img").forEach(img => {
-                    gsap.to(img, {
-                        scale: 2, // Slightly larger scale for a more pronounced effect
-                        x: 20, // Add slight horizontal movement
-                        transformOrigin: "center center",
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: img.parentElement, // Trigger on the parent section for better control
-                            start: "top 10%", // Start the animation when the section enters the bottom 20% of the viewport
-                            end: "bottom top", // End the animation when the section leaves the top of the viewport
-                            scrub: 1,
-                            pin: true,
-                            markers: true, // Keep markers for debugging mobile
+                    gsap.fromTo(
+                        img,
+                        { scale: 1.7 },
+                        {
+                            scale: 1,
+                            x: 20, // Optional: keep slight horizontal movement
+                            transformOrigin: "center center",
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: img.parentElement, // Trigger on the parent section for better control
+                                start: "top 10%", // Start the animation when the section enters the bottom 20% of the viewport
+                                end: "bottom top", // End the animation when the section leaves the top of the viewport
+                                scrub: 1,
+                                pin: true,
+                                //markers: true, // Uncomment for debugging
+                            }
                         }
-                    });
+                    );
                 });
             },
 
@@ -576,6 +617,19 @@
             init();
             initStarfield();
         };
+
+  const scrollContainer = document.querySelector('.sect2b');
+  const scrollLeftBtn = document.getElementById('scroll-left-btn');
+  const scrollRightBtn = document.getElementById('scroll-right-btn');
+  
+  scrollLeftBtn.addEventListener('click', () => {
+    scrollContainer.scrollLeft -= 250; 
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    scrollContainer.scrollLeft += 250; 
+  });
+        
     </script>
 </body>
 </html>
