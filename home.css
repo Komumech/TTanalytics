@@ -1,13 +1,15 @@
 /* Using a font that is similar to the original site. */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 ::selection {
-  background-color: rgb(21, 2, 143); 
+  background-color: rgb(21, 2, 143);
 }
 
 /* For older WebKit browsers (like some Safari versions) */
 ::-moz-selection {
-  background-color: rgb(21, 2, 143)
+  background-color: rgb(21, 2, 143);
 }
+
 body {
     background-color: rgb(0, 0, 0);
     color: white;
@@ -22,7 +24,7 @@ body {
     height: 80px;
     justify-content: center;
     position: fixed;
-    z-index: 99;
+    z-index: 999;
     top: 0;
     background-color: black;
     transition: top 0.5s ease-in-out;
@@ -84,11 +86,21 @@ body {
     max-width: 45vw;
     width: inherit;
 }
+.small{
+    font-size: 1rem;
+    line-height: 20px;
+    max-width: 35vw;
+}
+.small1{
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+}
 .content-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    padding-top: 5rem;
+    padding-bottom: 10rem;
     align-items: flex-start;
     margin-top:0rem;
     line-height: 3rem;
@@ -96,7 +108,7 @@ body {
     height: 100vh;
 }
 .vid2{
-    width: 600px;
+    width: 400px;
     height: fit-content;
     margin-top: 7rem;
     padding: 0px;
@@ -171,6 +183,7 @@ body {
     grid-template-rows: 50% 50%;
     justify-self: center;
     padding-left: 30px;
+    padding-top: 5rem;
 }
 .imgsect {
     color: rgb(255, 255, 255);
@@ -178,6 +191,7 @@ body {
     height: 25rem;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .imgsect::before {
@@ -190,9 +204,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     
-    transition-property: all;
-   transition-duration: 0.3s;
-   transition-timing-function: cubic-bezier(0.2, 0.2, 0.8, 1.0);
+    transition: all 0.5s cubic-bezier(0.2, 0.2, 0.8, 1.0);
     z-index: 0; /* Place behind the other pseudo-element and content */
 }
 
@@ -255,10 +267,7 @@ body {
 }
 
 .imgsect:hover::after {
-    opacity: 0; /* You can adjust this value for the desired level of dimming */
-}
-.imgsect{
-    cursor: pointer;
+    opacity: 0.5; /* Adjusted for visibility */
 }
 
 .txt {
@@ -307,7 +316,7 @@ body {
 }
 .imgsect:hover{
     transform: scale(1.05);
-    transition: tranform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 .txt2 {
     justify-self: right;
@@ -329,7 +338,7 @@ body {
     transform: translateX(-32px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Reset transition for hover state */
 }
-@media (max-width: 880px){ 
+@media (max-width: 880px){
     .sect2 {
         grid-template-columns: 50% 50%;
         grid-template-rows: 50% 50%;
@@ -359,8 +368,6 @@ body {
         max-width: 14rem;
         padding-left: 10px;
     }
-
-
 }
 @media (max-width: 768px){
 .sect2 {
@@ -380,7 +387,7 @@ body {
     /* Style the entire scrollbar */
 .sect2::-webkit-scrollbar {
     height: 10px;/* Set the height of the horizontal scrollbar */
-    padding: 30px; 
+    padding: 30px;
 }
 
 /* Style the scrollbar track */
@@ -398,7 +405,7 @@ body {
 }
 
 /* Change the handle color on hover */
-.sect2::-webkit-scrollbar-thumb:hover {
+.sect2:hover::-webkit-scrollbar-thumb {
     background: #0e0e0e; /* Even darker gray on hover */
 }
     html{
@@ -466,6 +473,8 @@ body {
     margin-top: 5rem;
     justify-content: left;
     justify-self: left;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
     
 }
 /* This is the general, non-media query .sect3 rule */
@@ -497,6 +506,8 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     line-height: 6rem;
+    z-index: 160;
+    position: absolute;
 }
 .read-more-btn {
   background-color: rgb(0, 47, 255);
@@ -536,36 +547,51 @@ body {
 }
 /* Basic styling for positioning */
 body {
-  /* Set a min-height on the body to ensure enough scroll space */
-  min-height: 600vh;
+    /* Set a min-height on the body to ensure enough scroll space */
+    min-height: 600vh;
 }
 
 .sect4 {
-  padding-top: 4rem;
-  /* Give the container height to create the scroll effect */
-  height: 100vh;
-
+    padding-top: 4rem;
+    /* Give the container height to create the scroll effect */
+    height: 100vh;
 }
 
 .sect3-img {
-  /* Initial state of the image */
-  width: 100vw;
-  /* Use a position for centering the image */
-  top: 0%;
-  left: 0%;
-  position: relative;
-  justify-self: left;
-  z-index: 150;
+    /* Initial state of the image */
+    width: 100%;
+    /* Use a position for centering the image */
+    top: 0%;
+    left: 0%;
+    position: relative;
+    justify-self: left;
+    z-index: 150;
+    height: 100%;
+}
+.sect4-txt2{
+    justify-self: right;
+    font-size: 2.5rem;
+    margin-top: 15rem;
+    max-width: 20rem;
+    height: fit-content;
+    position: absolute;
+    padding-right: 10rem;
+    opacity: 1; /* Start hidden */
+    text-align: left;
+}
+.shorter{
+    line-height: 3rem;
 }
 .sect4-txt{
     justify-self: right;
-    font-size: 1.7rem;
-    margin-top: -35rem;
+    font-size: 2.5rem;
+    margin-top: -42rem;
     max-width: 20rem;
     height: fit-content;
-    
+    position: absolute;
     padding-right: 10rem;
     opacity: 1; /* Start hidden */
+    text-align: left;
 }
 .under-tag2{
     font-size: 1.4rem;
@@ -607,13 +633,11 @@ body {
 
         }
 .footer{
-    bottom: 100;
+    top: 90%;
     width: 100%;
-    height: 100%;
+    height: 20rem;
     min-height: 500px;
-    position: absolute;
-    padding-top: 20rem;
-    text-align: center;
+    position: relative;
     line-height: 50px;
     font-family: "Raleway", sans-serif;
     font-weight: 600;
@@ -628,12 +652,11 @@ body {
 
 .footerp{
     position: absolute;
-    bottom: 95;
     padding-left: 5rem;
-    padding-top: 6rem;
+    padding-top: 15rem;
     justify-self: left;
     line-height: 2rem;
-    z-index:20;
+    z-index:-2;
     max-width: 90vh;
     font-weight: 400;
     font-size: 1.4rem;
@@ -662,7 +685,7 @@ body {
 .links{
     font-size: 1.2rem;
     display: grid;
-    padding-top: 9rem;
+    padding-top: 40rem;
     padding-left: 5rem;
     grid-template-columns: 50% 50%;
     height: 13rem;
@@ -671,23 +694,48 @@ body {
     width: 20rem;
 }
 .design-foot{
-    position: absolute;
-    bottom: 20%;
+    bottom: 20;
     display: flex;
     flex-direction: row;
+    margin-top: -5rem;
     width: 40rem;
     height: 12rem;
+    position: absolute;
     justify-self: right;
     justify-content: center;
     padding-right: 40px;
     
+}
+.footer-link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    /* Adjust this value to control the space. A negative value moves it up. */
+    bottom: 1.3rem; 
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+.footer-link:hover::after {
+    width: 100%; /* On hover, expand the width to 100% */
 }
 .ftxt1{
     font-size: 9rem;
     font-weight: 600;
     position: absolute;
     background-color: black;
-    height: 7rem;
+    height: 9rem;
     width: fit-content;
     justify-content: center;
     padding-top: 30px;
@@ -722,7 +770,7 @@ padding: 20px;
 padding: 20px;
     transform: translateX(90px);
 }.zind7{
-    z-index: 40;    
+    z-index: 40;     
 padding: 20px;
     transform: translateX(-120px);
 }
@@ -749,18 +797,140 @@ padding: 20px;
     opacity: 1; 
     display: flex;
     flex-direction: column;
+    z-index: 151;
+}
+.sect4 {
+    height: 100vh;
+    position: relative; /* Make this the positioning context */
+}
+
+.image-wrapper {
+    position: absolute; /* Position the image wrapper */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* Set a lower z-index */
+}
+
+.sect3-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the container without distortion */
+}
+
+.our-services-wrapper {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    margin-top: 55rem;
+    z-index: 99; /* Set a higher z-index to bring it to the front */
+}
+
+.our-services {
+    /* Now you can style your content relative to its new wrapper */
+    /* Use flexbox or grid for layout inside this wrapper */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* other styles */
 }
         .sect2b {
             display: grid;
             grid-template-rows: 100%;
-            grid-template-columns: repeat(8, 20rem);
+            grid-template-columns: repeat(5, 20rem);
             overflow-x: scroll;
-            scrollbar-width: none; /* For Firefox */
-            -ms-overflow-style: none;  
             height: 27rem;
-            width: 100%;
+            width: 90%;
             padding: 0 2rem;
         }
+             /* Style the entire scrollbar */
+/* Style the entire scrollbar */
+.sect2b::-webkit-scrollbar {
+  height: 10px;
+  padding: 30px;
+}
+
+/* Style the scrollbar track */
+.sect2b::-webkit-scrollbar-track {
+  background: #a9a7a7;
+}
+/* Add these styles to your home.css file */
+
+.sect2b .imgsect {
+  /* These rules are already in your original CSS, but we are now targeting them under the new container */
+  color: rgb(255, 255, 255);
+  width: 16.7rem;
+  height: 25rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.sect2b .imgsect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.5s cubic-bezier(0.2, 0.2, 0.8, 1.0);
+  z-index: 0;
+}
+
+/* Apply the blur and scale transform on hover for the new section */
+.sect2b .imgsect:hover::before {
+  filter: blur(30px);
+  transform: scale(4) translateY(60px);
+}
+
+.sect2b .imgsect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right bottom, rgb(40, 4, 82), rgb(0, 0, 0));
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.5s ease-in-out;
+  transform-origin: center center;
+  z-index: 1;
+}
+
+.sect2b .imgsect:hover::after {
+  opacity: 0.5;
+}
+
+/* Show and animate the text and button on hover */
+.sect2b .imgsect:hover .explore-btn,
+.sect2b .imgsect:hover > .txt2 {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sect2b .imgsect:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease-in-out;
+}
+/* Style the scrollbar handle (the draggable part) */
+.sect2b::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 0px;
+  border-width: 1px 12px;
+  border-style: solid;
+  border-color: black;
+}
+
+/* Change the handle color when the container is hovered */
+.sect2b:hover::-webkit-scrollbar-thumb {
+  background: #0e0e0e;
+}
   .scroll-button {
     position: absolute;
     transform: translateY(-50%);
@@ -787,7 +957,12 @@ padding: 20px;
     right: 1rem;
   }
 @media (max-width: 768px) {
-
+.our-services{
+    position: not absolute;
+    justify-self: center;
+    padding-left: 5rem;
+    z-index: 151;
+}
     .sect3 {
         flex-direction: column;
         height: fit-content;
@@ -805,6 +980,7 @@ padding: 20px;
 }
 .sect3-img{
     transform: scale(1.8);
+    
 }
 .tag{
     font-size: 1.2rem;
@@ -817,9 +993,9 @@ padding: 20px;
     display: grid;
     grid-template-columns: 100%;
     margin-top: 3rem;
-    align-items: center;
+    justify-content: space-between;
     width: 100vw;
-   padding: 0px;
+    padding: 0px;
 }
 .sect4-txt{
     margin-top: 9rem;
@@ -862,4 +1038,11 @@ padding: 20px;
     max-width: 95vw;
     padding:0px;
 }
+}
+.top{
+    position: relative;
+    z-index: 50;
+    margin-top: -3rem;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
