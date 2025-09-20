@@ -390,9 +390,9 @@
         requestAnimationFrame(animateStarfield);
         
         // Adjust starfield rotation based on mouse position
-        const rotationFactor = 0.005; 
-        stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.05;
-        stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.05;
+        const rotationFactor = 0.0005; 
+        stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
+        stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
 
         starRenderer.render(starScene, starCamera);
     }
