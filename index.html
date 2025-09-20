@@ -26,14 +26,11 @@
         }
 
         #canvas-container {
-            width: 80vw;
-            height: 80vh;
-            border-radius: 20px;
+            width: 8px;
+            height: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            position: relative;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            visibility: hidden;
             background-color: transparent; /* Changed to transparent */
         }
 
@@ -74,7 +71,7 @@
     <div id="starfield-container"></div>
     <nav class="navbar" id="navbar">
         <div class="logo-div">
-            <img src="logo.png" alt="" class="logo">
+            <img src="logo2.png" alt="" class="logo">
             <p class="logo-txt">Team Tech Analytics</p>
         </div>
         <ul class="nav-links">
@@ -104,10 +101,10 @@
         </div>
         <div class="content-container">
             <h1 class="header small1">
-                Your Partner<br>in Data-Driven<br>Innovation
+                Your Partner in Data-Driven Innovation
             </h1>
             <p class="text-under-header small">
-                In today's competitive landscape, data is your most valuable asset. T&T Analytics provides the expertise you need to harness this power. 
+                In today's competitive landscape, data is your most valuable asset. T&T Analytics provides the expertise you need to harness this power. We work with you to build custom AI and data solutions that solve your biggest challenges and uncover new opportunities.
             </p>
             <button class="learn-more-button">
                 Book a Call
@@ -170,11 +167,11 @@
     </div>
     <div class="sect3">
         <div class="img-tag">
-            <img src="img4.jpg" alt="" class="tag-img">
+            <img src="img2.png" alt="" class="tag-img">
         </div>
         <div class="text-sect3">
-            <p class="tag">"AI will not replace humans, but those who use AI will replace those who don't."</p>
-            <p class="under-tag">Uncle Jesam's quote<br> <span class="read-more">Read more <button class="read-more-btn">></button></span></p>
+            <p class="tag">"AI is only a technology. The value comes from reinvention of how we work, our workforces and the tools we use… We are making sure that we are leading the way with our own reinvention."</p>
+            <p class="under-tag">Julie Sweet, quoted in Fortune, August/September 2025<br> <span class="read-more">Read more <button class="read-more-btn">></button></span></p>
         </div>
     </div>
     <!-- Added a second sect4 at the bottom -->
@@ -191,11 +188,7 @@
         </div>
 </div>
     </div>
-        <button id="scroll-right-btn" class="scroll-button right-btn">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
+
 </div>
 </div>
     </div>
@@ -206,6 +199,8 @@
             <a href="#" class="footer-link">Book a Call</a>
             <a href="#" class="footer-link">AI Chat</a>
             <a href="#" class="footer-link">Social Media</a>
+        </div>
+        <div class="contact-links">
             <a href="#" class="footer-link">About us</a>
             <a href="#" class="footer-link">Services</a>
             <a href="#" class="footer-link">Testimonials</a>
@@ -431,7 +426,7 @@
             gsap.utils.toArray(".sect3-img").forEach(img => {
                 gsap.fromTo(
                     img,
-                    { scale: 1.7 },
+                    { scale: 3 },
                     {
                         scale: 1,
                         x: 20, // Optional: keep slight horizontal movement
@@ -439,9 +434,9 @@
                         ease: "none",
                         scrollTrigger: {
                             trigger: img.parentElement, // Trigger on the parent section for better control
-                            start: "top 10%", // Start the animation when the section enters the bottom 20% of the viewport
-                            end: "bottom top", // End the animation when the section leaves the top of the viewport
-                            scrub: 1,
+                            start: "+=20%", // Start the animation when the section enters the bottom 20% of the viewport
+                            end: "center top", // End the animation when the section leaves the top of the viewport
+                            scrub: 0.01,
                             pin: true,
                             //markers: true, // Uncomment for debugging
                         }
