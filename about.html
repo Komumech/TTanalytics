@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- We'll use a pre-loaded font from a CDN for simplicity -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+    <style>
+        #starfield-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        #canvas-container {
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            background-color: transparent; /* Changed to transparent */
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scroll-down-btn {
+            position: fixed;
+            bottom: 50%;
+            right: 20px;
+            transform: translateY(50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-down-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(50%) translateX(-5px);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-roboto">
+    <div id="starfield-container"></div>
+    <nav class="navbar" id="navbar">
+        <div class="logo-div">
+            <img src="logo2.png" alt="" class="logo">
+            <p class="logo-txt">Team Tech Analytics</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Testimonials</a></li>
+        </ul>
+    </nav>
+    <div class="footer">
+    <div class="links">
+        <div class="contact-links">
+            <a href="#" class="footer-link">Book a Call</a>
+            <a href="#" class="footer-link">AI Chat</a>
+            <a href="#" class="footer-link">Social Media</a>
+        </div>
+        <div class="contact-links">
+            <a href="#" class="footer-link">About us</a>
+            <a href="#" class="footer-link">Services</a>
+            <a href="#" class="footer-link">Testimonials</a>
+        </div>
+    </div>
+            <div class="design-foot">
+            <p class="ftxt1 zind1">Unlock</p>
+            <p class="ftxt1 zind2">Unlock</p>
+            <p class="ftxt1 zind3">Unlock</p>
+            <p class="ftxt1 zind4">Unlock</p>
+            <p class="ftxt1 zind5">Unlock</p>
+            <p class="ftxt1 zind6">Unlock</p>
+            <p class="ftxt1 zind7">Unlock</p>
+        </div>
+        <p class="footerp">© 2025 Team Tech Analytics. All rights reserved.</p>
+        
+</div>
+</body>
+<script src="script.js"></script>
+</html>
