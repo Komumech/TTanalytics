@@ -1,0 +1,121 @@
+.img-class{
+    width: 600px;
+    height: fit-content;
+}
+.img1{
+    width: 40vw;
+    padding-left: 50px;
+    padding-top: 5rem;
+}
+.about{
+    justify-self: right;
+    padding-top: 0px;
+    margin-top: -7rem;
+    width: fit-content;
+    padding: 0px;
+    padding-right: 3rem;
+}
+.main-container-adj{
+    margin-top: 7rem;
+    width: 100vw;
+}
+.big{
+    max-width: 36vw;
+    font-weight: 700;
+    font-size: 4rem;
+    
+}
+.small{
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    max-width: 70vw;
+}
+.hidden-txt{
+    max-width: 60vw;
+}
+
+.arrow-div{
+    padding-left: 10px;
+}
+/* Base Styles (Simplified from yours) */
+/* Base Styles (No change, just included for context) */
+.about-sect1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+.our-story {
+    width: 90vw;
+    cursor: pointer;
+
+}
+.header2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+/* HR Styles (from previous fix) */
+.our-story hr {
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 2px 0 0 0;
+    width: 100%;
+    height: 0;
+    margin: 30px 0 30px 0;
+    transition: border-color 0.3s ease-in-out;
+    justify-self: center;
+}.our-story{
+    justify-self: center;
+}
+.hr-bottom {
+    margin: 30px 0 30px 0;
+}
+.our-story.active hr {
+    border-color: rgb(0, 47, 255);
+}
+.our-story:hover hr {
+    border-color: rgb(0, 47, 255);
+}
+
+
+/* --- COLLAPSIBLE CONTENT STYLES (ENHANCED) --- */
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    /* This transition handles the height expansion */
+    transition: max-height 0.7s ease-in-out; 
+}
+
+.hidden-txt {
+    padding-bottom: 20px;
+    margin-top: 0;
+    
+    /* NEW: Initial state for fade-in and slide-up */
+    opacity: 0;
+    transform: translateY(-20px); /* Start slightly above its final position */
+    /* This transition handles the fade and slide */
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; 
+}
+
+/* --- ACTIVE (EXPANDED) STATE (ENHANCED) --- */
+.our-story.active .collapsible-content {
+    max-height: 500px; /* Make sure this is large enough for your content */
+    transition: max-height 0.7s ease-in-out; /* Match this duration to the text animation */
+}
+
+/* NEW: When the content is active, make the text visible and slide into place */
+.our-story.active .hidden-txt {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide down to its natural position */
+    /* Add a small delay for the text animation to start AFTER the max-height begins to expand */
+    transition-delay: 0.1s; 
+}

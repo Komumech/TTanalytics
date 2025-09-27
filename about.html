@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="home.css">
+      <link rel="stylesheet" href="about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- We'll use a pre-loaded font from a CDN for simplicity -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
@@ -81,10 +85,78 @@
             <li><a href="">Testimonials</a></li>
         </ul>
     </nav>
-    <!-- Moved sect4 to the top -->
+    <div class="main-container main-container-adj">
 
-
-  
+<div class="img-class">
+    <img src="img5.png" alt="" class="img1" srcset="">
+</div>
+        <div class="content-container about">
+            <h1 class="header big">
+                Your Partner in Data-Driven Innovation
+            </h1>
+            <p class="text-under-header small">
+                Every day, the people of Accenture embrace change and create value for all our stakeholders, in every part of the world—we call it 360° value.
+            </p>
+            <button class="learn-more-button">
+                How We Work
+            </button>
+        </div>
+        <!-- New scroll-down button -->
+        <button class="scroll-down-btn" onclick="scrollToNextSection()">
+            &darr;
+        </button>
+    </div>
+<div class="about-sect1">
+    <div class="our-story" id="ourStoryToggle">
+        <div class="header2">
+            <hr class="hr-top">
+            Our Story 
+        </div>
+        
+        <div class="collapsible-content">
+            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
+        </div>
+        
+        <hr class="hr-bottom">
+    </div>
+        <div class="our-story" id="ourStoryToggle">
+        <div class="header2">
+            <hr class="hr-top">
+            Our Story 
+        </div>
+        
+        <div class="collapsible-content">
+            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
+        </div>
+        
+        <hr class="hr-bottom">
+    </div>
+        <div class="our-story" id="ourStoryToggle">
+        <div class="header2">
+            <hr class="hr-top">
+            Our Story 
+        </div>
+        
+        <div class="collapsible-content">
+            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
+        </div>
+        
+        <hr class="hr-bottom">
+    </div>
+        <div class="our-story" id="ourStoryToggle">
+        <div class="header2">
+            <hr class="hr-top">
+            Our Story 
+        </div>
+        
+        <div class="collapsible-content">
+            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
+        </div>
+        
+        <hr class="hr-bottom">
+    </div>
+</div>
+</div>
 
 <div class="footer">
     <div class="links">
@@ -117,22 +189,134 @@
      
     </div>
     <div id="canvas-container"></div>
+    <script src="about.js"></script>
 <script>
-    let prevScrollPos = window.pageYOffset;
+// --- Meet the Team Carousel and Spotlight (Enhanced for Center Spotlight) ---
+    const teamCarousel = document.querySelector(".meet-carousel");
+    const teamMembers = document.querySelectorAll('.team-member');
+    const spotlightNameElement = document.getElementById('spotlight-name');
+    const spotlightRoleElement = document.getElementById('spotlight-role');
+    const spotlightBioElement = document.querySelector('.spotlight-info .bio');
+
+    // Function to update the spotlight text with fade effect
+    function updateTeamSpotlight(memberElement, initialLoad = false) {
+        if (!spotlightNameElement || !spotlightRoleElement || !spotlightBioElement || !memberElement) return;
+
+        const name = memberElement.dataset.name;
+        const role = memberElement.dataset.role;
+        const bio = memberElement.dataset.bio;
+
+        if (initialLoad) {
+            // For initial load, just set content and fade in
+            spotlightNameElement.textContent = name;
+            spotlightRoleElement.textContent = role;
+            spotlightBioElement.textContent = bio;
+            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.5 });
+            console.log("Initial Spotlight Updated:", name);
+        } else {
+            // For subsequent changes, fade out, update, then fade in
+            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], {
+                opacity: 0,
+                duration: 0.15,
+                onComplete: () => {
+                    spotlightNameElement.textContent = name;
+                    spotlightRoleElement.textContent = role;
+                    spotlightBioElement.textContent = bio;
+                    gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.25 });
+                    console.log("Spotlight Updated:", name);
+                }
+            });
+        }
+    }
+
+    // Function to find the center-most team member and update spotlight
+    let lastCenteredMember = null;
+    if (teamCarousel && teamMembers.length > 0) {
+        function updateCenterSpotlight() {
+            const carouselRect = teamCarousel.getBoundingClientRect();
+            // Get the center point of the visible carousel area relative to the viewport
+            const carouselViewportCenter = carouselRect.left + carouselRect.width / 2;
+
+            let closestMember = null;
+            let minDistance = Infinity;
+
+            teamMembers.forEach(member => {
+                const memberRect = member.getBoundingClientRect();
+                // Get the center point of the member relative to the viewport
+                const memberViewportCenter = memberRect.left + memberRect.width / 2;
+                const distance = Math.abs(carouselViewportCenter - memberViewportCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestMember = member;
+                }
+            });
+
+            if (closestMember && closestMember !== lastCenteredMember) {
+                teamMembers.forEach(m => m.classList.remove('active'));
+                closestMember.classList.add('active');
+                updateTeamSpotlight(closestMember);
+                lastCenteredMember = closestMember;
+            }
+        }
+
+        // Initial setup for the spotlight
+        // It's crucial that one member starts with 'active' class in HTML
+        const initialActiveMember = document.querySelector('.team-member.active');
+        if (initialActiveMember) {
+            updateTeamSpotlight(initialActiveMember, true);
+        } else if (teamMembers.length > 0) {
+            // If no active class is set, default to the first member
+            teamMembers[0].classList.add('active');
+            updateTeamSpotlight(teamMembers[0], true);
+        }
+
+        // Listen for scroll events on the carousel to update the spotlight
+        let scrollTimeout;
+        teamCarousel.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateCenterSpotlight, 50); // Debounce
+        });
+
+        // Add click listeners to team member photos to center them and update spotlight
+        teamMembers.forEach(member => {
+            member.addEventListener('click', () => {
+                // Calculate scroll position to bring clicked member to center
+                const scrollOffset = member.offsetLeft + (member.offsetWidth / 2) - (teamCarousel.clientWidth / 2);
+                teamCarousel.scrollTo({ left: scrollOffset, behavior: "smooth" });
+
+                // Update spotlight immediately after click, but also allow scroll event to finalize
+                // Add a small delay for the scroll animation to complete before updating
+                setTimeout(updateCenterSpotlight, 300); // Give scroll some time
+            });
+        });
+    }
+
+
+
+
+
+
+
+let prevScrollPos = window.pageYOffset;
 
 window.onscroll = function() {
     let currentScrollPos = window.pageYOffset;
     const navbar = document.getElementById("navbar");
+    
+    // Check if the navbar element exists before trying to access its style property
     if (navbar) {
         if (prevScrollPos > currentScrollPos) {
+            // Scrolling UP: Show the navbar
             navbar.style.top = "0";
         } else {
+            // Scrolling DOWN: Hide the navbar
+            // NOTE: Make sure the value here (e.g., -80px) is at least the height of your navbar
             navbar.style.top = "-80px";
         }
     }
     prevScrollPos = currentScrollPos;
 };
-
 // Store all sections in an ordered array for easy lookup
 const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
 
