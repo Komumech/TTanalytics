@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="home.css">
-      <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- We'll use a pre-loaded font from a CDN for simplicity -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <script src="your-custom-script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-
         #starfield-container {
             position: fixed;
             top: 0;
@@ -28,22 +35,23 @@
             height: 100%;
             z-index: -2;
         }
-
+        
         #canvas-container {
             width: 8px;
             height: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             visibility: hidden;
-            background-color: transparent; /* Changed to transparent */
+            background-color: transparent;
+            /* Changed to transparent */
         }
-
+        
         canvas {
             display: block;
             width: 100%;
             height: 100%;
         }
-
+        
         .scroll-down-btn {
             position: fixed;
             bottom: 50%;
@@ -63,7 +71,7 @@
             transition: all 0.3s ease;
             z-index: 100;
         }
-
+        
         .scroll-down-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.8);
@@ -71,25 +79,41 @@
         }
     </style>
 </head>
+
 <body class="bg-black text-white font-roboto">
     <div id="starfield-container"></div>
-    <nav class="navbar" id="navbar">
-        <div class="logo-div">
-            <img src="logo2.png" alt="" class="logo">
-            <p class="logo-txt">Team Tech Analytics</p>
+
+    <div class="main-header" id="navbar">
+        <nav class="content-bar" id="navba">
+            <div class="logo-div">
+                <img src="logo2.png" alt="" class="logo">
+                <p class="logo-txt">Team Tech Analytics</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Testimonials</a></li>
+            </ul>
+        </nav>
+        <div class="purple-bar">
+            <div class="purple-links-container">
+                <div class="purple-main-link">Who we are</div>
+                <div class="purple-sub-links">
+                    <a href="#Ethical-Guidelines" class="scroll-link">Ethical Guidelines</a>
+                    <a href="#Services" class="scroll-link">Services</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Awards</a>
+                    <a href="#">Leadership</a>
+                </div>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="">Home</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Testimonials</a></li>
-        </ul>
-    </nav>
+    </div>
     <div class="main-container main-container-adj">
 
-<div class="img-class">
-    <img src="img5.png" alt="" class="img1" srcset="">
-</div>
+        <div class="img-class">
+            <img src="img5.png" alt="" class="img1" srcset="">
+        </div>
         <div class="content-container about">
             <h1 class="header big">
                 Your Partner in Data-Driven Innovation
@@ -106,72 +130,134 @@
             &darr;
         </button>
     </div>
-<div class="about-sect1">
-    <div class="our-story" id="ourStoryToggle">
+<div class="about-sect1 section" id="Ethical-Guidelines">
+    
+    <div class="our-story story-toggle">
         <div class="header2">
-            <hr class="hr-top">
-            Our Story 
+            <hr class="hr-top"> Delivering 360 Value
         </div>
         
         <div class="collapsible-content">
-            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
+            <p class="hidden-txt">Explore the value we deliver to our clients, people, shareholders, partners, and communities. Our comprehensive approach ensures lasting, sustainable growth for all stakeholders.</p>
         </div>
         
         <hr class="hr-bottom">
     </div>
-        <div class="our-story" id="ourStoryToggle">
-        <div class="header2">
-            <hr class="hr-top">
-            Our Story 
-        </div>
-        
-        <div class="collapsible-content">
-            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
-        </div>
-        
-        <hr class="hr-bottom">
-    </div>
-        <div class="our-story" id="ourStoryToggle">
-        <div class="header2">
-            <hr class="hr-top">
-            Our Story 
-        </div>
-        
-        <div class="collapsible-content">
-            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
-        </div>
-        
-        <hr class="hr-bottom">
-    </div>
-        <div class="our-story" id="ourStoryToggle">
-        <div class="header2">
-            <hr class="hr-top">
-            Our Story 
-        </div>
-        
-        <div class="collapsible-content">
-            <p class="hidden-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et enim culpa tempore magni impedit omnis, natus voluptate sint aspernatur numquam quos, soluta, tenetur rerum reiciendis accusantium ipsa praesentium. Sed, alias.</p>
-        </div>
-        
-        <hr class="hr-bottom">
-    </div>
-</div>
-</div>
 
-<div class="footer">
-    <div class="links">
-        <div class="contact-links">
-            <a href="#" class="footer-link">Book a Call</a>
-            <a href="#" class="footer-link">AI Chat</a>
-            <a href="#" class="footer-link">Social Media</a>
+    <div class="our-story story-toggle">
+        <div class="header2">
+            <hr class="hr-top"> Code of Business Ethics
         </div>
-        <div class="contact-links">
-            <a href="#" class="footer-link">About us</a>
-            <a href="#" class="footer-link">Services</a>
-            <a href="#" class="footer-link">Testimonials</a>
+        <div class="collapsible-content">
+            <p class="hidden-txt">Our commitment to integrity guides every decision and partnership. We maintain the highest standards of conduct and transparency in all business operations.</p>
+        </div>
+        <hr class="hr-bottom">
+    </div>
+
+    <div class="our-story story-toggle">
+        <div class="header2">
+            <hr class="hr-top"> Innovation
+        </div>
+        <div class="collapsible-content">
+            <p class="hidden-txt">Driving continuous change and pioneering new technologies to solve the complex challenges of tomorrow and keep our clients future-ready.</p>
+        </div>
+        <hr class="hr-bottom">
+    </div>
+
+    <div class="our-story story-toggle">
+        <div class="header2">
+            <hr class="hr-top"> Sustainability
+        </div>
+        <div class="collapsible-content">
+            <p class="hidden-txt">Integrating environmental, social, and governance (ESG) standards across our business to build a more responsible and resilient global presence.</p>
+        </div>
+        <hr class="hr-bottom">
+    </div>
+</div>
+    <div class="about-sect2 section" id="Services">
+        <div class="main-txt">
+            Integrated Solutions
+        </div>
+        <div class="under-txt">
+            We deploy integrated, cross-sector expertise to accelerate client transformation and expansion.
+        </div>
+<div class="interactive-section">
+    <div class="service-list">
+        <ul id="serviceMenu">
+            <li data-target="strategy">
+                 <span class="bullet-point">■</span>Strategy & Consulting
+                </li>
+            
+            <li data-target="tech">
+                <span class="bullet-point">■</span>Technology
+            </li>
+            
+            <li data-target="ops">
+                 <span class="bullet-point">■</span>Operations
+
+            </li>
+            
+            <li data-target="ix">
+                 <span class="bullet-point">■</span>Industry X
+                </li>
+            
+            <li data-target="song">
+                 <span class="bullet-point">■</span>Song
+                </li> 
+        </ul>
+    </div>
+
+    <div class="content-display">
+        <div id="content-text" class="content-text">
+            Accelerating change across your enterprise to create lasting value.
+        </div>
+        <div id="content-image" class="content-image">
+            <img src="img10.webp" alt="Initial image" id="current-image">
         </div>
     </div>
-            <div class="design-foot">
+</div>
+<div id="hidden-data" style="display: none;">
+    
+    <div data-id="strategy">
+        <p class="text">Delivering a comprehensive blueprint for digital transformation and lasting growth.</p>
+        <img src="img6.webp" alt="Strategy image" class="hidden-img">
+    </div>
+
+    <div data-id="tech">
+        <p class="text">Applying cutting-edge platforms and automation to build future-ready architecture.</p>
+        <img src="img7.webp" alt="Technology image" class="hidden-img"> 
+    </div>
+
+    <div data-id="ops">
+        <p class="text">Streamlining processes and boosting efficiency across all business functions.</p>
+        <img src="img8.webp" alt="Operations image" class="hidden-img"> 
+    </div>
+
+    <div data-id="ix">
+        <p class="text">Driving digital transformation in industrial production and smart products.</p>
+        <img src="img9.webp" alt="Industry X image" class="hidden-img">
+    </div>
+    
+    <div data-id="song">
+        <p class="text">Combining creativity and technology to deliver impactful customer experiences.</p>
+        <img src="img10.webp" alt="Song image" class="hidden-img">
+    </div>
+</div>
+    </div>
+    <div class="footer">
+        <div class="links">
+            <div class="contact-links">
+                <a href="#" class="footer-link">Book a Call</a>
+                <a href="#" class="footer-link">AI Chat</a>
+                <a href="#" class="footer-link">Social Media</a>
+            </div>
+            <div class="contact-links">
+                <a href="#" class="footer-link">About us</a>
+                <a href="#" class="footer-link">Services</a>
+                <a href="#" class="footer-link">Testimonials</a>
+            </div>
+        </div>
+        <div class="design-foot">
             <p class="ftxt1 zind1">Unlock</p>
             <p class="ftxt1 zind2">Unlock</p>
             <p class="ftxt1 zind3">Unlock</p>
@@ -181,484 +267,391 @@
             <p class="ftxt1 zind7">Unlock</p>
         </div>
         <p class="footerp">© 2025 Team Tech Analytics. All rights reserved.</p>
-        
-</div>
 
-        </div>
+    </div>
 
-     
+    </div>
+
+
     </div>
     <div id="canvas-container"></div>
     <script src="about.js"></script>
-<script>
-// --- Meet the Team Carousel and Spotlight (Enhanced for Center Spotlight) ---
-    const teamCarousel = document.querySelector(".meet-carousel");
-    const teamMembers = document.querySelectorAll('.team-member');
-    const spotlightNameElement = document.getElementById('spotlight-name');
-    const spotlightRoleElement = document.getElementById('spotlight-role');
-    const spotlightBioElement = document.querySelector('.spotlight-info .bio');
+    <script>
+        // Purple Bar Height = 50px
+        // Black Bar Height = 80px
 
-    // Function to update the spotlight text with fade effect
-    function updateTeamSpotlight(memberElement, initialLoad = false) {
-        if (!spotlightNameElement || !spotlightRoleElement || !spotlightBioElement || !memberElement) return;
+        let prevScrollPos = window.pageYOffset;
 
-        const name = memberElement.dataset.name;
-        const role = memberElement.dataset.role;
-        const bio = memberElement.dataset.bio;
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            const navbar = document.getElementById("navbar"); // This targets the black bar (.content-bar)
 
-        if (initialLoad) {
-            // For initial load, just set content and fade in
-            spotlightNameElement.textContent = name;
-            spotlightRoleElement.textContent = role;
-            spotlightBioElement.textContent = bio;
-            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.5 });
-            console.log("Initial Spotlight Updated:", name);
-        } else {
-            // For subsequent changes, fade out, update, then fade in
-            gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], {
-                opacity: 0,
-                duration: 0.15,
-                onComplete: () => {
-                    spotlightNameElement.textContent = name;
-                    spotlightRoleElement.textContent = role;
-                    spotlightBioElement.textContent = bio;
-                    gsap.to([spotlightNameElement, spotlightRoleElement, spotlightBioElement], { opacity: 1, duration: 0.25 });
-                    console.log("Spotlight Updated:", name);
+            if (navbar) {
+                if (prevScrollPos > currentScrollPos) {
+                    // Scrolling UP: Show the black bar.
+                    // Set its top to 50px (right below the purple bar).
+                    navbar.style.top = "0px";
+                } else {
+                    // Scrolling DOWN: Hide the black bar.
+                    // Set its top to -80px (slide it up by its height, hiding it completely above the purple bar).
+                    navbar.style.top = "-70px";
                 }
-            });
-        }
-    }
+            }
+            prevScrollPos = currentScrollPos;
+        };
+        // Store all sections in an ordered array for easy lookup
+        const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
 
-    // Function to find the center-most team member and update spotlight
-    let lastCenteredMember = null;
-    if (teamCarousel && teamMembers.length > 0) {
-        function updateCenterSpotlight() {
-            const carouselRect = teamCarousel.getBoundingClientRect();
-            // Get the center point of the visible carousel area relative to the viewport
-            const carouselViewportCenter = carouselRect.left + carouselRect.width / 2;
+        function scrollToNextSection() {
+            const currentScrollPos = window.scrollY;
+            let nextSectionIndex = -1;
 
-            let closestMember = null;
-            let minDistance = Infinity;
-
-            teamMembers.forEach(member => {
-                const memberRect = member.getBoundingClientRect();
-                // Get the center point of the member relative to the viewport
-                const memberViewportCenter = memberRect.left + memberRect.width / 2;
-                const distance = Math.abs(carouselViewportCenter - memberViewportCenter);
-
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestMember = member;
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i].offsetTop > currentScrollPos + 50) {
+                    nextSectionIndex = i;
+                    break;
                 }
-            });
+            }
 
-            if (closestMember && closestMember !== lastCenteredMember) {
-                teamMembers.forEach(m => m.classList.remove('active'));
-                closestMember.classList.add('active');
-                updateTeamSpotlight(closestMember);
-                lastCenteredMember = closestMember;
+            if (nextSectionIndex !== -1) {
+                sections[nextSectionIndex].scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             }
         }
 
-        // Initial setup for the spotlight
-        // It's crucial that one member starts with 'active' class in HTML
-        const initialActiveMember = document.querySelector('.team-member.active');
-        if (initialActiveMember) {
-            updateTeamSpotlight(initialActiveMember, true);
-        } else if (teamMembers.length > 0) {
-            // If no active class is set, default to the first member
-            teamMembers[0].classList.add('active');
-            updateTeamSpotlight(teamMembers[0], true);
-        }
+        gsap.registerPlugin(ScrollTrigger);
 
-        // Listen for scroll events on the carousel to update the spotlight
-        let scrollTimeout;
-        teamCarousel.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(updateCenterSpotlight, 50); // Debounce
-        });
+        // --- Three.js Starfield Background ---
+        let starScene, starCamera, starRenderer, stars;
+        const numStars = 50000;
+        const starDistance = 2000;
+        let mouseX = 0,
+            mouseY = 0;
 
-        // Add click listeners to team member photos to center them and update spotlight
-        teamMembers.forEach(member => {
-            member.addEventListener('click', () => {
-                // Calculate scroll position to bring clicked member to center
-                const scrollOffset = member.offsetLeft + (member.offsetWidth / 2) - (teamCarousel.clientWidth / 2);
-                teamCarousel.scrollTo({ left: scrollOffset, behavior: "smooth" });
+        function initStarfield() {
+            const container = document.getElementById('starfield-container');
+            if (!container) return;
 
-                // Update spotlight immediately after click, but also allow scroll event to finalize
-                // Add a small delay for the scroll animation to complete before updating
-                setTimeout(updateCenterSpotlight, 300); // Give scroll some time
+            starScene = new THREE.Scene();
+            starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
+            starCamera.position.z = starDistance;
+
+            starRenderer = new THREE.WebGLRenderer({
+                alpha: true
             });
-        });
-    }
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(starRenderer.domElement);
 
+            const starGeometry = new THREE.BufferGeometry();
+            const starVertices = [];
+            const starColors = [];
+            const starSizes = [];
 
-
-
-
-
-
-let prevScrollPos = window.pageYOffset;
-
-window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-    const navbar = document.getElementById("navbar");
-    
-    // Check if the navbar element exists before trying to access its style property
-    if (navbar) {
-        if (prevScrollPos > currentScrollPos) {
-            // Scrolling UP: Show the navbar
-            navbar.style.top = "0";
-        } else {
-            // Scrolling DOWN: Hide the navbar
-            // NOTE: Make sure the value here (e.g., -80px) is at least the height of your navbar
-            navbar.style.top = "-80px";
-        }
-    }
-    prevScrollPos = currentScrollPos;
-};
-// Store all sections in an ordered array for easy lookup
-const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
-
-function scrollToNextSection() {
-    const currentScrollPos = window.scrollY;
-    let nextSectionIndex = -1;
-
-    for (let i = 0; i < sections.length; i++) {
-        if (sections[i].offsetTop > currentScrollPos + 50) {
-            nextSectionIndex = i;
-            break;
-        }
-    }
-
-    if (nextSectionIndex !== -1) {
-        sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
-    } else {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-}
-
-gsap.registerPlugin(ScrollTrigger);
-
-// --- Three.js Starfield Background ---
-let starScene, starCamera, starRenderer, stars;
-const numStars = 50000;
-const starDistance = 2000;
-let mouseX = 0, mouseY = 0;
-
-function initStarfield() {
-    const container = document.getElementById('starfield-container');
-    if (!container) return;
-
-    starScene = new THREE.Scene();
-    starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
-    starCamera.position.z = starDistance;
-
-    starRenderer = new THREE.WebGLRenderer({ alpha: true });
-    starRenderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(starRenderer.domElement);
-
-    const starGeometry = new THREE.BufferGeometry();
-    const starVertices = [];
-    const starColors = [];
-    const starSizes = [];
-    
-    for (let i = 0; i < numStars; i++) {
-        const x = THREE.MathUtils.randFloatSpread(starDistance * 4);
-        const y = THREE.MathUtils.randFloatSpread(starDistance * 4);
-        const z = THREE.MathUtils.randFloatSpread(starDistance * 2);
-        starVertices.push(x, y, z);
-        starSizes.push(Math.random() * 2 + 1);
-        starColors.push(1.0, 1.0, 1.0);
-    }
-
-    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-    starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
-    starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
-    
-    const starTextureCanvas = document.createElement('canvas');
-    starTextureCanvas.width = 64;
-    starTextureCanvas.height = 64;
-    const starContext = starTextureCanvas.getContext('2d');
-    
-    const gradient = starContext.createRadialGradient(
-        starTextureCanvas.width / 2, starTextureCanvas.height / 2, 0, 
-        starTextureCanvas.width / 2, starTextureCanvas.height / 2, starTextureCanvas.width / 2
-    );
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    starContext.fillStyle = gradient;
-    starContext.fillRect(0, 0, starTextureCanvas.width, starTextureCanvas.height);
-
-    const starTexture = new THREE.CanvasTexture(starTextureCanvas);
-
-    const starMaterial = new THREE.PointsMaterial({
-        size: 7, 
-        map: starTexture, 
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.8,
-        sizeAttenuation: true
-    });
-    stars = new THREE.Points(starGeometry, starMaterial);
-    starScene.add(stars);
-
-    window.addEventListener('resize', onStarfieldResize, false);
-    animateStarfield();
-
-    // GSAP and ScrollTrigger for the starfield zoom effect
-    gsap.to(starCamera.position, {
-        z: -starDistance,
-        ease: "none",
-        scrollTrigger: {
-            trigger: "body",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-            onUpdate: self => {
-                const progress = self.progress;
-                const z = starDistance - (progress * starDistance * 2);
-                starCamera.position.z = z;
-                
-                const positions = stars.geometry.attributes.position.array;
-                for (let i = 0; i < positions.length; i += 3) {
-                    if (positions[i + 2] < starCamera.position.z - starDistance) {
-                        positions[i + 2] += starDistance * 2;
-                    } else if (positions[i + 2] > starCamera.position.z + starDistance) {
-                        positions[i + 2] -= starDistance * 2;
-                    }
-                }
-                stars.geometry.attributes.position.needsUpdate = true;
+            for (let i = 0; i < numStars; i++) {
+                const x = THREE.MathUtils.randFloatSpread(starDistance * 4);
+                const y = THREE.MathUtils.randFloatSpread(starDistance * 4);
+                const z = THREE.MathUtils.randFloatSpread(starDistance * 2);
+                starVertices.push(x, y, z);
+                starSizes.push(Math.random() * 2 + 1);
+                starColors.push(1.0, 1.0, 1.0);
             }
-        }
-    });
-}
 
-function onStarfieldResize() {
-    const container = document.getElementById('starfield-container');
-    if (!container) return;
-    starCamera.aspect = window.innerWidth / window.innerHeight;
-    starCamera.updateProjectionMatrix();
-    starRenderer.setSize(window.innerWidth, window.innerHeight);
-}
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+            starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
 
-function animateStarfield() {
-    requestAnimationFrame(animateStarfield);
-    
-    const rotationFactor = 0.0005; 
-    if (stars) {
-        stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
-        stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
-    }
+            const starTextureCanvas = document.createElement('canvas');
+            starTextureCanvas.width = 64;
+            starTextureCanvas.height = 64;
+            const starContext = starTextureCanvas.getContext('2d');
 
-    if (starRenderer) {
-        starRenderer.render(starScene, starCamera);
-    }
-}
+            const gradient = starContext.createRadialGradient(
+                starTextureCanvas.width / 2, starTextureCanvas.height / 2, 0,
+                starTextureCanvas.width / 2, starTextureCanvas.height / 2, starTextureCanvas.width / 2
+            );
+            gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            starContext.fillStyle = gradient;
+            starContext.fillRect(0, 0, starTextureCanvas.width, starTextureCanvas.height);
 
-ScrollTrigger.matchMedia({
-    "(min-width: 769px)": function() {
-        console.log("Desktop Animation Active");
-        gsap.utils.toArray(".sect3-img").forEach(img => {
-            gsap.to(img, {
-                scale: 0.5,
-                x: -300,
-                transformOrigin: "center center",
+            const starTexture = new THREE.CanvasTexture(starTextureCanvas);
+
+            const starMaterial = new THREE.PointsMaterial({
+                size: 7,
+                map: starTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                sizeAttenuation: true
+            });
+            stars = new THREE.Points(starGeometry, starMaterial);
+            starScene.add(stars);
+
+            window.addEventListener('resize', onStarfieldResize, false);
+            animateStarfield();
+
+            // GSAP and ScrollTrigger for the starfield zoom effect
+            gsap.to(starCamera.position, {
+                z: -starDistance,
                 ease: "none",
                 scrollTrigger: {
-                    trigger: img,
+                    trigger: "body",
                     start: "top top",
-                    scrub: 1,
-                    end: "+=100",
-                    pin: true,
-                }
-            });
-        });
-    },
-    "(max-width: 768px)": function() {
-        console.log("Mobile Animation Active");
-        gsap.utils.toArray(".sect3-img").forEach(img => {
-            gsap.fromTo(
-                img,
-                { scale: 3 },
-                {
-                    scale: 1,
-                    x: 20,
-                    transformOrigin: "center center",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: img.parentElement,
-                        start: "+=20%",
-                        end: "center top",
-                        scrub: 0.01,
-                        pin: true,
+                    end: "bottom bottom",
+                    scrub: true,
+                    onUpdate: self => {
+                        const progress = self.progress;
+                        const z = starDistance - (progress * starDistance * 2);
+                        starCamera.position.z = z;
+
+                        const positions = stars.geometry.attributes.position.array;
+                        for (let i = 0; i < positions.length; i += 3) {
+                            if (positions[i + 2] < starCamera.position.z - starDistance) {
+                                positions[i + 2] += starDistance * 2;
+                            } else if (positions[i + 2] > starCamera.position.z + starDistance) {
+                                positions[i + 2] -= starDistance * 2;
+                            }
+                        }
+                        stars.geometry.attributes.position.needsUpdate = true;
                     }
                 }
-            );
+            });
+        }
+
+        function onStarfieldResize() {
+            const container = document.getElementById('starfield-container');
+            if (!container) return;
+            starCamera.aspect = window.innerWidth / window.innerHeight;
+            starCamera.updateProjectionMatrix();
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animateStarfield() {
+            requestAnimationFrame(animateStarfield);
+
+            const rotationFactor = 0.0005;
+            if (stars) {
+                stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
+                stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
+            }
+
+            if (starRenderer) {
+                starRenderer.render(starScene, starCamera);
+            }
+        }
+
+        ScrollTrigger.matchMedia({
+            "(min-width: 769px)": function() {
+                console.log("Desktop Animation Active");
+                gsap.utils.toArray(".sect3-img").forEach(img => {
+                    gsap.to(img, {
+                        scale: 0.5,
+                        x: -300,
+                        transformOrigin: "center center",
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: img,
+                            start: "top top",
+                            scrub: 1,
+                            end: "+=100",
+                            pin: true,
+                        }
+                    });
+                });
+            },
+            "(max-width: 768px)": function() {
+                console.log("Mobile Animation Active");
+                gsap.utils.toArray(".sect3-img").forEach(img => {
+                    gsap.fromTo(
+                        img, {
+                            scale: 3
+                        }, {
+                            scale: 1,
+                            x: 20,
+                            transformOrigin: "center center",
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: img.parentElement,
+                                start: "+=20%",
+                                end: "center top",
+                                scrub: 0.01,
+                                pin: true,
+                            }
+                        }
+                    );
+                });
+            },
+            "all": function() {
+                // Common setup
+            }
         });
-    },
-    "all": function() {
-        // Common setup
-    }
-});
 
-// Global variables for scene, camera, and renderer for 3D Text
-let scene, camera, renderer, textMesh;
-const textContent = "";
-const lightBlue = new THREE.Color(0x0055ff);
-const darkBlue = new THREE.Color(0x2552ac);
-const accentColor = new THREE.Color(0x003cff);
+        // Global variables for scene, camera, and renderer for 3D Text
+        let scene, camera, renderer, textMesh;
+        const textContent = "";
+        const lightBlue = new THREE.Color(0x0055ff);
+        const darkBlue = new THREE.Color(0x2552ac);
+        const accentColor = new THREE.Color(0x003cff);
 
-function init() {
-    const container = document.getElementById('canvas-container');
-    if (!container) return;
+        function init() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
 
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 6;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 6;
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x000000, 0);
-    container.appendChild(renderer.domElement);
+            renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
 
-    const pointLight1 = new THREE.PointLight(0xff00ff, 1.5);
-    pointLight1.position.set(5, 5, 5);
-    scene.add(pointLight1);
+            const pointLight1 = new THREE.PointLight(0xff00ff, 1.5);
+            pointLight1.position.set(5, 5, 5);
+            scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0x00ffff, 1.5);
-    pointLight2.position.set(-5, -5, -5);
-    scene.add(pointLight2);
+            const pointLight2 = new THREE.PointLight(0x00ffff, 1.5);
+            pointLight2.position.set(-5, -5, -5);
+            scene.add(pointLight2);
 
-    const fontLoader = new THREE.FontLoader();
-    fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/gentilis_regular.typeface.json', function (font) {
-        const textGeometry = new THREE.TextGeometry(textContent, {
-            font: font,
-            size: 2,
-            height: 0.5,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 0.1,
-            bevelSize: 0.08,
-            bevelOffset: 0,
-            bevelSegments: 10
-        });
+            const fontLoader = new THREE.FontLoader();
+            fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/gentilis_regular.typeface.json', function(font) {
+                const textGeometry = new THREE.TextGeometry(textContent, {
+                    font: font,
+                    size: 2,
+                    height: 0.5,
+                    curveSegments: 12,
+                    bevelEnabled: true,
+                    bevelThickness: 0.1,
+                    bevelSize: 0.08,
+                    bevelOffset: 0,
+                    bevelSegments: 10
+                });
 
-        textGeometry.center();
-        const textMaterial = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            roughness: 0.4,
-            metalness: 0.2
-        });
-        textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        scene.add(textMesh);
-    });
+                textGeometry.center();
+                const textMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    roughness: 0.4,
+                    metalness: 0.2
+                });
+                textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                scene.add(textMesh);
+            });
 
-    window.addEventListener('resize', onWindowResize, false);
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-    animate();
-}
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            animate();
+        }
 
-function onWindowResize() {
-    const container = document.getElementById('canvas-container');
-    if (!container) return;
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-}
+        function onWindowResize() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
 
-function onDocumentMouseMove(event) {
-    const container = document.getElementById('canvas-container');
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-}
+        function onDocumentMouseMove(event) {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+            const rect = container.getBoundingClientRect();
+            mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        }
 
-function animate() {
-    requestAnimationFrame(animate);
-    if (textMesh) {
-        const tiltFactor = 0.05;
-        textMesh.rotation.y += (mouseX * tiltFactor - textMesh.rotation.y) * 0.02;
-        textMesh.rotation.x += (mouseY * tiltFactor - textMesh.rotation.x) * 0.02;
-        const tempColor = new THREE.Color();
-        tempColor.lerpColors(lightBlue, darkBlue, (mouseX + 1) / 2);
-        textMesh.material.color.lerpColors(tempColor, accentColor, (mouseY + 1) / 2);
-    }
-    if (renderer) {
-        renderer.render(scene, camera);
-    }
-}
+        function animate() {
+            requestAnimationFrame(animate);
+            if (textMesh) {
+                const tiltFactor = 0.05;
+                textMesh.rotation.y += (mouseX * tiltFactor - textMesh.rotation.y) * 0.02;
+                textMesh.rotation.x += (mouseY * tiltFactor - textMesh.rotation.x) * 0.02;
+                const tempColor = new THREE.Color();
+                tempColor.lerpColors(lightBlue, darkBlue, (mouseX + 1) / 2);
+                textMesh.material.color.lerpColors(tempColor, accentColor, (mouseY + 1) / 2);
+            }
+            if (renderer) {
+                renderer.render(scene, camera);
+            }
+        }
 
-window.onload = function() {
-    init();
-    initStarfield();
-    const scrollContainer = document.querySelector('.sect2b');
-    if (scrollContainer) {
-        startAutoScroll();
-        scrollContainer.addEventListener('mouseenter', stopAutoScroll);
-        scrollContainer.addEventListener('mouseleave', startAutoScroll);
-    }
-};
+        window.onload = function() {
+            init();
+            initStarfield();
+            const scrollContainer = document.querySelector('.sect2b');
+            if (scrollContainer) {
+                startAutoScroll();
+                scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+                scrollContainer.addEventListener('mouseleave', startAutoScroll);
+            }
+        };
 
-const scrollAmount = 18 * 18;
-let scrollTarget = 0;
-let currentScroll = 0;
-let isScrolling = false;
-let scrollInterval;
+        const scrollAmount = 18 * 18;
+        let scrollTarget = 0;
+        let currentScroll = 0;
+        let isScrolling = false;
+        let scrollInterval;
 
-function autoScroll() {
-    const scrollContainer = document.querySelector('.sect2b');
-    if (!scrollContainer) return;
-    isScrolling = true;
-    const targetScrollLeft = scrollTarget;
-    const animationDuration = 1000;
-    let startTime = null;
+        function autoScroll() {
+            const scrollContainer = document.querySelector('.sect2b');
+            if (!scrollContainer) return;
+            isScrolling = true;
+            const targetScrollLeft = scrollTarget;
+            const animationDuration = 1000;
+            let startTime = null;
 
-    function animateScroll(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsedTime = timestamp - startTime;
-        const progress = Math.min(elapsedTime / animationDuration, 1);
-        const newScrollLeft = currentScroll + (targetScrollLeft - currentScroll) * progress;
-        scrollContainer.scrollLeft = newScrollLeft;
+            function animateScroll(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsedTime = timestamp - startTime;
+                const progress = Math.min(elapsedTime / animationDuration, 1);
+                const newScrollLeft = currentScroll + (targetScrollLeft - currentScroll) * progress;
+                scrollContainer.scrollLeft = newScrollLeft;
 
-        if (progress < 1) {
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    currentScroll = scrollContainer.scrollLeft;
+                    isScrolling = false;
+                }
+            }
             requestAnimationFrame(animateScroll);
-        } else {
-            currentScroll = scrollContainer.scrollLeft;
-            isScrolling = false;
         }
-    }
-    requestAnimationFrame(animateScroll);
-}
 
-function startAutoScroll() {
-    const scrollContainer = document.querySelector('.sect2b');
-    if (!scrollContainer) return;
-    scrollInterval = setInterval(() => {
-        if (isScrolling) return;
-        const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+        function startAutoScroll() {
+            const scrollContainer = document.querySelector('.sect2b');
+            if (!scrollContainer) return;
+            scrollInterval = setInterval(() => {
+                if (isScrolling) return;
+                const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
 
-        if (atEnd) {
-            scrollTarget = 0;
-        } else {
-            scrollTarget += scrollAmount;
+                if (atEnd) {
+                    scrollTarget = 0;
+                } else {
+                    scrollTarget += scrollAmount;
+                }
+                autoScroll();
+            }, 5000);
         }
-        autoScroll();
-    }, 5000);
-}
 
-function stopAutoScroll() {
-    clearInterval(scrollInterval);
-}
-</script>
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
+        }
+    </script>
 </body>
+
+</html>
+
 </html>

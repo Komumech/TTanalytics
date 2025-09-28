@@ -1,13 +1,18 @@
-.img-class{
+.section{
+    padding-top: 5rem;
+}
+.img-class {
     width: 600px;
     height: fit-content;
 }
-.img1{
+
+.img1 {
     width: 40vw;
     padding-left: 50px;
     padding-top: 5rem;
 }
-.about{
+
+.about {
     justify-self: right;
     padding-top: 0px;
     margin-top: -7rem;
@@ -15,76 +20,98 @@
     padding: 0px;
     padding-right: 3rem;
 }
-.main-container-adj{
+
+.main-container-adj {
     margin-top: 7rem;
     width: 100vw;
 }
-.big{
+
+.big {
     max-width: 36vw;
     font-weight: 700;
     font-size: 4rem;
-    
 }
-.small{
+
+.small {
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-size: 1.5rem;
     line-height: 1.8rem;
     max-width: 70vw;
 }
-.hidden-txt{
+
+.hidden-txt {
     max-width: 60vw;
 }
 
-.arrow-div{
+.arrow-div {
     padding-left: 10px;
 }
+
+
 /* Base Styles (Simplified from yours) */
+
+
 /* Base Styles (No change, just included for context) */
+
 .about-sect1 {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-self: center;
     justify-content: center;
     background-color: black;
     color: white;
+    padding-left: 7rem;
 }
-.our-story {
-    width: 90vw;
-    cursor: pointer;
 
+.our-story {
+    width: fit-content;
+    cursor: pointer;
+    justify-self: center;
 }
+
 .header2 {
     font-size: 1.5rem;
     font-weight: 600;
     padding-top: 20px;
-    justify-content: center;
+    opacity: 0.5;
 }
 
+
 /* HR Styles (from previous fix) */
+
 .our-story hr {
     border-style: solid;
     border-color: #ffffff;
     border-width: 2px 0 0 0;
-    width: 100%;
+    width: 80vw;
     height: 0;
     margin: 30px 0 30px 0;
     transition: border-color 0.3s ease-in-out;
     justify-self: center;
-}.our-story{
-    justify-self: center;
+    opacity: 0.5;
 }
+
+.our-story {}
+
 .hr-bottom {
     margin: 30px 0 30px 0;
+}
+
+.hr-top{
+    opacity: 0.5;
 }
 .our-story.active hr {
     border-color: rgb(0, 47, 255);
 }
+
 .our-story:hover hr {
     border-color: rgb(0, 47, 255);
 }
-
+.our-story:hover .header2{
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
 
 /* --- COLLAPSIBLE CONTENT STYLES (ENHANCED) --- */
 
@@ -92,30 +119,151 @@
     max-height: 0;
     overflow: hidden;
     /* This transition handles the height expansion */
-    transition: max-height 0.7s ease-in-out; 
+    transition: max-height 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hidden-txt {
-    padding-bottom: 20px;
-    margin-top: 0;
-    
+    font-size: 1.2rem;
+    padding-bottom: 7rem;
+    margin-top: 40px;
+    font-weight: 0;
     /* NEW: Initial state for fade-in and slide-up */
     opacity: 0;
-    transform: translateY(-20px); /* Start slightly above its final position */
+    transform: translateY(20px);
+    /* Start slightly above its final position */
     /* This transition handles the fade and slide */
-    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; 
+   transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
 }
+
 
 /* --- ACTIVE (EXPANDED) STATE (ENHANCED) --- */
+
 .our-story.active .collapsible-content {
-    max-height: 500px; /* Make sure this is large enough for your content */
-    transition: max-height 0.7s ease-in-out; /* Match this duration to the text animation */
+    max-height: 40rem;
+    /* Make sure this is large enough for your content */
+    transition: max-height 0.7s ease-in-out;
+    /* Match this duration to the text animation */
+}
+.our-story.active .header2{
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
 }
 
+
 /* NEW: When the content is active, make the text visible and slide into place */
+
 .our-story.active .hidden-txt {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Slide down to its natural position */
+    opacity: 1;
+    /* Fade in */
+    transform: translateY(0);
+    /* Slide down to its natural position */
     /* Add a small delay for the text animation to start AFTER the max-height begins to expand */
-    transition-delay: 0.1s; 
+    transition-delay: 0.1s;
+}
+
+.main-txt {
+    font-size: 6rem;
+    justify-self: center;
+    font-weight: 600;
+    word-spacing: px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+}
+.under-txt{
+    font-family: "Lora", serif;
+    font-size: 1.5rem;
+    justify-self: center;
+    font-weight: 300;
+    max-width: 70vw;
+    text-align: center;
+    padding-top: 1rem;
+}
+.interactive-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: black;
+    color: white;
+}
+
+.service-list {
+    font-size: 24px;
+    line-height: 1.5;
+    /* Adjust width to control spacing */
+    width: 40%; 
+}
+
+.service-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+}
+
+.service-list li {
+    padding: 5px 0;
+    cursor: pointer;
+    opacity: 0.5; /* Dim inactive items */
+    transition: opacity 0.3s, color 0.3s;
+}
+
+/* 1. INITIAL STATE: Hide the bullet point */
+.bullet-point {
+    /* Sets the bullet point to be completely invisible by default */
+    opacity: 0;
+    
+    /* Optional: Adds a smooth transition effect */
+    transition: opacity 0.1s ease-in-out; 
+    
+    /* Ensure it doesn't take up space when hidden */
+    margin-right: 10px;
+    font-size: 1rem;
+    color: rgb(0, 47, 255); /* Example accent color */
+}
+
+/* 2. HOVER STATE: Show the bullet point when the parent <li> is hovered */
+.service-list li:hover .bullet-point,
+.service-list li.active .bullet-point {
+    /* When the parent <li> is hovered OR has the active class, make the bullet visible */
+    opacity: 1;
+}
+
+/* 3. General list item styling (from previous answers, important for context) */
+.service-list li {
+    padding: 5px 0;
+    cursor: pointer;
+    opacity: 0.5;
+    /* transition: opacity 0.3s, color 0.3s; <-- Keep this for text fade */
+}
+
+/* Ensure the full text is visible when hovered */
+.service-list li:hover {
+    opacity: 1;
+}
+
+.content-display {
+    width: 30%;
+    text-align: left;
+    padding-right: 100px;
+    
+}
+
+#current-image {
+    width: 22rem;
+    height: auto;
+    margin-top: 20px;
+    /* Optional: Add a smooth transition for image changes */
+    transition: opacity 0.5s ease-in-out; 
+    padding-top: 30px;
+}
+.content-text{
+    
+}
+.hr-top {
+    margin: 0 0 30px 0; 
+    opacity: 0.8;
 }
