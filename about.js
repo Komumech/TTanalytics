@@ -1,15 +1,14 @@
 // --- GSAP Plugin Registration (MUST be done once at the top) ---
-// Ensure ScrollToPlugin and ScrollTrigger are registered
+// Ensure all necessary plugins are registered
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin); 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Collapsible Accordion Toggle Functionality ---
+    // --- 1. Collapsible Accordion Toggle Functionality (Single Open) ---
     const toggleElements = document.querySelectorAll('.story-toggle');
     toggleElements.forEach(toggleElement => {
         toggleElement.addEventListener('click', function() {
             
-            // Find all currently active/open toggles
             const currentlyActiveToggles = document.querySelectorAll('.story-toggle.active');
             
             // Close other open toggles (for single-open accordion)
@@ -34,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); 
             const targetID = this.getAttribute('href'); 
             
+            // FIX: Prevent scrolling if href is empty or just '#'
+            if (!targetID || targetID === '#') return;
+
             gsap.to(window, {
                 duration: 1.0, 
                 scrollTo: {
                     y: targetID, 
-                    // Adjust offset for sticky navbar if present
                     offsetY: document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 0 
                 },
                 ease: "power2.inOut"
@@ -46,9 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // B. ScrollTrigger Link Highlighting (REPLACES REDUNDANT BLOCK)
+    // B. ScrollTrigger Link Highlighting (Fixes the Uncaught SyntaxError)
     allNavLinks.forEach(link => {
         const targetID = link.getAttribute('href');
+        
+        // FIX: Ensure targetID is a valid selector before using it
+        if (!targetID || targetID === '#') return;
+
         const targetSection = document.querySelector(targetID);
 
         if (targetSection) {
@@ -66,46 +71,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. Content Hover Swap Functionality ---
+    // --- 3. Content Hover Swap Functionality (Services List) ---
     const serviceItems = document.querySelectorAll('#serviceMenu li');
-    // NOTE: Added checks for element existence in case they are null
     const contentTextElement = document.getElementById('content-text');
     const currentImageElement = document.getElementById('current-image');
     
-    const initialText = contentTextElement ? contentTextElement.innerText : '';
-    const initialImageSrc = currentImageElement ? currentImageElement.src : ''; 
+    // CRITICAL SAFETY CHECK: Only proceed if the main display elements are found
+    if (contentTextElement && currentImageElement) {
 
-    serviceItems.forEach(item => {
-        const targetId = item.getAttribute('data-target');
-        const hiddenDataBlock = document.querySelector(`#hidden-data div[data-id="${targetId}"]`);
+        const initialText = contentTextElement.innerText;
+        const initialImageSrc = currentImageElement.src; 
 
-        // Mouse Over (Hover) Event
-        item.addEventListener('mouseover', () => {
-            serviceItems.forEach(li => li.classList.remove('active'));
-            item.classList.add('active');
+        serviceItems.forEach(item => {
+            const targetId = item.getAttribute('data-target');
+            const hiddenDataBlock = document.querySelector(`#hidden-data div[data-id="${targetId}"]`);
 
-            if (hiddenDataBlock && contentTextElement && currentImageElement) {
-                const newText = hiddenDataBlock.querySelector('.text') ? hiddenDataBlock.querySelector('.text').innerText : initialText;
-                const newImageSrc = hiddenDataBlock.querySelector('img') ? hiddenDataBlock.querySelector('img').src : initialImageSrc;
+            // Mouse Over (Hover) Event
+            item.addEventListener('mouseover', () => {
+                // List item activation
+                serviceItems.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
 
-                // Swap Text with cross-fade
-                gsap.to(contentTextElement, { opacity: 0, duration: 0.15, onComplete: () => {
-                    contentTextElement.innerText = newText;
-                    gsap.to(contentTextElement, { opacity: 1, duration: 0.15 });
-                }});
+                if (hiddenDataBlock) {
+                    const newText = hiddenDataBlock.querySelector('.text') ? hiddenDataBlock.querySelector('.text').innerText : initialText;
+                    const newImageSrc = hiddenDataBlock.querySelector('img') ? hiddenDataBlock.querySelector('img').src : initialImageSrc;
 
-                // Swap Image with cross-fade
-                gsap.to(currentImageElement, { opacity: 0, duration: 0.15, onComplete: () => {
-                    currentImageElement.src = newImageSrc;
-                    gsap.to(currentImageElement, { opacity: 1, duration: 0.15 });
-                }});
-            }
+                    // Swap Text with cross-fade
+                    gsap.to(contentTextElement, { opacity: 0, duration: 0.15, onComplete: () => {
+                        contentTextElement.innerText = newText;
+                        gsap.to(contentTextElement, { opacity: 1, duration: 0.15 });
+                    }});
+
+                    // Swap Image with cross-fade
+                    gsap.to(currentImageElement, { opacity: 0, duration: 0.15, onComplete: () => {
+                        currentImageElement.src = newImageSrc;
+                        gsap.to(currentImageElement, { opacity: 1, duration: 0.15 });
+                    }});
+                }
+            });
         });
-    });
 
-    // Set the initial/default item as 'active' on page load
-    const defaultItem = document.querySelector('.service-list li[data-target="strategy"]');
-    if(defaultItem) {
-        defaultItem.classList.add('active');
+        // Set the initial/default item as 'active' and load its content on page load
+        const defaultItem = document.querySelector('.service-list li[data-target="strategy"]');
+        if(defaultItem) {
+            defaultItem.classList.add('active');
+            
+            // Manually set the content for the default item from hidden data
+            const initialTargetId = defaultItem.getAttribute('data-target');
+            const initialHiddenData = document.querySelector(`#hidden-data div[data-id="${initialTargetId}"]`);
+
+            if (initialHiddenData) {
+                contentTextElement.innerText = initialHiddenData.querySelector('.text').innerText;
+                currentImageElement.src = initialHiddenData.querySelector('img').src;
+            }
+        }
+    } else {
+        console.error("CRITICAL ERROR: Service content display elements (#content-text or #current-image) not found.");
     }
 });
