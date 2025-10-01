@@ -267,3 +267,305 @@
     margin: 0 0 30px 0; 
     opacity: 0.8;
 }
+.txt-img{
+    width: 100px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+.sect3-txt:hover :only-child{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+.sect3-txt{
+
+}
+.sect3-wrap{
+    display: flex;
+    flex-direction: row;
+    
+}
+.about-sect3{
+    justify-self: center;
+    width: 80vw;
+    height: fit-content;
+    transition: opacity 0.3s ease-in-out;
+    
+}
+.sect3-wrapper{
+    font-size: 5.5rem;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    
+}
+/* 1. Default Opacity for all elements in the group */
+.about-sect3 .sect3-txt {
+    /* Set the initial opacity to 1 (fully opaque) */
+    opacity: 1;
+    /* Smooth transition for the opacity change */
+    transition: opacity 0.5s ease-in-out;
+    /* This makes the spans behave like block elements,
+       which can sometimes help with hover effects
+       and layout predictability. */
+    display: block;
+}
+
+/* 2. On Hover over a parent group, target ALL children */
+.about-sect3:hover .sect3-txt {
+    /* When the parent is hovered, all child elements' opacity is reduced.
+       This is the 'others will be in 0.6' part. */
+    opacity: 0.4;
+
+}
+
+/* 3. On Hover over a specific element, bring its opacity back up */
+.about-sect3:hover .sect3-txt:hover {
+    /* When a specific element is hovered, its opacity overrides the
+       parent's setting and is restored to 1.
+       This is the 'ne hovered will be in opacity 1' part. */
+    opacity: 1;
+    transform: translateX(2px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Optional: To apply the effect only when hovering over the direct elements
+   themselves and not based on the parent (.about-sect3) hover state,
+   you would use the following, but the method above is generally
+   better for groups. */
+/*
+.sect3-txt {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    display: block;
+}
+
+.sect3-txt:hover {
+    opacity: 1;
+}
+
+.sect3-txt:hover ~ .sect3-txt,
+.sect3-txt:hover + .sect3-txt,
+.sect3-txt:hover:not(:last-child) {
+    opacity: 0.6;
+}
+
+
+*/
+.wrapper1{
+    background-color: #00796b;
+    width: 21rem;
+    height: 16rem;
+}
+.wrapper2{
+    background-color: #c63408;
+    width: 21rem;
+    height: 16rem;
+}
+.wrapper3{
+    background-color: rgb(21, 2, 143);
+    width: 21rem;
+    height: 16rem;
+}
+.slide-div{
+    overflow: hidden;
+}
+.slide-up{
+    font-size: 1.17rem;
+    transform: translateY(160px);
+    padding: 10px;
+    font-family: "Lora", serif;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.slide-div:hover .slide-up{
+    transform: translateY(-100px);
+    
+    opacity: 1;
+    cursor: pointer;
+}
+.slide-div:hover .wrapper1-slideup{
+    transform: translateY(-140px);
+    
+    opacity: 1;
+    cursor: pointer;
+}
+.slide-div:hover .slide-up2{
+    transform: translateY(-90px);
+    
+    opacity: 1;
+    cursor: pointer;
+}
+.slide-up2{
+    transform: translateY(150px);
+    padding: 10px;
+    font-family: "Lora", serif;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.9rem;
+}
+.learn-more-btn{
+    transform: translateY(190px);
+    justify-self: right;
+    padding-right: 30px;
+    transition: all 0.7s ease-in-out;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.slide-div:hover .learn-more-btn{
+    transform: translateY(-50px);
+    
+    opacity: 1;
+    cursor: pointer;
+}
+.about-sect4{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+    justify-self: center;
+}
+
+/* --- CONTAINER SETUP --- */
+.wrapper2.slide-div {
+    position: relative; 
+    overflow: hidden;  /* For contrast with the white path */
+}
+
+/* --- SVG ELEMENT POSITIONING --- */
+.bg-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* ✅ FIX: Add dimensions so the SVG is visible and fills the parent */
+
+    z-index: 1;
+}
+
+/* --- ABSTRACT PATH STYLING AND ANIMATION LOGIC --- */
+.abstract-path {
+    fill: none; /* Good: Keeps the inside transparent */
+    stroke: #FFFFFF; /* Good: White line color */
+    stroke-width: 0.8; 
+    
+    stroke-dasharray: 2000; 
+    stroke-dashoffset: 4000; 
+    
+    transition: stroke-dashoffset 1.5s ease-in-out; 
+}
+
+.wrapper2.slide-div:hover .abstract-path {
+    stroke-dashoffset: 0;
+}
+
+
+
+
+.wrapper3.slide-div {
+    position: relative; 
+    overflow: hidden;  /* For contrast with the white path */
+}
+
+/* --- SVG ELEMENT POSITIONING --- */
+.bg-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* ✅ FIX: Add dimensions so the SVG is visible and fills the parent */
+
+    z-index: 1;
+}
+
+/* --- ABSTRACT PATH STYLING AND ANIMATION LOGIC --- */
+.abstract-path {
+    fill: none; /* Good: Keeps the inside transparent */
+    stroke: #FFFFFF; /* Good: White line color */
+    stroke-width: 0.8; 
+    
+    stroke-dasharray: 2000; 
+    stroke-dashoffset: 2000; 
+    
+    transition: stroke-dashoffset 1.5s ease-in-out; 
+}
+
+.wrapper3.slide-div:hover .abstract-path {
+    stroke-dashoffset: 0;
+}
+
+
+
+
+.wrapper1.slide-div {
+    position: relative; 
+    overflow: hidden;  /* For contrast with the white path */
+}
+
+/* --- SVG ELEMENT POSITIONING --- */
+.bg-svg {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    /* ✅ FIX: Add dimensions so the SVG is visible and fills the parent */
+
+    z-index: 1;
+}
+
+/* --- ABSTRACT PATH STYLING AND ANIMATION LOGIC --- */
+.abstract-path {
+    fill: none; /* Good: Keeps the inside transparent */
+    stroke: #FFFFFF; /* Good: White line color */
+    stroke-width: 2; 
+    
+    stroke-dasharray: 2000; 
+    stroke-dashoffset: 2000; 
+    
+    transition: stroke-dashoffset 1.5s ease-in-out; 
+}
+
+.wrapper1.slide-div:hover .abstract-path {
+    stroke-dashoffset: 0;
+}
+.leadership-txt{
+    font-size: 3.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 100px;
+}
+.leader-img{
+    width: 100px;
+    height: 135px;
+    filter: grayscale(100%);
+}
+.leader{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.leader-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 20px;
+
+}
+.leader-name{
+    font-size: 1.32rem;
+    font-weight: 600;
+}
+.leaders{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-between;
+    justify-self: right;
+    padding-right: 50px;
+    margin-top: -50px;
+    width: 60vw;
+}
+.linkedin-profile-link{
+    width: 15px;
+    cursor: pointer;
+}
