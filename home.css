@@ -1292,20 +1292,7 @@ body {
     .zind1 {
         justify-self: center;
     }
-    .design-foot {
-        display: flex;
-        flex-direction: row;
-        width: 100vw;
-        height: 10rem;
-        justify-self: center;
-        justify-content: center;
-        margin: 0px;
-        padding: 0px;
-    }
-    .ftxt1 {
-        height: 6rem;
-        font-size: 3.5rem;
-    }
+
     .main-container {
         height: fit-content;
         margin-top: 0px;
@@ -1327,19 +1314,7 @@ body {
         justify-self: left;
         padding-left: 3rem;
     }
-    .footerp {
-        justify-self: center;
-        max-width: 95vw;
-        padding: 0px;
-        margin: 0px;
-        bottom: 0px;
-        font-size: 1rem;
-    }
-    .links {
-        padding: 0px;
-        margin: 0px;
-        justify-self: center;
-    }
+
 }
 
 .top {

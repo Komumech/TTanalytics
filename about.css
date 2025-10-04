@@ -569,11 +569,17 @@
     width: 15px;
     cursor: pointer;
 }
+.our-story-img{
+    justify-self: right;
+    width: 20rem;
+}
 @media (max-width: 1000px){
     .leaders{
         width: 90vw;
         grid-template-columns: 100%;
         margin-left: 1rem;
+        padding-right: 35px;
+        padding-top: 0.5rem
     }
     .leadership-txt{
         margin-left: 10px;
@@ -582,8 +588,9 @@
     .about-sect4{
         flex-direction: column;
         align-items: center;
-        width: 90vw;
+        width: 100vw;
         height:60rem ;
+        justify-self: left;
     }
     .wrapper1 .wrapper2 .wrapper3 {
         padding-top: 20px;
@@ -619,6 +626,9 @@
     .header2 hr{
         width: 90vw;
     }
+    .small{
+        max-width: 90vw;
+    }
     .about-sect1{
         padding-left: 1rem;
     }
@@ -629,6 +639,7 @@
         max-width: 90vw;
         padding-right: 0px;
         margin-right: 0px;
+        padding-top: 1.3rem;
     }
     .img1{
         width:90vw;
@@ -663,4 +674,8 @@
     .purple-main-link{
         margin-left: 0px;
     }
+    .leadership{
+        padding-bottom: 5rem;
+    }
+
 }
