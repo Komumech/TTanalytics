@@ -6,6 +6,7 @@
     <title>Team Tech Analytics</title>
     <link rel="stylesheet" href="home.css">
         <link rel="stylesheet" href="footer.css">
+       
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -15,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
     <style>
 
         #starfield-container {
@@ -70,18 +74,31 @@
 </head>
 <body class="bg-black text-white font-roboto">
     <div id="starfield-container"></div>
-    <nav class="navbar" id="navbar">
-        <div class="logo-div">
-            <img src="logo2.png" alt="" class="logo">
-            <p class="logo-txt">Team Tech Analytics</p>
+    <div class="main-header" id="navbar">
+        <nav class="content-bar" id="navba">
+            <div class="logo-div">
+                <img src="logo2.png" alt="" class="logo">
+                <p class="logo-txt">Team Tech Analytics</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Testimonials</a></li>
+            </ul>
+        </nav>
+        <div class="purple-bar">
+            <div class="purple-links-container">
+                <div class="purple-main-link">Team Tech Analytics</div>
+                <div class="purple-sub-links">
+                    <a href="#partner" class="scroll-link">Partner</a>
+                    <a href="#blog" class="scroll-link">Blog</a>
+                    <a href="#" class="scroll-link">Blog</a>
+                    <a href="#">Leadership</a>
+                </div>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Testimonials</a></li>
-        </ul>
-    </nav>
+    </div>
     <!-- Moved sect4 to the top -->
     <div class="sect4">
      <div class="new">
@@ -96,7 +113,7 @@
             <span class="read-more"><button class="learn-more-button">Book a Call</button></span>
         </p>
     </div>
-    <div class="main-container">
+    <div class="main-container" id="partner">
         <div class="video-class">
             <video src="vid1.mp4" class="vid2" autoplay loop muted width="500" height="300" poster="bg1.png"></video>
         </div>
@@ -116,7 +133,7 @@
             &darr;
         </button>
     </div>
-    <div class="sect2">
+    <div class="sect2" id="blog">
         <div class="imgsect img1">
             <p class="txt">REPORT</p>
             <p class="txt topic">AI in the Real World<br></p>
@@ -225,6 +242,7 @@
      
     </div>
     <div id="canvas-container"></div>
+     <script src="about.js"></script>
 <script>
     let prevScrollPos = window.pageYOffset;
 

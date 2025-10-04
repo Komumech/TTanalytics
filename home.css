@@ -577,6 +577,15 @@ body {
     .imgsect {
         padding-left: 80px;
     }
+    .purple-sub-links {
+        top: 65px;
+        padding-top: 2rem;
+        left: 40px;
+        visibility: hidden;
+    }
+        .content-bar{
+        height: 60px;
+    }
     /* Style the entire scrollbar */
     .sect2::-webkit-scrollbar {
         height: 10px;
