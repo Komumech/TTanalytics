@@ -239,8 +239,8 @@ body {
 }
 
 .small {
-    font-size: 1rem;
-    line-height: 20px;
+    font-size: 1.7rem;
+    line-height: 30px;
     max-width: 35vw;
 }
 
@@ -574,6 +574,13 @@ body {
         overflow-x: scroll;
         /* This will now work */
     }
+    .logo-div{
+        justify-self: center;
+        padding-left: 6rem;
+        margin-left: 0px;
+        justify-content: center;
+        width: fit-content;
+    }
     .imgsect {
         padding-left: 80px;
     }
@@ -776,7 +783,9 @@ body {
     z-index: 150;
     height: 100%;
 }
-
+.bottom-one{
+    margin-top: -3rem;
+}
 .sect4-txt2 {
     justify-self: right;
     font-size: 2.5rem;
@@ -1245,6 +1254,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .text-under-header{
+        max-width: 90vw;
+    }
     .our-services {
         position: not absolute;
         justify-self: center;
@@ -1267,7 +1279,7 @@ body {
         max-width: 21rem;
     }
     .sect3-img {
-        height: 40%;
+        height: 62%;
         justify-self: center;
         padding-top: 7rem;
         margin-left: -2rem;
@@ -1289,10 +1301,11 @@ body {
         padding: 0px;
     }
     .sect4-txt {
-        margin-top: 20rem;
+        margin-top: 0rem;
         max-width: 100vw;
         padding: 37px 10px;
         line-height: 2rem;
+        position: static;
     }
     .header2 {
         font-size: 2.4rem;
@@ -1304,7 +1317,7 @@ body {
 
     .main-container {
         height: fit-content;
-        margin-top: 0px;
+        margin-top: 6rem;
     }
     .sect5 {
         padding-top: 5rem;

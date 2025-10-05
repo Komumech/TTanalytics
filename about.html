@@ -24,65 +24,183 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
     
-    <style>
-        #starfield-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
+ <style>
+    /* ------------------------------------ */
+    /* UNCHANGED STARFIELD/UTILITY STYLES */
+    /* ------------------------------------ */
+
+    #starfield-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    
+    #canvas-container {
+        width: 8px;
+        height: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        background-color: transparent;
+        /* Changed to transparent */
+    }
+    
+    canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .scroll-down-btn {
+        position: fixed;
+        bottom: 50%;
+        right: 20px;
+        transform: translateY(50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+    
+    .scroll-down-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(50%) translateX(-5px);
+    }
+
+    /* ------------------------------------ */
+    /* FIXED MENU STYLES START HERE */
+    /* ------------------------------------ */
+    
+    /* The main wrapper for the collapsible menu/icon */
+    .menuu {
+        /* Initial state: small, fixed to the top-left, and on top of other content */
+        top: 0;
+        left: 0;
+        width: 4rem;
+        height: 4rem;
+        z-index: 90; 
+        margin-top: 0px; 
+        justify-self: left; 
+        transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        overflow: hidden; /* CRUCIAL: Hides menu links when collapsed */
+    }
+
+    .menuu:hover {
+        /* Expanded state: full height, expanded width, dark background */
+        width: 75%;
+        height: 100vh;
+        position: fixed;
+        background-color: #000000;
+        z-index: 99; /* Higher z-index when open */
+    }
+    
+    /* The icon itself, which is contained within the initial 4rem area */
+    .menuu .menu-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
+        justify-self: center;
+        padding-left: 0;
+        padding-top: 10px; /* Removed padding-left to use margin for positioning */
+        z-index: 95; /* Stays visible and on top */
+        position: absolute; /* Ensures it stays at the top of the menuu container */
+        top: 0;
+        left: 0;
+    }
+    
+    /* Container for the actual links */
+    .menu-links {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 5rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+        .menu-links-bottom {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 25rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+    .img-link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 6rem;
+    }
+    /* Individual link items */
+    .menuitem {
+        height: auto;
+        width: 100%;
+        padding: 10px 0; /* Add vertical spacing for links */
+        font-weight: 500;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1rem;
+
+        /* Initial hidden state */
+        opacity: 0;
+        transform: translateX(-20px); /* Start slightly off-screen to the left for slide effect */
+
+        /* Animation: Opacity and transform are delayed (e.g., 0.5s) to start after menu expansion */
+        transition: opacity 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out 0.5s;
+    }
+
+    .menuu:hover .menuitem {
+        /* Links become visible and slide into place when menu is hovered */
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.5s; /* Keep delay on hover to stagger appearance */
+    }
+    
+    /* Placeholder style from original code - kept but might be redundant */
+    .menuu:hover .menu-icon{
         
-        #canvas-container {
-            width: 8px;
-            height: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            background-color: transparent;
-            /* Changed to transparent */
-        }
-        
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .scroll-down-btn {
-            position: fixed;
-            bottom: 50%;
-            right: 20px;
-            transform: translateY(50%);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            color: white;
-            font-size: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-        
-        .scroll-down-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: translateY(50%) translateX(-5px);
-        }
-    </style>
+    }
+
+</style>
 </head>
 
 <body class="bg-black text-white font-roboto">
     <div id="starfield-container"></div>
 
     <div class="main-header" id="navbar">
-        <nav class="content-bar" id="navba">
+<nav class="content-bar" id="navba">
+            <div class="menuu">
+                <img src="menu_icon.png" alt="" class="menu-icon">
+                
+                <div class="menu-links">
+                    <a href="home.html" class="menuitem"> Home</a>
+                    <a href="" class="menuitem"> Order</a>
+                    <a href="menu.html" class="menuitem"> Menu</a>
+                    <a href="test.html" class="menuitem"> Tpecials</a>
+                </div>
+                    <div class="menu-links-bottom">
+                    <a href="home.html" class="menuitem"> Home</a>
+                    <a href="" class="menuitem"> Order</a>
+                    <a href="menu.html" class="menuitem"> Menu</a>
+                    <a href="test.html" class="menuitem"> Tpecials</a>
+                    <p class="img-link">
+                        <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                         <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                          <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                    </p>
+                </div>
+            </div>
             <div class="logo-div">
                 <img src="logo2.png" alt="" class="logo">
                 <p class="logo-txt">Team Tech Analytics</p>
@@ -95,22 +213,25 @@
             </ul>
         </nav>
         <div class="purple-bar">
+            
             <div class="purple-links-container">
                 <div class="purple-main-link">Who we are</div>
                 <div class="purple-sub-links">
-                    <a href="#Ethical-Guidelines" class="scroll-link">Ethical Guidelines</a>
                     <a href="#Services" class="scroll-link">Services</a>
+                    <a href="#Ethical-Guidelines" class="scroll-link">Ethical Guidelines</a>
                     <a href="#values" class="scroll-link">Values</a>
                     <a href="#blog" class="scroll-link">Blog</a>
-                    <a href="#">Leadership</a>
+                    <a href="#leadership" class="scroll-link">Leadership</a>
                 </div>
             </div>
+
         </div>
+
     </div>
     <div class="main-container main-container-adj">
 
         <div class="img-class">
-            <img src="img5.png" alt="" class="img1" srcset="">
+            <img src="img16.png" alt="" class="img1" srcset="">
         </div>
         <div class="content-container about">
             <h1 class="header big">
@@ -128,49 +249,8 @@
             &darr;
         </button>
     </div>
-<div class="about-sect1 section" id="Ethical-Guidelines">
-    
-    <div class="our-story story-toggle">
-        <div class="header2">
-            <hr class="hr-top"> Our Mission & Vision.
-        </div>
-        
-        <div class="collapsible-content">
-            <p class="hidden-txt">Explore the value we deliver to our clients, people, shareholders, partners, and communities. Our comprehensive approach ensures lasting, sustainable growth for all stakeholders.</p>
-            <img src="img6.webp" alt="" class="our-story-img">
-        </div>
-        
-        <hr class="hr-bottom">
-    </div>
 
-    <div class="our-story story-toggle">
-        <div class="header2">
-            <hr class="hr-top"> Value for All
-        </div>
-        <div class="collapsible-content">
-            <p class="hidden-txt">We believe success is a team sport. Our commitment is to generate lasting value that helps everyone connected to our business grow. We measure our success by the positive momentum we create for all our stakeholders.        </div>
-        <hr class="hr-bottom">
-    </div>
-
-    <div class="our-story story-toggle">
-        <div class="header2">
-            <hr class="hr-top"> Ethics First
-        </div>
-        <div class="collapsible-content">
-            <p class="hidden-txt">Every decision we make is guided by the highest ethical standards. We prove that achieving market leadership and being a reliable, responsible force for good are two sides of the same coin. Trust is our most valuable asset        </div>
-        <hr class="hr-bottom">
-    </div>
-
-    <div class="our-story story-toggle">
-        <div class="header2">
-            <hr class="hr-top"> Innovation Drives Us
-        </div>
-        <div class="collapsible-content">
-            <p class="hidden-txt">Innovation is core to how we operate. By combining technology, talent, and bold ideas, we solve complex challenges and deliver tangible, lasting competitive advantages for our clients.        </div>
-        <hr class="hr-bottom">
-    </div>
-</div>
-    <div class="about-sect2 section" id="Services">
+        <div class="about-sect2" id="Services">
         <div class="main-txt">
             Integrated Solutions
         </div>
@@ -208,7 +288,7 @@
             Accelerating change across your enterprise to create lasting value.
         </div>
         <div id="content-image" class="content-image">
-            <img src="img10.webp" alt="Initial image" id="current-image">
+            <img src="" alt="Initial image" id="current-image">
         </div>
     </div>
 </div>
@@ -216,40 +296,84 @@
     
     <div data-id="strategy">
         <p class="text">Delivering a comprehensive blueprint for digital transformation and lasting growth.</p>
-        <img src="img6.webp" alt="Strategy image" class="hidden-img">
+        <img src="img11.png" alt="Strategy image" class="hidden-img">
     </div>
 
     <div data-id="tech">
         <p class="text">Applying cutting-edge platforms and automation to build future-ready architecture.</p>
-        <img src="img7.webp" alt="Technology image" class="hidden-img"> 
+        <img src="img12.png" alt="Technology image" class="hidden-img"> 
     </div>
 
     <div data-id="ops">
         <p class="text">Streamlining processes and boosting efficiency across all business functions.</p>
-        <img src="img8.webp" alt="Operations image" class="hidden-img"> 
+        <img src="img13.png" alt="Operations image" class="hidden-img"> 
     </div>
 
     <div data-id="ix">
         <p class="text">Driving digital transformation in industrial production and smart products.</p>
-        <img src="img9.webp" alt="Industry X image" class="hidden-img">
+        <img src="img19.png" alt="Industry X image" class="hidden-img">
     </div>
     
     <div data-id="song">
         <p class="text">Combining creativity and technology to deliver impactful customer experiences.</p>
-        <img src="img10.webp" alt="Song image" class="hidden-img">
+        <img src="img14.png" alt="Song image" class="hidden-img">
     </div>
 </div>
     </div>
+<div class="about-sect1 section" id="Ethical-Guidelines">
+    
+    <div class="our-story story-toggle">
+        <div class="header2">
+           Our Mission & Vision.
+        </div>
+        
+        <div class="collapsible-content">
+            <p class="hidden-txt">Explore the value we deliver to our clients, people, shareholders, partners, and communities. Our comprehensive approach ensures lasting, sustainable growth for all stakeholders.
+                
+            </p>
+            <img src="img13.png" alt="" class="our-story-img">
+            
+        </div>
+    </div>
+
+    <div class="our-story story-toggle">
+        <div class="header2">
+         Value for All
+        </div>
+        <div class="collapsible-content">
+            <p class="hidden-txt">We believe success is a team sport. Our commitment is to generate lasting value that helps everyone connected to our business grow. We measure our success by the positive momentum we create for all our stakeholders.        </div>
+     
+    </div>
+
+    <div class="our-story story-toggle">
+        <div class="header2">
+             Ethics First
+        </div>
+        <div class="collapsible-content">
+            <p class="hidden-txt">Every decision we make is guided by the highest ethical standards. We prove that achieving market leadership and being a reliable, responsible force for good are two sides of the same coin. Trust is our most valuable asset        </div>
+       
+    </div>
+
+    <div class="our-story story-toggle">
+        <div class="header2">
+            Innovation Drives Us
+        </div>
+        <div class="collapsible-content">
+            <p class="hidden-txt">Innovation is core to how we operate. By combining technology, talent, and bold ideas, we solve complex challenges and deliver tangible, lasting competitive advantages for our clients.        </div>
+       
+    </div>
+</div>
+
     <div class="about-sect3 section" id="values">
             <p class="sect3-wrapper">
-            <span class="sect3-txt"><img src="img7.webp" alt="" class="txt-img">Reinvent,</span>
+            <span class="sect3-txt"><img src="img18.png" alt="" class="txt-img">Reinvent,</span>
             <br>
-            <span class="sect3-txt"><img src="img8.webp" alt="" class="txt-img">Value</span>
+            <span class="sect3-txt"><img src="img21.png" alt="" class="txt-img">Value</span>
             </p>
             <p class="sect3-wrapper">
-            <span class="sect3-txt"><img src="img6.webp" alt="" class="txt-img">Digital,</span>
+            <span class="sect3-txt"><img src="img14.png" alt="" class="txt-img">Digital,</span>
             <br>
-            <span class="sect3-txt"><img src="img9.webp" alt="" class="txt-img">Trust</span>
+            <span class="sect3-txt"><img src="img17.png" alt="" class="txt-img">Trust</span>
             </p>
     </div>
     <div class="about-sect4 section" id="blog">
@@ -368,11 +492,10 @@ We are rapidly creating a dynamic team of industry pioneers to define the future
         <div class="links">
             <div class="contact-links">
                 <a href="#" class="footer-link">Book a Call</a>
-                <a href="#" class="footer-link">AI Chat</a>
                 <a href="#" class="footer-link">Social Media</a>
             </div>
             <div class="contact-links">
-                <a href="#" class="footer-link">About us</a>
+                <a href="#" class="footer-link">Home</a>
                 <a href="#" class="footer-link">Services</a>
                 <a href="#" class="footer-link">Testimonials</a>
             </div>

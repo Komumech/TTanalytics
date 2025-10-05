@@ -129,3 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("CRITICAL ERROR: Service content display elements (#content-text or #current-image) not found.");
     }
 });
+
+
+
+
+
