@@ -1,0 +1,1436 @@
+.menuu {
+        /* Initial state: small, fixed to the top-left, and on top of other content */
+        top: 0;
+        left: 0;
+        width: 4rem;
+        height: 4rem;
+        z-index: 90; 
+        margin-top: 0px; 
+        justify-self: left; 
+        transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        overflow: hidden; /* CRUCIAL: Hides menu links when collapsed */
+    }
+
+    .menuu:hover {
+        /* Expanded state: full height, expanded width, dark background */
+        width: 75%;
+        height: 100vh;
+        position: fixed;
+        background-color: #000000;
+        z-index: 99; /* Higher z-index when open */
+    }
+    
+    /* The icon itself, which is contained within the initial 4rem area */
+    .menuu .menu-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
+        justify-self: center;
+        padding-left: 0;
+        padding-top: 10px; /* Removed padding-left to use margin for positioning */
+        z-index: 95; /* Stays visible and on top */
+        position: absolute; /* Ensures it stays at the top of the menuu container */
+        top: 0;
+        left: 0;
+    }
+    
+    /* Container for the actual links */
+    .menu-links {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 5rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+        .menu-links-bottom {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 25rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+    .img-link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 6rem;
+    }
+    /* Individual link items */
+    .menuitem {
+        height: auto;
+        width: 100%;
+        padding: 10px 0; /* Add vertical spacing for links */
+        font-weight: 500;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1rem;
+
+        /* Initial hidden state */
+        opacity: 0;
+        transform: translateX(-20px); /* Start slightly off-screen to the left for slide effect */
+
+        /* Animation: Opacity and transform are delayed (e.g., 0.5s) to start after menu expansion */
+        transition: opacity 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out 0.5s;
+    }
+
+    .menuu:hover .menuitem {
+        /* Links become visible and slide into place when menu is hovered */
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.5s; /* Keep delay on hover to stagger appearance */
+    }
+    
+    /* Placeholder style from original code - kept but might be redundant */
+    .menuu:hover .menu-icon{
+        
+    }
+
+    /* Using a font that is similar to the original site. */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+::selection {
+    background-color: rgb(21, 2, 143);
+}
+
+
+/* For older WebKit browsers (like some Safari versions) */
+
+::-moz-selection {
+    background-color: rgb(21, 2, 143);
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+
+/* New CSS for the always-visible purple part */
+
+
+/* Styling for the main header container - FIXED */
+
+.main-header {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    width: 100%;
+    transition: top 0.5s ease-in-out;
+}
+
+
+/* 1. Purple Bar (Always visible) - Top-most */
+
+.purple-bar {
+    background-color: rgb(21, 2, 143);
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.purple-links-container {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 0.9rem;
+    width: 100vw;
+}
+
+
+/* ... (Purple link styling remains the same) ... */
+
+.purple-main-link {
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 30px;
+    justify-self: left;
+    font-size: 1rem;
+}
+
+
+/* 1. Fix the alignment of all links */
+
+.purple-sub-links {
+    display: flex;
+    /* Aligns links horizontally */
+    align-items: center;
+    /* Ensures vertical alignment */
+    list-style: none;
+    /* Remove list bullets if applicable */
+    padding: 0;
+    margin: 0;
+    justify-self: right;
+    position: absolute;
+    right: 50px;
+    top: 73px;
+}
+
+
+/* 2. Style the individual link (both active and inactive) */
+
+.purple-sub-links a {
+    /* Set the height as required by your design */
+    height: 3rem;
+    /* Center the text vertically within the 3rem height */
+    line-height: 3rem;
+    padding: 0 1rem;
+    /* Horizontal padding for spacing */
+    /* Inherited styles */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+
+
+/* Default state for all links in the navigation */
+.purple-sub-links a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* THE ACTIVE STATE: The blue background highlight */
+.purple-sub-links a.is-active {
+    background-color: c; /* Solid Blue Background */
+    color: #FFFFFF; /* White Text */
+    font-weight: bold; /* Optional: Make text bold when active */
+}
+/* 3. Style the highlighted state */
+
+.purple-sub-links a.is-highlighted {
+    /* Use padding/line-height for centering, NOT the height property on its own */
+    background-color: rgb(0, 47, 255);
+}
+
+
+/* Initial State: Define the basic look of the link */
+
+.scroll-link {
+    height: fit-content;
+    display: inline-block;
+    /* Essential for sizing and background to work */
+    background-color: transparent;
+    /* Start transparent or with its normal background */
+    color: white;
+    transition: background-color 0.3s ease;
+    /* Add transition for smoothness */
+}
+
+
+/* Define the Active State: This class will be added by ScrollTrigger */
+
+.scroll-link.is-active {
+    background-color: rgb(0, 47, 255);
+    /* Blue background when active */
+}
+
+
+/* ... */
+
+
+/* 2. Black Content Bar (Hides/Shows) */
+
+.content-bar {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 70px;
+    z-index: 10;
+    /* Initial state: Positioned 50px down (below the 50px purple bar) */
+    top: 10px;
+    background-color: black;
+    transition: top 0.5s ease-in-out;
+}
+
+
+/* Push the page content down (Purple 50px + Black 80px = 130px) */
+
+body {
+    padding-top: 30px;
+    margin: 0;
+}
+
+
+/* (The rest of your logo/link styling can remain the same inside .content-bar) */
+
+.logo-div {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin-left: -5rem;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    position: relative;
+    left: 0;
+    padding: 0;
+}
+
+.logo-txt {
+    position: relative;
+    left: 0;
+    padding: 0 10px;
+    font-size: 1rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.logo-div:hover>.logo-txt {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-top: 0;
+    padding-right: 25rem;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.nav-links a:hover {
+    color: #555;
+    transition: color ease-in-out 0.2s;
+}
+
+.header {
+    font-size: 3rem;
+    line-height: 4rem;
+    margin-bottom: 0px;
+    max-width: 45vw;
+}
+
+.text-under-header {
+    font-size: 1.3rem;
+    line-height: 28px;
+    max-width: 45vw;
+    width: inherit;
+}
+
+.small {
+    font-size: 1.7rem;
+    line-height: 30px;
+    max-width: 35vw;
+}
+
+.small1 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    align-items: flex-start;
+    margin-top: 0rem;
+    line-height: 3rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+.vid2 {
+    width: 400px;
+    height: fit-content;
+    margin-top: 7rem;
+    padding: 0px;
+}
+
+.video-class {
+    width: 600px;
+    height: fit-content;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    margin-top: 10rem;
+    box-sizing: border-box;
+}
+
+.video-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-text {
+    text-align: center;
+}
+
+.learn-more-button {
+    position: relative;
+    /* Essential for positioning the pseudo-element */
+    background-color: rgb(0, 47, 255);
+    color: white;
+    padding: 1rem 1.2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    /* Hides the pseudo-element until it's ready to slide */
+    z-index: 1;
+    /* Ensures the button text is on top */
+}
+
+
+/* Pseudo-element for the sliding background */
+
+.learn-more-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    /* Initially has no width */
+    height: 100%;
+    background-color: rgb(4, 28, 139);
+    /* The new background color */
+    transition: width 0.5s ease-in-out;
+    /* Animates the width */
+    z-index: -1;
+    /* Positions it behind the button text */
+}
+
+
+/* Hover state: expand the pseudo-element to cover the button */
+
+.learn-more-button:hover::after {
+    width: 100%;
+}
+
+.sect2 {
+    width: 95vw;
+    height: 55rem;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+    justify-self: center;
+    padding-left: 30px;
+    padding-top: 5rem;
+}
+
+.imgsect {
+    color: rgb(255, 255, 255);
+    width: 16.7rem;
+    height: 25rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imgsect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s cubic-bezier(0.2, 0.2, 0.8, 1.0);
+    z-index: 0;
+    /* Place behind the other pseudo-element and content */
+}
+
+
+/* Define the background images for each element */
+
+.img1::before {
+    background-image: url(card1.jpg);
+}
+
+.img2::before {
+    background-image: url(card2.jpg);
+}
+
+.img3::before {
+    background-image: url(card3.jpg);
+}
+
+.img4::before {
+    background-image: url(card4.webp);
+}
+
+.img5::before {
+    background-image: url(card5.png);
+}
+
+.img6::before {
+    background-image: url(card6.png);
+}
+
+.img7::before {
+    background-image: url(card7.png);
+}
+
+.img8::before {
+    background-image: url(card8.webp);
+}
+
+.img1::before:hover {
+    transform: scale(1.05);
+    transition: tranform 0.9s ease-in-out;
+}
+
+
+/* Apply the blur to the new pseudo-element on hover */
+
+.imgsect:hover::before {
+    filter: blur(30px);
+    transform: scale(4) translateY(60px);
+}
+
+.imgsect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Apply the gradient to the pseudo-element */
+    background-image: linear-gradient(to right bottom, rgb(40, 4, 82), rgb(0, 0, 0));
+    opacity: 0;
+    /* Starts as fully transparent */
+    transform: scale(1);
+    transition: opacity 0.5s ease-in-out;
+    transform-origin: center center;
+    z-index: 1;
+}
+
+.imgsect:hover::after {
+    opacity: 0.5;
+    /* Adjusted for visibility */
+}
+
+.txt {
+    justify-self: left;
+    padding-left: 20px;
+    z-index: 2;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.black {
+    color: black;
+}
+
+.txt,
+.txt2 {
+    position: relative;
+    /* This is crucial for z-index to work */
+    z-index: 2;
+    /* Set to a higher value than the ::after element's z-index */
+    transition: transform 0.5s ease;
+    /* Add a transition for the lift effect */
+}
+
+.explore-btn {
+    visibility: hidden;
+    padding-right: 30px;
+    justify-self: right;
+    padding-top: 0rem;
+    position: relative;
+    /* Add position for proper z-index and layout */
+    z-index: 2;
+    /* Ensure it's above other elements */
+    transform: translateY(40px);
+    /* Start the button 20px below its final position */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    /* Transition both properties */
+}
+
+.font-sizeinc {
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.topic {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-left: 20px;
+    max-width: 14rem;
+}
+
+.imgsect:hover .explore-btn {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    /* Slide the button up to its final position */
+}
+
+.imgsect:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
+
+.txt2 {
+    justify-self: right;
+    visibility: hidden;
+    padding-top: 4rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 20px;
+    max-width: 12rem;
+    z-index: 99;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0s 0.5s;
+    /* Delay visibility on mouse leave */
+}
+
+.imgsect:hover>.txt2 {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-32px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    /* Reset transition for hover state */
+}
+
+@media (max-width: 880px) {
+    .sect2 {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        height: 70rem;
+        width: 120vw;
+        justify-content: space-between;
+        justify-items: center;
+        justify-self: center;
+        margin: 0 auto;
+    }
+    .imgsect {
+        width: 14rem;
+        height: 20rem;
+        padding-left: 80px;
+    }
+    .txt {
+        font-size: 0.7rem;
+        padding-left: 10px;
+    }
+    .txt2 {
+        font-size: 1rem;
+        padding-top: 3rem;
+    }
+    .topic {
+        font-size: 1rem;
+        max-width: 14rem;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sect2 {
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: repeat(8, 20rem);
+        /* Change to fixed units */
+        padding-left: 0rem;
+        height: 22rem;
+        width: 100%;
+        /* Set a fixed width to create overflow */
+        justify-content: start;
+        /* Change to start to prevent centering issues */
+        margin-top: 1rem;
+        overflow-x: scroll;
+        /* This will now work */
+    }
+    .logo-div{
+        justify-self: center;
+        padding-left: 6rem;
+        margin-left: 0px;
+        justify-content: center;
+        width: fit-content;
+    }
+    .imgsect {
+        padding-left: 80px;
+    }
+    .purple-sub-links {
+        top: 65px;
+        padding-top: 2rem;
+        left: 40px;
+        visibility: hidden;
+    }
+        .content-bar{
+        height: 60px;
+    }
+    /* Style the entire scrollbar */
+    .sect2::-webkit-scrollbar {
+        height: 10px;
+        /* Set the height of the horizontal scrollbar */
+        padding: 30px;
+    }
+    /* Style the scrollbar track */
+    .sect2::-webkit-scrollbar-track {
+        background: #a9a7a7;
+        /* Light gray background */
+    }
+    /* Style the scrollbar handle (the draggable part) */
+    .sect2::-webkit-scrollbar-thumb {
+        background: rgb(255, 255, 255);
+        /* Dark gray handle */
+        border-radius: 0px;
+        border-width: 1px 12px;
+        /* Top/Bottom is 3px, Left/Right is 5px */
+        border-style: solid;
+        border-color: black;
+    }
+    /* Change the handle color on hover */
+    .sect2:hover::-webkit-scrollbar-thumb {
+        background: #0e0e0e;
+        /* Even darker gray on hover */
+    }
+    html {
+        overflow-x: hidden;
+    }
+    .main-container {
+        diplay: grid;
+        grid-template-columns: 100%;
+        justify-self: center;
+        justify-content: center;
+        width: 80vw;
+    }
+    .vid2 {
+        height: 200px;
+        width: 90vw;
+        padding: 0px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+    .video-class {
+        width: 500px;
+        justify-content: center;
+        margin-top: 0rem;
+        height: fit-content;
+    }
+    .nav-links a {
+        visibility: hidden;
+    }
+    .header {
+        font-size: 2rem;
+        justify-self: center;
+        text-align: left;
+        padding-left: 0px;
+        line-height: 2.5rem;
+        width: 90vw;
+        max-width: 91vw;
+    }
+    .content-container {
+        height: fit-content;
+        line-height: 2rem;
+        align-items: flex-start;
+        justify-self: center;
+        padding-left: 30px;
+        padding-bottom: 1rem;
+    }
+    .text-under-header {
+        max-width: 370px;
+        justify-self: center;
+        padding-left: 0px;
+        line-height: 1.7rem;
+        text-align: left;
+        font-size: 1.5rem;
+    }
+    .txt {
+        justify-self: left;
+        padding: 0px;
+    }
+}
+
+.sect3 {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding-left: 7rem;
+    height: 20rem;
+    border-radius: 10px;
+    margin-top: 5rem;
+    justify-content: left;
+    justify-self: left;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+}
+
+
+/* This is the general, non-media query .sect3 rule */
+
+
+/* All other general styles that are not media queries should go here */
+
+.tag-img {
+    width: 450px;
+    justify-self: center;
+}
+
+.tag {
+    font-size: 1.5rem;
+    font-weight: 600;
+    max-width: 26rem;
+    text-align: flex-start;
+}
+
+.under-tag {
+    font-size: 1rem;
+    line-height: 50px;
+}
+
+.text-sect3 {
+    justify-self: center;
+    align-self: center;
+    padding-left: 5rem;
+    max-width: 26rem;
+}
+
+.read-more {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 6rem;
+    z-index: 160;
+    position: absolute;
+}
+
+.read-more-btn {
+    background-color: rgb(0, 47, 255);
+    color: white;
+    text-align: center;
+    height: 25px;
+    width: 25px;
+    border: none;
+    margin-left: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    /* The fix */
+    position: relative;
+    overflow: hidden;
+    /* This hides the overflowing background as it animates */
+    z-index: 1;
+    /* Ensures the button content is above the pseudo-element */
+    transition: transform 0.2s ease-in-out;
+}
+
+.read-more-btn::after {
+    content: '';
+    /* The fix */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(4, 28, 139);
+    transition: width 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.read-more-btn:hover::after {
+    width: 100%;
+}
+
+.read-more-btn:hover {
+    transform: translateX(5px);
+}
+
+.sect4 {
+    padding-top: 4rem;
+    /* Give the container height to create the scroll effect */
+    height: 100vh;
+}
+
+.sect3-img {
+    /* Use a position for centering the image */
+    top: 0%;
+    left: 0%;
+    position: relative;
+    justify-self: left;
+    z-index: 150;
+    height: 100%;
+}
+.bottom-one{
+    margin-top: -3rem;
+}
+.sect4-txt2 {
+    justify-self: right;
+    font-size: 2.5rem;
+    margin-top: 15rem;
+    max-width: 20rem;
+    height: fit-content;
+    position: absolute;
+    padding-right: 10rem;
+    opacity: 1;
+    /* Start hidden */
+    text-align: left;
+}
+
+.shorter {
+    line-height: 3rem;
+}
+
+.sect4-txt {
+    justify-self: right;
+    font-size: 2.5rem;
+    margin-top: -42rem;
+    max-width: 20rem;
+    height: fit-content;
+    position: absolute;
+    padding-right: 10rem;
+    opacity: 1;
+    /* Start hidden */
+    text-align: left;
+}
+
+.under-tag2 {
+    font-size: 1.4rem;
+    line-height: 28px;
+    padding-top: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header2 {
+    font-family: Montserrat, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+}
+
+.txt3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.ai {
+    background-color: black;
+}
+
+.sect5 {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    padding-top: 20rem;
+    justify-items: center;
+    justify-self: center;
+}
+
+.sect5-txt {
+    text-align: left;
+    justify-self: center;
+    padding-top: 3rem;
+    padding-left: 5rem;
+}
+
+.footer {
+    top: 90%;
+    width: 100%;
+    height: 20rem;
+    min-height: 500px;
+    position: relative;
+    line-height: 50px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+.footer-logo {
+    position: absolute;
+    left: 0;
+    padding: 50px;
+    width: 110px;
+    z-index: 90;
+}
+
+.footerp {
+    position: absolute;
+    padding-left: 5rem;
+    padding-top: 15rem;
+    justify-self: left;
+    line-height: 2rem;
+    z-index: -2;
+    max-width: 90vh;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0 auto;
+}
+
+.footer a {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: left;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contact-links {
+    display: grid;
+    color: #ffffff;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.links {
+    font-size: 1.2rem;
+    display: grid;
+    padding-top: 6rem;
+    padding-left: 5rem;
+    grid-template-columns: 100%;
+    height: 13rem;
+    justify-content: space-around;
+    min-width: fit-content;
+    width: 20rem;
+}
+
+.design-foot {
+    bottom: 20;
+    display: flex;
+    flex-direction: row;
+    margin-top: -7rem;
+    width: 40rem;
+    height: 12rem;
+    position: absolute;
+    justify-self: right;
+    justify-content: center;
+    padding-right: 90px;
+}
+
+.footer-link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    /* Adjust this value to control the space. A negative value moves it up. */
+    bottom: 1.3rem;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+    /* On hover, expand the width to 100% */
+}
+
+.ftxt1 {
+    font-size: 9rem;
+    font-weight: 600;
+    position: absolute;
+    background-color: black;
+    height: 9rem;
+    width: fit-content;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.zind1 {
+    z-index: 99;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.zind2 {
+    z-index: 90;
+    padding: 20px;
+    transform: translateX(30px);
+}
+
+.zind3 {
+    z-index: 80;
+    padding: 20px;
+    transform: translateX(-40px);
+}
+
+.zind4 {
+    z-index: 70;
+    padding: 20px;
+    transform: translateX(60px);
+}
+
+.zind5 {
+    z-index: 60;
+    padding: 20px;
+    transform: translateX(-80px);
+}
+
+.zind6 {
+    z-index: 50;
+    padding: 20px;
+    transform: translateX(90px);
+}
+
+.zind7 {
+    z-index: 40;
+    padding: 20px;
+    transform: translateX(-120px);
+}
+
+.zind1,
+.zind2,
+.zind3,
+.zind4,
+.zind5,
+.zind6,
+.zind7 {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* When .design-foot is hovered, apply a transform to each .zind* element */
+
+.design-foot:hover .zind1 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind2 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind3 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind4 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind5 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind6 {
+    transform: translateX(40px);
+}
+
+.design-foot:hover .zind7 {
+    transform: translateX(40px);
+}
+
+.our-services {
+    justify-self: right;
+    width: fit-content;
+    font-size: 1.7rem;
+    margin-top: -39rem;
+    max-width: 20rem;
+    height: fit-content;
+    padding-right: 10rem;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    z-index: 151;
+}
+
+.sect4 {
+    height: 100vh;
+    position: relative;
+    /* Make this the positioning context */
+}
+
+.image-wrapper {
+    position: absolute;
+    /* Position the image wrapper */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /* Set a lower z-index */
+}
+
+.sect3-img {
+    width: 100%;
+    object-fit: cover;
+    /* This makes the image cover the container without distortion */
+}
+
+.our-services-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 55rem;
+    z-index: 99;
+    /* Set a higher z-index to bring it to the front */
+}
+
+.our-services {
+    /* Now you can style your content relative to its new wrapper */
+    /* Use flexbox or grid for layout inside this wrapper */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* other styles */
+}
+
+.sect2b {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(5, 20rem);
+    overflow-x: scroll;
+    height: 27rem;
+    width: 90%;
+    padding: 0 2rem;
+}
+
+
+/* Style the entire scrollbar */
+
+
+/* Style the entire scrollbar */
+
+.sect2b::-webkit-scrollbar {
+    height: 10px;
+    padding: 30px;
+}
+
+
+/* Style the scrollbar track */
+
+.sect2b::-webkit-scrollbar-track {
+    background: #a9a7a7;
+}
+
+
+/* Add these styles to your home.css file */
+
+.sect2b .imgsect {
+    /* These rules are already in your original CSS, but we are now targeting them under the new container */
+    color: rgb(255, 255, 255);
+    width: 16.7rem;
+    height: 25rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.sect2b .imgsect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.5s cubic-bezier(0.2, 0.2, 0.8, 1.0);
+    z-index: 0;
+}
+
+
+/* Apply the blur and scale transform on hover for the new section */
+
+.sect2b .imgsect:hover::before {
+    filter: blur(30px);
+    transform: scale(4) translateY(60px);
+}
+
+.sect2b .imgsect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, rgb(40, 4, 82), rgb(0, 0, 0));
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.5s ease-in-out;
+    transform-origin: center center;
+    z-index: 1;
+}
+
+.sect2b .imgsect:hover::after {
+    opacity: 0.5;
+}
+
+
+/* Show and animate the text and button on hover */
+
+.sect2b .imgsect:hover .explore-btn,
+.sect2b .imgsect:hover>.txt2 {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sect2b .imgsect:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+/* Style the scrollbar handle (the draggable part) */
+
+.sect2b::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+    border-radius: 0px;
+    border-width: 1px 12px;
+    border-style: solid;
+    border-color: black;
+}
+
+
+/* Change the handle color when the container is hovered */
+
+.sect2b:hover::-webkit-scrollbar-thumb {
+    background: #0e0e0e;
+}
+
+.scroll-button {
+    position: absolute;
+    transform: translateY(-50%);
+    background-color: transparent;
+    margin-top: 13.5rem;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-btn {
+    right: 29rem;
+}
+
+.right-btn {
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .text-under-header{
+        max-width: 90vw;
+    }
+    .our-services {
+        position: not absolute;
+        justify-self: center;
+        padding-left: 5rem;
+        z-index: 151;
+    }
+    .sect3 {
+        flex-direction: column;
+        height: fit-content;
+        padding-left: 0px;
+        margin-top: 3rem;
+        align-items: center;
+        text-align: left;
+        justify-self: center;
+    }
+    .text-sect3 {
+        justify-self: center;
+        align-self: center;
+        padding-left: 0rem;
+        max-width: 21rem;
+    }
+    .sect3-img {
+        height: 62%;
+        justify-self: center;
+        padding-top: 7rem;
+        margin-left: -2rem;
+        padding-bottom: 2rem;
+    }
+    .tag {
+        font-size: 1.2rem;
+    }
+    .tag-img {
+        justify-self: center;
+        padding: 20px
+    }
+    .sect4 {
+        display: grid;
+        grid-template-columns: 100%;
+        margin-top: 3rem;
+        justify-content: space-between;
+        width: 100vw;
+        padding: 0px;
+    }
+    .sect4-txt {
+        margin-top: 0rem;
+        max-width: 100vw;
+        padding: 37px 10px;
+        line-height: 2rem;
+        position: static;
+    }
+    .header2 {
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+    .zind1 {
+        justify-self: center;
+    }
+
+    .main-container {
+        height: fit-content;
+        margin-top: 6rem;
+    }
+    .sect5 {
+        padding-top: 5rem;
+    }
+    .sect5-txt {
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-top: 3rem;
+        max-width: 90vw;
+        text-align: left;
+    }
+    .sect4-txt2 {
+        margin-top: 35rem;
+        text-align: left;
+        padding-right: 0px;
+        justify-self: left;
+        padding-left: 3rem;
+    }
+
+}
+
+.top {
+    position: relative;
+    z-index: 50;
+    margin-top: -3rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+

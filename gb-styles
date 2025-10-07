@@ -1,0 +1,95 @@
+ #starfield-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    
+    #canvas-container {
+        width: 8px;
+        height: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        background-color: transparent;
+        /* Changed to transparent */
+    }
+    
+    canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .scroll-down-btn {
+        position: fixed;
+        bottom: 50%;
+        right: 20px;
+        transform: translateY(50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+    
+    .scroll-down-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(50%) translateX(-5px);
+    }
+
+.learn-more-button {
+    position: relative;
+    /* Essential for positioning the pseudo-element */
+    background-color: rgb(0, 47, 255);
+    color: white;
+    padding: 1rem 1.2rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    /* Hides the pseudo-element until it's ready to slide */
+    z-index: 1;
+    /* Ensures the button text is on top */
+}
+
+
+/* Pseudo-element for the sliding background */
+
+.learn-more-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    /* Initially has no width */
+    height: 100%;
+    background-color: rgb(4, 28, 139);
+    /* The new background color */
+    transition: width 0.5s ease-in-out;
+    /* Animates the width */
+    z-index: -1;
+    /* Positions it behind the button text */
+}
+
+
+/* Hover state: expand the pseudo-element to cover the button */
+
+.learn-more-button:hover::after {
+    width: 100%;
+}
+.section {
+    padding-top: 5rem;
+}

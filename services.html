@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do - TTanalytics</title>
+    
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="footer.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
+    
+ <style>
+    /* ------------------------------------ */
+    /* UNCHANGED STARFIELD/UTILITY STYLES */
+    /* ------------------------------------ */
+
+    #starfield-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    
+    #canvas-container {
+        width: 8px;
+        height: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        background-color: transparent;
+        /* Changed to transparent */
+    }
+    
+    canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .scroll-down-btn {
+        position: fixed;
+        bottom: 50%;
+        right: 20px;
+        transform: translateY(50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+    
+    .scroll-down-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(50%) translateX(-5px);
+    }
+
+    /* ------------------------------------ */
+    /* FIXED MENU STYLES START HERE */
+    /* ------------------------------------ */
+    
+    /* The main wrapper for the collapsible menu/icon */
+    .menuu {
+        /* Initial state: small, fixed to the top-left, and on top of other content */
+        top: 0;
+        left: 0;
+        width: 4rem;
+        height: 4rem;
+        z-index: 90; 
+        margin-top: 0px; 
+        justify-self: left; 
+        transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        overflow: hidden; /* CRUCIAL: Hides menu links when collapsed */
+    }
+
+    .menuu:hover {
+        /* Expanded state: full height, expanded width, dark background */
+        width: 75%;
+        height: 100vh;
+        position: fixed;
+        background-color: #000000;
+        z-index: 99; /* Higher z-index when open */
+    }
+    
+    /* The icon itself, which is contained within the initial 4rem area */
+    .menuu .menu-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
+        justify-self: center;
+        padding-left: 0;
+        padding-top: 10px; /* Removed padding-left to use margin for positioning */
+        z-index: 95; /* Stays visible and on top */
+        position: absolute; /* Ensures it stays at the top of the menuu container */
+        top: 0;
+        left: 0;
+    }
+    
+    /* Container for the actual links */
+    .menu-links {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 5rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+        .menu-links-bottom {
+        display: grid;
+        grid-auto-rows: max-content; /* Helps with link flow */
+        text-align: left; /* Aligns text left */
+        margin-top: 25rem; /* Pushes links down below the icon */
+        padding-left: 30px; /* Indent the links */
+    }
+    .img-link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 6rem;
+    }
+    /* Individual link items */
+    .menuitem {
+        height: auto;
+        width: 100%;
+        padding: 10px 0; /* Add vertical spacing for links */
+        font-weight: 500;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1rem;
+
+        /* Initial hidden state */
+        opacity: 0;
+        transform: translateX(-20px); /* Start slightly off-screen to the left for slide effect */
+
+        /* Animation: Opacity and transform are delayed (e.g., 0.5s) to start after menu expansion */
+        transition: opacity 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out 0.5s;
+    }
+
+    .menuu:hover .menuitem {
+        /* Links become visible and slide into place when menu is hovered */
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.5s; /* Keep delay on hover to stagger appearance */
+    }
+    
+    /* Placeholder style from original code - kept but might be redundant */
+    .menuu:hover .menu-icon{
+        
+    }
+
+</style>
+</head>
+
+<body class="bg-black text-white font-roboto">
+    <div id="starfield-container"></div>
+
+    <div class="main-header" id="navbar">
+<nav class="content-bar" id="navba">
+            <div class="menuu">
+                <img src="menu_icon.png" alt="" class="menu-icon">
+                
+                <div class="menu-links">
+                    <a href="home.html" class="menuitem"> Home</a>
+                    <a href="" class="menuitem"> Order</a>
+                    <a href="menu.html" class="menuitem"> Menu</a>
+                    <a href="test.html" class="menuitem"> Tpecials</a>
+                </div>
+                    <div class="menu-links-bottom">
+                    <a href="home.html" class="menuitem"> Home</a>
+                    <a href="" class="menuitem"> Order</a>
+                    <a href="menu.html" class="menuitem"> Menu</a>
+                    <a href="test.html" class="menuitem"> Tpecials</a>
+                    <p class="img-link">
+                        <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                         <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                          <img src="in.png" alt="" srcset="" class="linkedin-profile-link">
+                    </p>
+                </div>
+            </div>
+            <div class="logo-div">
+                <img src="logo2.png" alt="" class="logo">
+                <p class="logo-txt">Team Tech Analytics</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Testimonials</a></li>
+            </ul>
+        </nav>
+        <div class="purple-bar">
+            
+            <div class="purple-links-container">
+                <div class="purple-main-link">Who we are</div>
+                <div class="purple-sub-links">
+                    <a href="#Services" class="scroll-link">Services</a>
+                    <a href="#Ethical-Guidelines" class="scroll-link">Ethical Guidelines</a>
+                    <a href="#values" class="scroll-link">Values</a>
+                    <a href="#blog" class="scroll-link">Blog</a>
+                    <a href="#leadership" class="scroll-link">Leadership</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="main-container main-container-adj">
+
+        <div class="img-class">
+            <img src="img22.png" alt="" class="img1" srcset="">
+        </div>
+        <div class="content-container about">
+            <h1 class="header big">
+                Reinvent what your business could be
+            </h1>
+            <p class="text-under-header small">
+            Our wide range of capabilities, ecosystem partnerships and unmatched industry expertise can help your business become the next best version of itself.            </p>
+            <button class="learn-more-button">
+                How We Work
+            </button>
+        </div>
+        <!-- New scroll-down button -->
+        <button class="scroll-down-btn" onclick="scrollToNextSection()">
+            &darr;
+        </button>
+    </div>
+
+<div class="about-sect2 service" id="Services">
+    <div class="small-service">
+        CAPABILITIES
+    </div>
+      
+    <div class="interactive-section">
+        <div class="service-list">
+            <ul id="serviceMenu">
+                <li data-target="strategy">
+                    <span class="bullet-point">■</span>Cloud
+                </li>
+                <li data-target="tech">
+                    <span class="bullet-point">■</span>Customer Service
+                </li>
+                <li data-target="ops">
+                    <span class="bullet-point">■</span>Cybersecurity
+                </li>
+                <li data-target="ix">
+                    <span class="bullet-point">■</span>Data and Artificial Intelligence
+                </li>
+                <li data-target="song">
+                    <span class="bullet-point">■</span>Digital Engineering and Manufacturing
+                </li> 
+
+                <li data-target="emgtech">
+                    <span class="bullet-point">■</span>Emerging Technology
+                </li> 
+                <li data-target="finctech">
+                    <span class="bullet-point">■</span>Financial Services
+                </li>
+                <li data-target="hrtech">
+                    <span class="bullet-point">■</span>Human Resources
+                </li>
+                <li data-target="mktserv">
+                    <span class="bullet-point">■</span>Marketing and Communications
+                </li>
+                <li data-target="supplych">
+                    <span class="bullet-point">■</span>Supply Chain Management
+                </li>
+                <li data-target="sustain">
+                    <span class="bullet-point">■</span>Sustainability
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-display">
+            <div id="content-text" class="content-text">
+                Accelerating change across your enterprise to create lasting value.
+            </div>
+            <div id="content-image" class="content-image">
+                <img src="" alt="Initial image" id="current-image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="hidden-data" style="display: none;">
+    <div data-id="strategy">
+        <p class="text">Delivering a comprehensive blueprint for digital transformation and lasting growth.</p>
+        <img src="img11.png" alt="Strategy image" class="hidden-img">
+    </div>
+    <div data-id="tech">
+        <p class="text">Applying cutting-edge platforms and automation to build future-ready architecture.</p>
+        <img src="img12.png" alt="Technology image" class="hidden-img"> 
+    </div>
+    <div data-id="ops">
+        <p class="text">Streamlining processes and boosting efficiency across all business functions.</p>
+        <img src="img13.png" alt="Operations image" class="hidden-img"> 
+    </div>
+    <div data-id="ix">
+        <p class="text">Driving digital transformation in industrial production and smart products.</p>
+        <img src="img19.png" alt="Industry X image" class="hidden-img">
+    </div>
+    <div data-id="song">
+        <p class="text">Combining creativity and technology to deliver impactful customer experiences.</p>
+        <img src="img14.png" alt="Song image" class="hidden-img">
+    </div>
+
+    <div data-id="emgtech">
+        <p class="text">Exploring and implementing new technologies like blockchain and quantum computing for future advantage.</p>
+        <img src="img15.png" alt="Emerging Tech image" class="hidden-img">
+    </div>
+    <div data-id="finctech">
+        <p class="text">Modernizing core banking systems and introducing innovative fintech solutions for secure transactions.</p>
+        <img src="img16.png" alt="Financial Tech image" class="hidden-img">
+    </div>
+    <div data-id="hrtech">
+        <p class="text">Transforming talent acquisition and management with AI-powered HR platforms and employee experience tools.</p>
+        <img src="img17.png" alt="HR Tech image" class="hidden-img">
+    </div>
+    <div data-id="mktserv">
+        <p class="text">Leveraging personalization and data analytics to drive targeted marketing campaigns and customer engagement.</p>
+        <img src="img18.png" alt="Marketing image" class="hidden-img">
+    </div>
+    <div data-id="supplych">
+        <p class="text">Optimizing global logistics and inventory using IoT sensors and machine learning for predictive insights.</p>
+        <img src="img20.png" alt="Supply Chain image" class="hidden-img">
+    </div>
+    <div data-id="sustain">
+        <p class="text">Building corporate social responsibility frameworks and tracking environmental impact with specialized metrics.</p>
+        <img src="img21.png" alt="Sustainability image" class="hidden-img">
+    </div>
+</div>
+
+
+    <div class="about-sect3 section" id="values">
+            <p class="sect3-wrapper">
+            <span class="sect3-txt"><img src="img18.png" alt="" class="txt-img">Reinvent,</span>
+            <br>
+            <span class="sect3-txt"><img src="img21.png" alt="" class="txt-img">Value</span>
+            </p>
+            <p class="sect3-wrapper">
+            <span class="sect3-txt"><img src="img14.png" alt="" class="txt-img">Digital,</span>
+            <br>
+            <span class="sect3-txt"><img src="img17.png" alt="" class="txt-img">Trust</span>
+            </p>
+    </div>
+    <div class="about-sect4 section" id="blog">
+           <div class="wrapper1 slide-div">
+<svg class="bg-svg" viewBox="0 0 800 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Reinvention gradient -->
+    <linearGradient id="reinventionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff99" />
+      <stop offset="50%" stop-color="#00ccff" />
+      <stop offset="100%" stop-color="#6600ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central circle -->
+  <path class="abstract-path"
+        d="M400,200 
+           m-100,0 
+           a100,100 0 1,0 200,0 
+           a100,100 0 1,0 -200,0"
+        fill="none"
+        stroke="url(#reinventionGradient)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.9" />
+
+  <!-- Tangent curve from top left -->
+  <path class="abstract-path"
+        d="M100,50 
+           C200,150 300,150 400,200"
+        fill="none"
+        stroke="url(#reinventionGradient)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.9" />
+
+  <!-- Intersecting curve from top right -->
+  <path class="abstract-path"
+        d="M700,50 
+           C600,150 500,250 400,200"
+        fill="none"
+        stroke="url(#reinventionGradient)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.9" />
+
+  <!-- Diagonal curve intersecting all -->
+  <path class="abstract-path"
+        d="M600,0 
+           C500,200 300,300 200,400"
+        fill="none"
+        stroke="url(#reinventionGradient)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-dasharray="8 4"
+        opacity="0.9" />
+</svg>
+        <p class="slide-up wrapper1-slideup">
+We commit to digital excellence and growth through innovation.        <p class="slide-up2 ">
+We are building a new standard by pioneering human-centered technology and delivering measurable, immediate value       </p>
+        <p class="learn-more-btn footer-link">Learn More ></p>
+      </div>
+
+           <div class="wrapper2 slide-div">
+    <svg class="bg-svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+        <path class="abstract-path" d="M0,200 C200,50 400,350 600,100 L800,400" />
+    </svg>
+        <p class="slide-up">
+           We ground every bold idea in rigorous analytics.
+        </p>
+        <p class="slide-up2">
+We thoughtfully assemble a best-in-class team of strategic thinkers to become your trusted growth partner.       </p>
+        <p class="learn-more-btn footer-link">Learn More ></p>
+      </div>
+
+
+    <div class="wrapper3 slide-div">
+<svg class="bg-svg" viewBox="0 0 800 400" preserveAspectRatio="none">
+  <path class="abstract-path" 
+        d="M0,200 
+           C100,100 150,300 250,150 
+           S350,250 450,100 
+           C500,50 550,350 650,200 
+           S750,150 800,300 
+           L800,400 L0,400 Z" />
+</svg>
+        <p class="slide-up">
+            We disrupt the status quo through creative innovation.
+        </p>
+        <p class="slide-up2">
+We are rapidly creating a dynamic team of industry pioneers to define the future of technology and deliver tomorrow's standards.      </p>
+        <p class="learn-more-btn footer-link">Learn More ></p>
+      </div>
+    </div>
+    <div class="leadership section"id="leadership">
+        <p class="leadership-txt">
+            Leading with vision and <br>experience
+        </p>
+        <div class="leaders">
+            <div class="leader">
+                <img src="jesam_img.png" alt="" class="leader-img">
+               <div class="leader-txt"> 
+                <p class="leader-name">Jesam</p>
+                <p class="leader-title">CEO</p>
+                <img src="in.png" class="linkedin-profile-link" srcset="">
+            </div>
+            </div>
+                       
+        </div>
+    </div>
+    <div class="footer">
+        <div class="links">
+            <div class="contact-links">
+                <a href="#" class="footer-link">Book a Call</a>
+                <a href="#" class="footer-link">Social Media</a>
+            </div>
+            <div class="contact-links">
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link">Services</a>
+                <a href="#" class="footer-link">Testimonials</a>
+            </div>
+        </div>
+        <div class="design-foot">
+            <p class="ftxt1 zind1">Unlock</p>
+            <p class="ftxt1 zind2">Unlock</p>
+            <p class="ftxt1 zind3">Unlock</p>
+            <p class="ftxt1 zind4">Unlock</p>
+            <p class="ftxt1 zind5">Unlock</p>
+            <p class="ftxt1 zind6">Unlock</p>
+            <p class="ftxt1 zind7">Unlock</p>
+        </div>
+        <p class="footerp">© 2025 Team Tech Analytics. All rights reserved.</p>
+
+    </div>
+
+    </div>
+
+
+    </div>
+    <div id="canvas-container"></div>
+    <script src="about.js"></script>
+    <script>
+        // Purple Bar Height = 50px
+        // Black Bar Height = 80px
+
+        let prevScrollPos = window.pageYOffset;
+
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            const navbar = document.getElementById("navbar"); // This targets the black bar (.content-bar)
+
+            if (navbar) {
+                if (prevScrollPos > currentScrollPos) {
+                    // Scrolling UP: Show the black bar.
+                    // Set its top to 50px (right below the purple bar).
+                    navbar.style.top = "0px";
+                } else {
+                    // Scrolling DOWN: Hide the black bar.
+                    // Set its top to -80px (slide it up by its height, hiding it completely above the purple bar).
+                    navbar.style.top = "-70px";
+                }
+            }
+            prevScrollPos = currentScrollPos;
+        };
+        // Store all sections in an ordered array for easy lookup
+        const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
+
+        function scrollToNextSection() {
+            const currentScrollPos = window.scrollY;
+            let nextSectionIndex = -1;
+
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i].offsetTop > currentScrollPos + 50) {
+                    nextSectionIndex = i;
+                    break;
+                }
+            }
+
+            if (nextSectionIndex !== -1) {
+                sections[nextSectionIndex].scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- Three.js Starfield Background ---
+        let starScene, starCamera, starRenderer, stars;
+        const numStars = 50000;
+        const starDistance = 2000;
+        let mouseX = 0,
+            mouseY = 0;
+
+        function initStarfield() {
+            const container = document.getElementById('starfield-container');
+            if (!container) return;
+
+            starScene = new THREE.Scene();
+            starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
+            starCamera.position.z = starDistance;
+
+            starRenderer = new THREE.WebGLRenderer({
+                alpha: true
+            });
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(starRenderer.domElement);
+
+            const starGeometry = new THREE.BufferGeometry();
+            const starVertices = [];
+            const starColors = [];
+            const starSizes = [];
+
+            for (let i = 0; i < numStars; i++) {
+                const x = THREE.MathUtils.randFloatSpread(starDistance * 4);
+                const y = THREE.MathUtils.randFloatSpread(starDistance * 4);
+                const z = THREE.MathUtils.randFloatSpread(starDistance * 2);
+                starVertices.push(x, y, z);
+                starSizes.push(Math.random() * 2 + 1);
+                starColors.push(1.0, 1.0, 1.0);
+            }
+
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+            starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
+
+            const starTextureCanvas = document.createElement('canvas');
+            starTextureCanvas.width = 64;
+            starTextureCanvas.height = 64;
+            const starContext = starTextureCanvas.getContext('2d');
+
+            const gradient = starContext.createRadialGradient(
+                starTextureCanvas.width / 2, starTextureCanvas.height / 2, 0,
+                starTextureCanvas.width / 2, starTextureCanvas.height / 2, starTextureCanvas.width / 2
+            );
+            gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            starContext.fillStyle = gradient;
+            starContext.fillRect(0, 0, starTextureCanvas.width, starTextureCanvas.height);
+
+            const starTexture = new THREE.CanvasTexture(starTextureCanvas);
+
+            const starMaterial = new THREE.PointsMaterial({
+                size: 7,
+                map: starTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                sizeAttenuation: true
+            });
+            stars = new THREE.Points(starGeometry, starMaterial);
+            starScene.add(stars);
+
+            window.addEventListener('resize', onStarfieldResize, false);
+            animateStarfield();
+
+            // GSAP and ScrollTrigger for the starfield zoom effect
+            gsap.to(starCamera.position, {
+                z: -starDistance,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true,
+                    onUpdate: self => {
+                        const progress = self.progress;
+                        const z = starDistance - (progress * starDistance * 2);
+                        starCamera.position.z = z;
+
+                        const positions = stars.geometry.attributes.position.array;
+                        for (let i = 0; i < positions.length; i += 3) {
+                            if (positions[i + 2] < starCamera.position.z - starDistance) {
+                                positions[i + 2] += starDistance * 2;
+                            } else if (positions[i + 2] > starCamera.position.z + starDistance) {
+                                positions[i + 2] -= starDistance * 2;
+                            }
+                        }
+                        stars.geometry.attributes.position.needsUpdate = true;
+                    }
+                }
+            });
+        }
+
+        function onStarfieldResize() {
+            const container = document.getElementById('starfield-container');
+            if (!container) return;
+            starCamera.aspect = window.innerWidth / window.innerHeight;
+            starCamera.updateProjectionMatrix();
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animateStarfield() {
+            requestAnimationFrame(animateStarfield);
+
+            const rotationFactor = 0.0005;
+            if (stars) {
+                stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
+                stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
+            }
+
+            if (starRenderer) {
+                starRenderer.render(starScene, starCamera);
+            }
+        }
+
+        ScrollTrigger.matchMedia({
+            "(min-width: 769px)": function() {
+                console.log("Desktop Animation Active");
+                gsap.utils.toArray(".sect3-img").forEach(img => {
+                    gsap.to(img, {
+                        scale: 0.5,
+                        x: -300,
+                        transformOrigin: "center center",
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: img,
+                            start: "top top",
+                            scrub: 1,
+                            end: "+=100",
+                            pin: true,
+                        }
+                    });
+                });
+            },
+            "(max-width: 768px)": function() {
+                console.log("Mobile Animation Active");
+                gsap.utils.toArray(".sect3-img").forEach(img => {
+                    gsap.fromTo(
+                        img, {
+                            scale: 3
+                        }, {
+                            scale: 1,
+                            x: 20,
+                            transformOrigin: "center center",
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: img.parentElement,
+                                start: "+=20%",
+                                end: "center top",
+                                scrub: 0.01,
+                                pin: true,
+                            }
+                        }
+                    );
+                });
+            },
+            "all": function() {
+                // Common setup
+            }
+        });
+
+        // Global variables for scene, camera, and renderer for 3D Text
+        let scene, camera, renderer, textMesh;
+        const textContent = "";
+        const lightBlue = new THREE.Color(0x0055ff);
+        const darkBlue = new THREE.Color(0x2552ac);
+        const accentColor = new THREE.Color(0x003cff);
+
+        function init() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 6;
+
+            renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true
+            });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const pointLight1 = new THREE.PointLight(0xff00ff, 1.5);
+            pointLight1.position.set(5, 5, 5);
+            scene.add(pointLight1);
+
+            const pointLight2 = new THREE.PointLight(0x00ffff, 1.5);
+            pointLight2.position.set(-5, -5, -5);
+            scene.add(pointLight2);
+
+            const fontLoader = new THREE.FontLoader();
+            fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/gentilis_regular.typeface.json', function(font) {
+                const textGeometry = new THREE.TextGeometry(textContent, {
+                    font: font,
+                    size: 2,
+                    height: 0.5,
+                    curveSegments: 12,
+                    bevelEnabled: true,
+                    bevelThickness: 0.1,
+                    bevelSize: 0.08,
+                    bevelOffset: 0,
+                    bevelSegments: 10
+                });
+
+                textGeometry.center();
+                const textMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    roughness: 0.4,
+                    metalness: 0.2
+                });
+                textMesh = new THREE.Mesh(textGeometry, textMaterial);
+                scene.add(textMesh);
+            });
+
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            animate();
+        }
+
+        function onWindowResize() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        function onDocumentMouseMove(event) {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+            const rect = container.getBoundingClientRect();
+            mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (textMesh) {
+                const tiltFactor = 0.05;
+                textMesh.rotation.y += (mouseX * tiltFactor - textMesh.rotation.y) * 0.02;
+                textMesh.rotation.x += (mouseY * tiltFactor - textMesh.rotation.x) * 0.02;
+                const tempColor = new THREE.Color();
+                tempColor.lerpColors(lightBlue, darkBlue, (mouseX + 1) / 2);
+                textMesh.material.color.lerpColors(tempColor, accentColor, (mouseY + 1) / 2);
+            }
+            if (renderer) {
+                renderer.render(scene, camera);
+            }
+        }
+
+        window.onload = function() {
+            init();
+            initStarfield();
+            const scrollContainer = document.querySelector('.sect2b');
+            if (scrollContainer) {
+                startAutoScroll();
+                scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+                scrollContainer.addEventListener('mouseleave', startAutoScroll);
+            }
+        };
+
+        const scrollAmount = 18 * 18;
+        let scrollTarget = 0;
+        let currentScroll = 0;
+        let isScrolling = false;
+        let scrollInterval;
+
+        function autoScroll() {
+            const scrollContainer = document.querySelector('.sect2b');
+            if (!scrollContainer) return;
+            isScrolling = true;
+            const targetScrollLeft = scrollTarget;
+            const animationDuration = 1000;
+            let startTime = null;
+
+            function animateScroll(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsedTime = timestamp - startTime;
+                const progress = Math.min(elapsedTime / animationDuration, 1);
+                const newScrollLeft = currentScroll + (targetScrollLeft - currentScroll) * progress;
+                scrollContainer.scrollLeft = newScrollLeft;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    currentScroll = scrollContainer.scrollLeft;
+                    isScrolling = false;
+                }
+            }
+            requestAnimationFrame(animateScroll);
+        }
+
+        function startAutoScroll() {
+            const scrollContainer = document.querySelector('.sect2b');
+            if (!scrollContainer) return;
+            scrollInterval = setInterval(() => {
+                if (isScrolling) return;
+                const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+
+                if (atEnd) {
+                    scrollTarget = 0;
+                } else {
+                    scrollTarget += scrollAmount;
+                }
+                autoScroll();
+            }, 5000);
+        }
+
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
+        }
+    </script>
+</body>
+
+</html>
+
+</html>
