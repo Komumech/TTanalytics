@@ -1,9 +1,4 @@
-
-
-
-
-
-/*imported styles*/
+/* --- Imported Styles --- */
 .img-class {
     width: 600px;
     height: fit-content;
@@ -14,8 +9,8 @@
     padding-left: 50px;
     padding-top: 5rem;
 }
-/* --- Main Container Styles --- */
 
+/* --- Main Container Styles --- */
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -25,7 +20,6 @@
 }
 
 /* --- Content Container Styles (Parent of Header, Paragraph, Button) --- */
-
 .content-container {
     display: flex;
     flex-direction: column;
@@ -40,7 +34,6 @@
 }
 
 /* --- Header Text Styles --- */
-
 .header {
     font-size: 3rem;
     line-height: 4rem;
@@ -49,7 +42,6 @@
 }
 
 /* --- Paragraph Text Styles --- */
-
 .text-under-header {
     font-size: 1.3rem;
     line-height: 28px;
@@ -58,15 +50,12 @@
 }
 
 /* --- Additional 'small' class applied to the paragraph --- */
-
 .small {
     font-size: 1.7rem;
     line-height: 30px;
-    max-width: 35vw;
 }
 
 /* --- Learn More Button Styles (with Hover Animation) --- */
-
 .learn-more-button {
     position: relative;
     background-color: rgb(0, 47, 255);
@@ -80,7 +69,6 @@
     z-index: 1;
 }
 
-/* Pseudo-element for the sliding background effect */
 .learn-more-button::after {
     content: '';
     position: absolute;
@@ -88,23 +76,19 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: rgb(4, 28, 139); /* The darker hover color */
+    background-color: rgb(4, 28, 139);
     transition: width 0.5s ease-in-out;
     z-index: -1;
 }
 
-/* Hover state: expand the pseudo-element to cover the button */
 .learn-more-button:hover::after {
     width: 100%;
 }
 
 /* --- Mobile Overrides (max-width: 768px) --- */
-
 @media (max-width: 768px) {
-    /* Main Container Mobile Styles */
     .main-container {
-        /* Typo corrected: "diplay" should be "display" */
-        display: grid; 
+        display: grid;
         grid-template-columns: 100%;
         justify-self: center;
         justify-content: center;
@@ -113,7 +97,6 @@
         margin-top: 6rem;
     }
 
-    /* Header Mobile Styles */
     .header {
         font-size: 2rem;
         justify-self: center;
@@ -124,7 +107,6 @@
         max-width: 91vw;
     }
 
-    /* Content Container Mobile Styles */
     .content-container {
         height: fit-content;
         line-height: 2rem;
@@ -134,7 +116,6 @@
         padding-bottom: 1rem;
     }
 
-    /* Paragraph Mobile Styles */
     .text-under-header {
         max-width: 370px;
         justify-self: center;
@@ -145,8 +126,41 @@
     }
 }
 
-.small-service{
-    font-size: 1.2rem;
+/* --- Service Section Styles --- */
+.small-service {
+    font-size: 1rem;
     font-weight: 600;
-    
+}
+
+.big-service {
+    font-size: 3.2rem;
+    justify-self: left;
+    text-align: left;
+    font-weight: 600;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.service-div {
+    display: grid;
+    grid-template-columns: 100%;
+    padding-left: 4.6rem;
+    height: 5rem;
+}
+
+.service-list {
+    padding-left: 1rem;
+}
+
+/* --- ScrollTrigger Pinning Styles for .content-display --- */
+.content-display {
+    position: relative; 
+    z-index: 10;
+}
+.main-container ,.main-container-adj{
+    margin-top: 2rem;
+}
+.content-container, .about{
+    margin-top: 0rem;
+    padding-top: 0rem;
 }
