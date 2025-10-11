@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What We Do - TTanalytics</title>
-    
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="about.css">
-    <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="android.css">
+    <link rel="stylesheet" href="footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -86,92 +87,7 @@
     /* ------------------------------------ */
     
     /* The main wrapper for the collapsible menu/icon */
-    .menuu {
-        /* Initial state: small, fixed to the top-left, and on top of other content */
-        top: 0;
-        left: 0;
-        width: 4rem;
-        height: 4rem;
-        z-index: 90; 
-        margin-top: 0px; 
-        justify-self: left; 
-        transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
-        overflow: hidden; /* CRUCIAL: Hides menu links when collapsed */
-    }
-
-    .menuu:hover {
-        /* Expanded state: full height, expanded width, dark background */
-        width: 75%;
-        height: 100vh;
-        position: fixed;
-        background-color: #000000;
-        z-index: 99; /* Higher z-index when open */
-    }
     
-    /* The icon itself, which is contained within the initial 4rem area */
-    .menuu .menu-icon {
-        width: 2rem;
-        height: 2rem;
-        margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
-        justify-self: center;
-        padding-left: 0;
-        padding-top: 10px; /* Removed padding-left to use margin for positioning */
-        z-index: 95; /* Stays visible and on top */
-        position: absolute; /* Ensures it stays at the top of the menuu container */
-        top: 0;
-        left: 0;
-    }
-    
-    /* Container for the actual links */
-    .menu-links {
-        display: grid;
-        grid-auto-rows: max-content; /* Helps with link flow */
-        text-align: left; /* Aligns text left */
-        margin-top: 5rem; /* Pushes links down below the icon */
-        padding-left: 30px; /* Indent the links */
-    }
-        .menu-links-bottom {
-        display: grid;
-        grid-auto-rows: max-content; /* Helps with link flow */
-        text-align: left; /* Aligns text left */
-        margin-top: 25rem; /* Pushes links down below the icon */
-        padding-left: 30px; /* Indent the links */
-    }
-    .img-link{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 6rem;
-    }
-    /* Individual link items */
-    .menuitem {
-        height: auto;
-        width: 100%;
-        padding: 10px 0; /* Add vertical spacing for links */
-        font-weight: 500;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 1rem;
-
-        /* Initial hidden state */
-        opacity: 0;
-        transform: translateX(-20px); /* Start slightly off-screen to the left for slide effect */
-
-        /* Animation: Opacity and transform are delayed (e.g., 0.5s) to start after menu expansion */
-        transition: opacity 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out 0.5s;
-    }
-
-    .menuu:hover .menuitem {
-        /* Links become visible and slide into place when menu is hovered */
-        opacity: 1;
-        transform: translateX(0);
-        transition-delay: 0.5s; /* Keep delay on hover to stagger appearance */
-    }
-    
-    /* Placeholder style from original code - kept but might be redundant */
-    .menuu:hover .menu-icon{
-        
-    }
 
 </style>
 </head>
@@ -397,20 +313,20 @@
 <div class="sect3-service section">
     <div class="overlay-service ">
             <p class="service-head">
-                Your Partner in Data-Driven Innovation
+                See reinvention in action
             </p>
             <p class="service-small">
              We're Teamtech Analytics: passionate professionals focused on unlocking the true power of your data. We partner with you to build and implement custom tech solutions that directly address your unique challenges and drive tangible business impact. 
             </p>
             <button class="learn-more-button">
-                How We Work
+                View Client Testiomonials
             </button>
         </p>
     </div>
 </div>
 
 <!-- Second Interactive Services Section -->
-<div class="about-sect2 service" id="Services2">
+<div class="about-sect2 service section" id="Services2">
     <div class="service-div">
         <p>
         <span class="small-service">
