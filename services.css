@@ -51,7 +51,6 @@
 
 /* --- Additional 'small' class applied to the paragraph --- */
 .small {
-    font-size: 1.7rem;
     line-height: 30px;
 }
 
@@ -146,6 +145,7 @@
     grid-template-columns: 100%;
     padding-left: 4.6rem;
     height: 5rem;
+    padding-bottom: 3rem;
 }
 
 .service-list {
@@ -156,6 +156,8 @@
 .content-display {
     position: relative; 
     z-index: 10;
+    justify-self: right;
+    margin-right: 6rem;
 }
 .main-container ,.main-container-adj{
     margin-top: 2rem;
@@ -163,4 +165,81 @@
 .content-container, .about{
     margin-top: 0rem;
     padding-top: 0rem;
+}
+.content-text{
+    width: 30vw;
+    font-size: 1.1rem;
+}
+.new{
+    height: fit-content;
+    padding-top: 5rem;
+}
+.new{
+    height: fit-content;
+    padding-top: 3rem;
+}
+.service-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 0.2em;
+}
+
+.service-desc {
+    font-size: 1rem;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.5em;
+}
+#current-image2{
+    width: 22rem;
+    height: auto;
+    margin-top: 20px;
+    padding-top: 30px;
+    transition: opacity 0.5s ease-in-out;
+}
+.interactive-section{
+    padding-bottom:9rem;
+}
+.sect3-service{
+    background-image: url("img23.webp");
+    height: 17rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.sect3-service::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px) brightness(0.8);
+    /* Optional: add a semi-transparent overlay for better contrast */
+    background: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+.service-head{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    line-height: 1.6rem;
+    display: block;
+}
+.overlay-service{
+    z-index: 999;
+    position: absolute;
+    padding-left: 5rem;
+}
+.service-small{
+    font-size: 1.1rem;
+    max-width: 45vw;
+    font-weight: 100;
+}
+.service3-txt{
+     justify-content: left;
+     text-align: left;
+     
 }

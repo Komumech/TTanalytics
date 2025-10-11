@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CRITICAL SAFETY CHECK: Only proceed if the main display elements are found
     if (contentTextElement && currentImageElement) {
 
-        const initialText = contentTextElement.innerText;
+        const initialText = contentTextElement.innerHTML;
         const initialImageSrc = currentImageElement.src; 
 
         serviceItems.forEach(item => {
@@ -93,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('active');
 
                 if (hiddenDataBlock) {
-                    const newText = hiddenDataBlock.querySelector('.text') ? hiddenDataBlock.querySelector('.text').innerText : initialText;
+                    const newText = hiddenDataBlock.querySelector('.text') ? hiddenDataBlock.querySelector('.text').innerHTML : initialText;
                     const newImageSrc = hiddenDataBlock.querySelector('img') ? hiddenDataBlock.querySelector('img').src : initialImageSrc;
 
                     // Swap Text with cross-fade
                     gsap.to(contentTextElement, { opacity: 0, duration: 0.15, onComplete: () => {
-                        contentTextElement.innerText = newText;
+                        contentTextElement.innerHTML = newText;
                         gsap.to(contentTextElement, { opacity: 1, duration: 0.15 });
                     }});
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const initialHiddenData = document.querySelector(`#hidden-data div[data-id="${initialTargetId}"]`);
 
             if (initialHiddenData) {
-                contentTextElement.innerText = initialHiddenData.querySelector('.text').innerText;
+                contentTextElement.innerHTML = initialHiddenData.querySelector('.text').innerHTML;
                 currentImageElement.src = initialHiddenData.querySelector('img').src;
             }
         }
@@ -130,7 +130,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Interactive Section 2 Functionality ---
+    const serviceItems2 = document.querySelectorAll('#serviceMenu2 li');
+    const contentTextElement2 = document.getElementById('content-text2');
+    const currentImageElement2 = document.getElementById('current-image2');
 
+    if (contentTextElement2 && currentImageElement2) {
+        const initialText2 = contentTextElement2.innerHTML;
+        const initialImageSrc2 = currentImageElement2.src;
 
+        serviceItems2.forEach(item => {
+            const targetId = item.getAttribute('data-target');
+            const hiddenDataBlock = document.querySelector(`#hidden-data2 div[data-id="${targetId}"]`);
 
+            item.addEventListener('mouseover', () => {
+                serviceItems2.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
 
+                if (hiddenDataBlock) {
+                    const newText = hiddenDataBlock.querySelector('.text') ? hiddenDataBlock.querySelector('.text').innerHTML : initialText2;
+                    const newImageSrc = hiddenDataBlock.querySelector('img') ? hiddenDataBlock.querySelector('img').src : initialImageSrc2;
+
+                    contentTextElement2.innerHTML = newText;
+                    currentImageElement2.src = newImageSrc;
+                }
+            });
+        });
+
+        // Set the initial/default item as 'active' and load its content on page load
+        const defaultItem2 = document.querySelector('#serviceMenu2 li[data-target="consulting2"]');
+        if (defaultItem2) {
+            defaultItem2.classList.add('active');
+            const initialTargetId2 = defaultItem2.getAttribute('data-target');
+            const initialHiddenData2 = document.querySelector(`#hidden-data2 div[data-id="${initialTargetId2}"]`);
+            if (initialHiddenData2) {
+                contentTextElement2.innerHTML = initialHiddenData2.querySelector('.text').innerHTML;
+                currentImageElement2.src = initialHiddenData2.querySelector('img').src;
+            }
+        }
+    }
+});
