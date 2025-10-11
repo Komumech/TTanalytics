@@ -6,7 +6,6 @@ ScrollTrigger.create({
   end: "+=100",
   pin: true,
   pinSpacing: false,
-  markers: true
 });
 
 gsap.registerPlugin(ScrollTrigger);
