@@ -648,5 +648,13 @@
     .leadership{
         padding-bottom: 5rem;
     }
-
+    .logo-div{
+        justify-self: center;
+        position: relative;
+        top: 0px;
+        left: 43%;
+        margin-left: 0px;
+        justify-content: center;
+        width: fit-content;
+    }
 }

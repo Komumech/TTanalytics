@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    
+   
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="footer.css">
@@ -108,12 +108,12 @@
     }
     
     /* The icon itself, which is contained within the initial 4rem area */
-    .menuu .menu-icon {
-        width: 2rem;
-        height: 2rem;
+   .menuu .menu-icon {
+        width: 1.2rem;
+        height: 1.2rem;
         margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
         justify-self: center;
-        padding-left: 0;
+        padding-left: 20px;
         padding-top: 10px; /* Removed padding-left to use margin for positioning */
         z-index: 95; /* Stays visible and on top */
         position: absolute; /* Ensures it stays at the top of the menuu container */
@@ -184,10 +184,10 @@
                 <img src="menu_icon.png" alt="" class="menu-icon">
                 
                 <div class="menu-links">
-                    <a href="index.html" class="menuitem">Home</a>
-                    <a href="services.html" class="menuitem">Services</a>
-                    <a href="about.html" class="menuitem">About Us</a>
-                    <a href="#contact" class="menuitem">Contact</a>
+                    <a href="#Ethical-Guidelines" class="menuitem">Ethical Guidelines</a>
+                    <a href="#values" class="menuitem">Values</a>
+                    <a href="#blog" class="menuitem">Blog</a>
+                    <a href="#leadership" class="menuitem">Leadership</a>
                 </div>
                     <div class="menu-links-bottom">
                     <a href="index.html" class="menuitem">Home</a>
@@ -535,14 +535,14 @@ We are rapidly creating a dynamic team of industry pioneers to define the future
             const navbar = document.getElementById("navbar"); // This targets the black bar (.content-bar)
 
             if (navbar) {
-                if (prevScrollPos > currentScrollPos) {
+                const isAndroid = /android/i.test(navigator.userAgent);
+                const scrollUpValue = isAndroid ? "-50px" : "-70px";
+                if (prevScrollPos > currentScrollPos || currentScrollPos < 10) {
                     // Scrolling UP: Show the black bar.
                     // Set its top to 50px (right below the purple bar).
                     navbar.style.top = "0px";
                 } else {
-                    // Scrolling DOWN: Hide the black bar.
-                    // Set its top to -80px (slide it up by its height, hiding it completely above the purple bar).
-                    navbar.style.top = "-70px";
+                    navbar.style.top = scrollUpValue;
                 }
             }
             prevScrollPos = currentScrollPos;

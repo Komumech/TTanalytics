@@ -81,10 +81,10 @@
                 <img src="menu_icon.png" alt="" class="menu-icon">
                 
                 <div class="menu-links">
-                    <a href="index.html" class="menuitem">Home</a>
-                    <a href="services.html" class="menuitem">Services</a>
-                    <a href="about.html" class="menuitem">About Us</a>
-                    <a href="#contact" class="menuitem">Contact</a>
+                    <a href="#partner" class="menuitem">Partner</a>
+                    <a href="#blog" class="menuitem">Blog</a>
+                    <a href="#quote" class="menuitem">Quote</a>
+                    <a href="#about" class="menuitem">What We Do</a>
                 </div>
                     <div class="menu-links-bottom">
                     <a href="index.html" class="menuitem">Home</a>
@@ -273,21 +273,26 @@
     <div id="canvas-container"></div>
      <script src="about.js"></script>
 <script>
-    let prevScrollPos = window.pageYOffset;
 
-window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-    const navbar = document.getElementById("navbar");
-    if (navbar) {
-        if (prevScrollPos > currentScrollPos) {
-            navbar.style.top = "0";
-        } else {
-            navbar.style.top = "-80px";
-        }
-    }
-    prevScrollPos = currentScrollPos;
-};
+        let prevScrollPos = window.pageYOffset;
 
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            const navbar = document.getElementById("navbar"); // This targets the black bar (.content-bar)
+
+            if (navbar) {
+                const isAndroid = /android/i.test(navigator.userAgent);
+                const scrollUpValue = isAndroid ? "-50px" : "-70px";
+                if (prevScrollPos > currentScrollPos || currentScrollPos < 10) {
+                    // Scrolling UP: Show the black bar.
+                    // Set its top to 50px (right below the purple bar).
+                    navbar.style.top = "0px";
+                } else {
+                    navbar.style.top = scrollUpValue;
+                }
+            }
+            prevScrollPos = currentScrollPos;
+        };
 // Store all sections in an ordered array for easy lookup
 const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
 

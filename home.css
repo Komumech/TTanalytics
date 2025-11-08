@@ -195,7 +195,11 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
-
+@media{
+    .logo-txt{
+        display: none;
+    }
+}
 .logo-div:hover>.logo-txt {
     visibility: visible;
     opacity: 1;
@@ -576,7 +580,9 @@ body {
     }
     .logo-div{
         justify-self: center;
-        padding-left: 6rem;
+        position: relative;
+        top: 0px;
+        left: 23%;
         margin-left: 0px;
         justify-content: center;
         width: fit-content;
@@ -590,8 +596,15 @@ body {
         left: 40px;
         visibility: hidden;
     }
+
         .content-bar{
         height: 60px;
+    }
+        .purple-bar{
+        height: 50px;
+    }
+    .purple-main-link{
+        margin-left: 2px;
     }
     /* Style the entire scrollbar */
     .sect2::-webkit-scrollbar {

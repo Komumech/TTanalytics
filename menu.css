@@ -27,11 +27,11 @@
     
     /* The icon itself, which is contained within the initial 4rem area */
     .menuu .menu-icon {
-        width: 2rem;
-        height: 2rem;
+        width: 1.2rem;
+        height: 1.2rem;
         margin: 0.5rem; /* Centers 3rem icon inside 4rem space (4rem - 3rem)/2 = 0.5rem */
         justify-self: center;
-        padding-left: 0;
+        padding-left: 20px;
         padding-top: 10px; /* Removed padding-left to use margin for positioning */
         z-index: 95; /* Stays visible and on top */
         position: absolute; /* Ensures it stays at the top of the menuu container */
