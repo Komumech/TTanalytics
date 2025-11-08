@@ -18,11 +18,11 @@
 }
     .menuu:hover {
         /* Expanded state: full height, expanded width, dark background */
-        width: 75%;
+        width: 85%;
         height: 100vh;
         position: fixed;
         background-color: #000000;
-        z-index: 99; /* Higher z-index when open */
+        z-index: 1290; /* Higher z-index when open */
     }
     
     /* The icon itself, which is contained within the initial 4rem area */
@@ -60,6 +60,10 @@
         justify-content: space-between;
         width: 6rem;
     }
+    .linkedin-profile-link{
+    width: 15px;
+    cursor: pointer;
+}
     /* Individual link items */
     .menuitem {
         height: auto;
