@@ -98,7 +98,11 @@
         transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
         overflow: hidden; /* CRUCIAL: Hides menu links when collapsed */
     }
-
+@media (max-width: 880px) {
+    .menuu{
+        display: block;
+    }
+}
     .menuu:hover {
         /* Expanded state: full height, expanded width, dark background */
         width: 75%;
