@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="android.css">
     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -173,228 +174,105 @@
         </button>
     </div>
 
-<div class="about-sect2 service" id="Services">
-    <div class="service-div">
-        <p>
-        <span class="small-service">
-        CAPABILITIES
-        </span>
+<div class="contact-us">
+    <p class="header big">
+        Contact Us
         <br>
-        <span class="big-service">
-        The Tools to Fuel Your Transformation
+        <span class="contact-us-text-under-header small">
+            We are here to help you succeed.
         </span>
-        </p>
-
-    </div>
-      
-    <div class="interactive-section">
-        <div class="service-list">
-            <ul id="serviceMenu">
-                <li data-target="strategy">
-                    <span class="bullet-point">■</span>Cloud
-                </li>
-                <li data-target="tech">
-                    <span class="bullet-point">■</span>Customer Service
-                </li>
-                <li data-target="ops">
-                    <span class="bullet-point">■</span>Cybersecurity
-                </li>
-                <li data-target="ix">
-                    <span class="bullet-point">■</span>Data and Artificial Intelligence
-                </li>
-                <li data-target="song">
-                    <span class="bullet-point">■</span>Digital Engineering
-                </li> 
-
-                <li data-target="emgtech">
-                    <span class="bullet-point">■</span>Emerging Technology
-                </li> 
-                <li data-target="finctech">
-                    <span class="bullet-point">■</span>Financial Services
-                </li>
-                <li data-target="hrtech">
-                    <span class="bullet-point">■</span>Human Resources
-                </li>
-                <li data-target="mktserv">
-                    <span class="bullet-point">■</span>Marketing and Communications
-                </li>
-                <li data-target="supplych">
-                    <span class="bullet-point">■</span>Supply Chain Management
-                </li>
-                <li data-target="sustain">
-                    <span class="bullet-point">■</span>Sustainability
-                </li>
-            </ul>
-        </div>
-     <div class="new">
-        <div class="content-display">
-            <div id="content-text" class="content-text">
-                Driving enterprise-wide change for sustainable, long-term value.
+    </p>
+    <div class="contact-form">
+        <form class="form">
+            <div class="form-group">
+                <label for="name" class="input-label">Name:</label>
+                <input type="text" id="name" class="contact" data-error-message="Name cannot be empty.">
+                <div class="error-message"></div>
             </div>
-            <div id="content-image" class="content-image">
-                <img src="" alt="Initial image" id="current-image">
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
 
-<div id="hidden-data" style="display: none;">
-    <div data-id="strategy">
-        <p class="text">
-            <span class="service-title">Cloud Solutions</span><br>
-            <span class="service-desc">Harness the power of the cloud for scalable, secure, and flexible operations.</span>
-        </p>
-        <img src="img11.png" alt="Strategy image" class="hidden-img">
-    </div>
-    <div data-id="tech">
-        <p class="text">
-            <span class="service-title">Customer Experience</span><br>
-            <span class="service-desc">Design seamless customer journeys that build loyalty and drive engagement.</span>
-        </p>
-        <img src="img12.png" alt="Technology image" class="hidden-img"> 
-    </div>
-    <div data-id="ops">
-        <p class="text">
-            <span class="service-title">Cybersecurity</span><br>
-            <span class="service-desc">Protect your digital assets with proactive threat detection and robust defense strategies.</span>
-        </p>
-        <img src="img13.png" alt="Operations image" class="hidden-img"> 
-    </div>
-    <div data-id="ix">
-        <p class="text">
-            <span class="service-title">Data & AI</span><br>
-            <span class="service-desc">Turn your data into a strategic asset with advanced analytics and intelligent automation.</span>
-        </p>
-        <img src="img19.png" alt="Industry X image" class="hidden-img">
-    </div>
-    <div data-id="song">
-        <p class="text">
-            <span class="service-title">Digital Engineering</span><br>
-            <span class="service-desc">Build and scale innovative products with our agile engineering and development practices.</span>
-        </p>
-        <img src="img14.png" alt="Song image" class="hidden-img">
-    </div>
-    <div data-id="emgtech">
-        <p class="text">
-            <span class="service-title">Emerging Technology</span><br>
-            <span class="service-desc">Stay ahead of the curve by integrating next-gen tech like blockchain and quantum computing.</span>
-        </p>
-        <img src="img15.png" alt="Emerging Tech image" class="hidden-img">
-    </div>
-    <div data-id="finctech">
-        <p class="text">
-            <span class="service-title">Financial Services</span><br>
-            <span class="service-desc">Modernize your financial operations with secure, compliant, and innovative fintech solutions.</span>
-        </p>
-        <img src="img16.png" alt="Financial Tech image" class="hidden-img">
-    </div>
-    <div data-id="hrtech">
-        <p class="text">
-            <span class="service-title">Human Resources</span><br>
-            <span class="service-desc">Enhance talent management and employee engagement with intelligent HR technology.</span>
-        </p>
-        <img src="img17.png" alt="HR Tech image" class="hidden-img">
-    </div>
-    <div data-id="mktserv">
-        <p class="text">
-            <span class="service-title">Marketing & Comms</span><br>
-            <span class="service-desc">Drive impactful campaigns and build your brand narrative with data-driven marketing strategies.</span>
-        </p>
-        <img src="img18.png" alt="Marketing image" class="hidden-img">
-    </div>
-    <div data-id="supplych">
-        <p class="text">
-            <span class="service-title">Supply Chain</span><br>
-            <span class="service-desc">Create a resilient and efficient supply chain with predictive analytics and IoT integration.</span>
-        </p>
-        <img src="img20.png" alt="Supply Chain image" class="hidden-img">
-    </div>
-    <div data-id="sustain">
-        <p class="text">
-            <span class="service-title">Sustainability</span><br>
-            <span class="service-desc">Integrate sustainable practices into your core strategy for long-term value and impact.</span>
-        </p>
-        <img src="img21.png" alt="Sustainability image" class="hidden-img">
-    </div>
-</div>
-
-<div class="sect3-service section" id="Testimonials">
-    <div class="overlay-service ">
-            <p class="service-head">
-                See Transformation in Action
-            </p>
-            <p class="service-small">
-             At Teamtech Analytics, we are dedicated to unlocking your data's potential. We collaborate with you to develop and deploy custom technology solutions that solve your unique challenges and deliver measurable results. 
-            </p>
-            <button class="learn-more-button">
-                Explore Client Stories
-            </button>
-        </p>
-    </div>
-</div>
-
-<!-- Second Interactive Services Section -->
-<div class="about-sect2 service section" id="Change">
-    <div class="service-div">
-        <p>
-        <span class="small-service">
-        EXPERTISE
-        </span>
-        <br>
-        <span class="big-service">
-        Expertise to Drive Your Success
-        </span>
-        </p>
-    </div>
-      
-    <div class="interactive-section">
-        <div class="service-list">
-            <ul id="serviceMenu2">
-                <li data-target="consulting2">
-                    <span class="bullet-point">■</span>Consulting
-                </li>
-                <li data-target="analytics2">
-                    <span class="bullet-point">■</span>Analytics
-                </li>
-                <li data-target="cloud2">
-                    <span class="bullet-point">■</span>Cloud Solutions
-                </li>
-                <li data-target="devops2">
-                    <span class="bullet-point">■</span>DevOps
-                </li>
-                <li data-target="automation2">
-                    <span class="bullet-point">■</span>Automation
-                </li>
-                <li data-target="security2">
-                    <span class="bullet-point">■</span>Security
-                </li>
-                <li data-target="infra2">
-                    <span class="bullet-point">■</span>Infrastructure
-                </li>
-                 <li data-target="quality2">
-                    <span class="bullet-point">■</span>Quality Engineering
-                </li>
-                 <li data-target="experience2">
-                    <span class="bullet-point">■</span>Experience Design
-                </li>
-                 <li data-target="mobile2">
-                    <span class="bullet-point">■</span>Mobile Development
-                </li>
-            </ul>
-        </div>
-        <div class="new2">
-            <div class="content-display">
-                <div id="content-text2" class="content-text">
-                    Unlocking new frontiers for your business.
+            <div class="form-group">
+                <label for="inquiry-type" class="input-label">Inquiry Type*</label>
+                <div class="custom-select-wrapper">
+                    <select id="inquiry-type" class="contact" required>
+                        <option value="">Select a value</option>
+                        <option value="new_business">New business requests</option>
+                        <option value="job_seekers">Job seekers</option>
+                        <option value="media_press">Media and press</option>
+                        <option value="investors">Investors</option>
+                        <option value="suppliers">Suppliers</option>
+                        <option value="new_hires">Accenture new hires</option>
+                        <option value="employees">Accenture employees</option>
+                        <option value="former_employees">Former Accenture employees</option>
+                        <option value="general">General Inquiries</option>
+                    </select>
                 </div>
-                <div id="content-image2" class="content-image">
-                    <img src="" alt="Initial image" id="current-image2">
-                </div>
+                <div class="error-message"></div>
             </div>
-        </div>
+
+            <div class="form-group">
+                <label for="first-name" class="input-label">First name*</label>
+                <input type="text" id="first-name" class="contact" required data-error-message="First name is required.">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name" class="input-label">Last name*</label>
+                <input type="text" id="last-name" class="contact" required data-error-message="Last name is required.">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="input-label">Email address*</label>
+                <input type="email" id="email" class="contact" required data-error-message="Please enter a valid email address.">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="input-label">Phone Number (Please include country code)</label>
+                <input type="tel" id="phone" class="contact" pattern="[0-9+\-() ]+" title="Phone No can accept numbers only" data-error-message="Phone number can only contain numbers and + - ( ).">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="company" class="input-label">Company/Organization*</label>
+                <input type="text" id="company" class="contact" required data-error-message="Company is required.">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="role" class="input-label">Your role/function</label>
+                <input type="text" id="role" class="contact" data-error-message="Role cannot be empty.">
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="country" class="input-label">Country/Region*</label>
+                <div class="custom-select-wrapper">
+                    <select id="country" class="contact" required>
+                        <option value="">Select a value</option>
+                        <option value="usa">USA</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="how-can-we-help" class="input-label">How can we help you?*</label>
+                <textarea id="how-can-we-help" class="contact" rows="5" required data-error-message="This field is required."></textarea>
+                <div class="error-message"></div>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="privacy-agree" name="privacy-agree" required>
+                <label for="privacy-agree" class="privacy-label">I agree to the use or processing of my personal information by Accenture for the purpose of fulfilling this request and in accordance with Accenture’s Privacy Statement</label>
+            </div>
+
+            <button type="submit" class="learn-more-button">Submit</button>
+        </form>
     </div>
 </div>
+
 
 <!-- Hidden Data for Second Section -->
 <div id="hidden-data2" style="display: none;">
@@ -510,9 +388,7 @@
     <div id="canvas-container"></div>
     <script src="about.js"></script>
     <script src="servives.js"></script>
-    <script>
-        // Purple Bar Height = 50px
-        // Black Bar Height = 80px
+<script>
 
         let prevScrollPos = window.pageYOffset;
 
@@ -533,357 +409,350 @@
             }
             prevScrollPos = currentScrollPos;
         };
-        // Store all sections in an ordered array for easy lookup
-        const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
+// Store all sections in an ordered array for easy lookup
+const sections = document.querySelectorAll('.sect4, .main-container, .sect2, .sect3, .sect5');
 
-        function scrollToNextSection() {
-            const currentScrollPos = window.scrollY;
-            let nextSectionIndex = -1;
+function scrollToNextSection() {
+    const currentScrollPos = window.scrollY;
+    let nextSectionIndex = -1;
 
-            for (let i = 0; i < sections.length; i++) {
-                if (sections[i].offsetTop > currentScrollPos + 50) {
-                    nextSectionIndex = i;
-                    break;
-                }
-            }
-
-            if (nextSectionIndex !== -1) {
-                sections[nextSectionIndex].scrollIntoView({
-                    behavior: 'smooth'
-                });
-            } else {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
+    for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop > currentScrollPos + 50) {
+            nextSectionIndex = i;
+            break;
         }
+    }
 
-        gsap.registerPlugin(ScrollTrigger);
+    if (nextSectionIndex !== -1) {
+        sections[nextSectionIndex].scrollIntoView({ behavior: 'smooth' });
+    } else {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
 
-        // --- Three.js Starfield Background ---
-        let starScene, starCamera, starRenderer, stars;
-        const numStars = 50000;
-        const starDistance = 2000;
-        let mouseX = 0,
-            mouseY = 0;
+gsap.registerPlugin(ScrollTrigger);
 
-        function initStarfield() {
-            const container = document.getElementById('starfield-container');
-            if (!container) return;
+// --- Three.js Starfield Background ---
+let starScene, starCamera, starRenderer, stars;
+const numStars = 50000;
+const starDistance = 2000;
+let mouseX = 0, mouseY = 0;
 
-            starScene = new THREE.Scene();
-            starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
-            starCamera.position.z = starDistance;
+function initStarfield() {
+    const container = document.getElementById('starfield-container');
+    if (!container) return;
 
-            starRenderer = new THREE.WebGLRenderer({
-                alpha: true
-            });
-            starRenderer.setSize(window.innerWidth, window.innerHeight);
-            container.appendChild(starRenderer.domElement);
+    starScene = new THREE.Scene();
+    starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
+    starCamera.position.z = starDistance;
 
-            const starGeometry = new THREE.BufferGeometry();
-            const starVertices = [];
-            const starColors = [];
-            const starSizes = [];
+    starRenderer = new THREE.WebGLRenderer({ alpha: true });
+    starRenderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(starRenderer.domElement);
 
-            for (let i = 0; i < numStars; i++) {
-                const x = THREE.MathUtils.randFloatSpread(starDistance * 4);
-                const y = THREE.MathUtils.randFloatSpread(starDistance * 4);
-                const z = THREE.MathUtils.randFloatSpread(starDistance * 2);
-                starVertices.push(x, y, z);
-                starSizes.push(Math.random() * 2 + 1);
-                starColors.push(1.0, 1.0, 1.0);
-            }
+    const starGeometry = new THREE.BufferGeometry();
+    const starVertices = [];
+    const starColors = [];
+    const starSizes = [];
+    
+    for (let i = 0; i < numStars; i++) {
+        const x = THREE.MathUtils.randFloatSpread(starDistance * 4);
+        const y = THREE.MathUtils.randFloatSpread(starDistance * 4);
+        const z = THREE.MathUtils.randFloatSpread(starDistance * 2);
+        starVertices.push(x, y, z);
+        starSizes.push(Math.random() * 2 + 1);
+        starColors.push(1.0, 1.0, 1.0);
+    }
 
-            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-            starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
-            starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+    starGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
+    starGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
+    
+    const starTextureCanvas = document.createElement('canvas');
+    starTextureCanvas.width = 64;
+    starTextureCanvas.height = 64;
+    const starContext = starTextureCanvas.getContext('2d');
+    
+    const gradient = starContext.createRadialGradient(
+        starTextureCanvas.width / 2, starTextureCanvas.height / 2, 0, 
+        starTextureCanvas.width / 2, starTextureCanvas.height / 2, starTextureCanvas.width / 2
+    );
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    starContext.fillStyle = gradient;
+    starContext.fillRect(0, 0, starTextureCanvas.width, starTextureCanvas.height);
 
-            const starTextureCanvas = document.createElement('canvas');
-            starTextureCanvas.width = 64;
-            starTextureCanvas.height = 64;
-            const starContext = starTextureCanvas.getContext('2d');
+    const starTexture = new THREE.CanvasTexture(starTextureCanvas);
 
-            const gradient = starContext.createRadialGradient(
-                starTextureCanvas.width / 2, starTextureCanvas.height / 2, 0,
-                starTextureCanvas.width / 2, starTextureCanvas.height / 2, starTextureCanvas.width / 2
-            );
-            gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-            gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
-            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-            starContext.fillStyle = gradient;
-            starContext.fillRect(0, 0, starTextureCanvas.width, starTextureCanvas.height);
+    const starMaterial = new THREE.PointsMaterial({
+        size: 7, 
+        map: starTexture, 
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true
+    });
+    stars = new THREE.Points(starGeometry, starMaterial);
+    starScene.add(stars);
 
-            const starTexture = new THREE.CanvasTexture(starTextureCanvas);
+    window.addEventListener('resize', onStarfieldResize, false);
+    animateStarfield();
 
-            const starMaterial = new THREE.PointsMaterial({
-                size: 7,
-                map: starTexture,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.8,
-                sizeAttenuation: true
-            });
-            stars = new THREE.Points(starGeometry, starMaterial);
-            starScene.add(stars);
-
-            window.addEventListener('resize', onStarfieldResize, false);
-            animateStarfield();
-
-            // GSAP and ScrollTrigger for the starfield zoom effect
-            gsap.to(starCamera.position, {
-                z: -starDistance,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: true,
-                    onUpdate: self => {
-                        const progress = self.progress;
-                        const z = starDistance - (progress * starDistance * 2);
-                        starCamera.position.z = z;
-
-                        const positions = stars.geometry.attributes.position.array;
-                        for (let i = 0; i < positions.length; i += 3) {
-                            if (positions[i + 2] < starCamera.position.z - starDistance) {
-                                positions[i + 2] += starDistance * 2;
-                            } else if (positions[i + 2] > starCamera.position.z + starDistance) {
-                                positions[i + 2] -= starDistance * 2;
-                            }
-                        }
-                        stars.geometry.attributes.position.needsUpdate = true;
+    // GSAP and ScrollTrigger for the starfield zoom effect
+    gsap.to(starCamera.position, {
+        z: -starDistance,
+        ease: "none",
+        scrollTrigger: {
+            trigger: "body",
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+            onUpdate: self => {
+                const progress = self.progress;
+                const z = starDistance - (progress * starDistance * 2);
+                starCamera.position.z = z;
+                
+                const positions = stars.geometry.attributes.position.array;
+                for (let i = 0; i < positions.length; i += 3) {
+                    if (positions[i + 2] < starCamera.position.z - starDistance) {
+                        positions[i + 2] += starDistance * 2;
+                    } else if (positions[i + 2] > starCamera.position.z + starDistance) {
+                        positions[i + 2] -= starDistance * 2;
                     }
                 }
+                stars.geometry.attributes.position.needsUpdate = true;
+            }
+        }
+    });
+}
+
+function onStarfieldResize() {
+    const container = document.getElementById('starfield-container');
+    if (!container) return;
+    starCamera.aspect = window.innerWidth / window.innerHeight;
+    starCamera.updateProjectionMatrix();
+    starRenderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+function animateStarfield() {
+    requestAnimationFrame(animateStarfield);
+    
+    const rotationFactor = 0.0005; 
+    if (stars) {
+        stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
+        stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
+    }
+
+    if (starRenderer) {
+        starRenderer.render(starScene, starCamera);
+    }
+}
+
+ScrollTrigger.matchMedia({
+    "(min-width: 769px)": function() {
+        console.log("Desktop Animation Active");
+        gsap.utils.toArray(".sect3-img").forEach(img => {
+            gsap.to(img, {
+                scale: 0.5,
+                x: -300,
+                transformOrigin: "center center",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top top",
+                    scrub: 1,
+                    end: "+=100",
+                    pin: true,
+                }
             });
-        }
+        });
+    },
+    "(max-width: 768px)": function() {
+        console.log("Mobile Animation Active");
+        gsap.utils.toArray(".sect3-img").forEach(img => {
+            gsap.fromTo(
+                img,
+                { scale: 3 },
+                {
+                    scale: 1,
+                    x: 20,
+                    transformOrigin: "center center",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "+=20%",
+                        end: "center top",
+                        scrub: 0.01,
+                        pin: true,
+                    }
+                }
+            );
+        });
+    },
+    "all": function() {
+        // Common setup
+    }
+});
 
-        function onStarfieldResize() {
-            const container = document.getElementById('starfield-container');
-            if (!container) return;
-            starCamera.aspect = window.innerWidth / window.innerHeight;
-            starCamera.updateProjectionMatrix();
-            starRenderer.setSize(window.innerWidth, window.innerHeight);
-        }
+// Global variables for scene, camera, and renderer for 3D Text
+let scene, camera, renderer, textMesh;
+const textContent = "";
+const lightBlue = new THREE.Color(0x0055ff);
+const darkBlue = new THREE.Color(0x2552ac);
+const accentColor = new THREE.Color(0x003cff);
 
-        function animateStarfield() {
-            requestAnimationFrame(animateStarfield);
+function init() {
+    const container = document.getElementById('canvas-container');
+    if (!container) return;
 
-            const rotationFactor = 0.0005;
-            if (stars) {
-                stars.rotation.y += (mouseX * rotationFactor - stars.rotation.y) * 0.02;
-                stars.rotation.x += (mouseY * rotationFactor - stars.rotation.x) * 0.02;
-            }
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.z = 6;
 
-            if (starRenderer) {
-                starRenderer.render(starScene, starCamera);
-            }
-        }
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 0);
+    container.appendChild(renderer.domElement);
 
-        ScrollTrigger.matchMedia({
-            "(min-width: 769px)": function() {
-                console.log("Desktop Animation Active");
-                gsap.utils.toArray(".sect3-img").forEach(img => {
-                    gsap.to(img, {
-                        scale: 0.5,
-                        x: -300,
-                        transformOrigin: "center center",
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: img,
-                            start: "top top",
-                            scrub: 1,
-                            end: "+=100",
-                            pin: true,
-                        }
-                    });
-                });
-            },
-            "(max-width: 768px)": function() {
-                console.log("Mobile Animation Active");
-                gsap.utils.toArray(".sect3-img").forEach(img => {
-                    gsap.fromTo(
-                        img, {
-                            scale: 3
-                        }, {
-                            scale: 1,
-                            x: 20,
-                            transformOrigin: "center center",
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: img.parentElement,
-                                start: "+=20%",
-                                end: "center top",
-                                scrub: 0.01,
-                                pin: true,
-                            }
-                        }
-                    );
-                });
-            },
-            "all": function() {
-                // Common setup
-            }
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const pointLight1 = new THREE.PointLight(0xff00ff, 1.5);
+    pointLight1.position.set(5, 5, 5);
+    scene.add(pointLight1);
+
+    const pointLight2 = new THREE.PointLight(0x00ffff, 1.5);
+    pointLight2.position.set(-5, -5, -5);
+    scene.add(pointLight2);
+
+    const fontLoader = new THREE.FontLoader();
+    fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/gentilis_regular.typeface.json', function (font) {
+        const textGeometry = new THREE.TextGeometry(textContent, {
+            font: font,
+            size: 2,
+            height: 0.5,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 0.1,
+            bevelSize: 0.08,
+            bevelOffset: 0,
+            bevelSegments: 10
         });
 
-        // Global variables for scene, camera, and renderer for 3D Text
-        let scene, camera, renderer, textMesh;
-        const textContent = "";
-        const lightBlue = new THREE.Color(0x0055ff);
-        const darkBlue = new THREE.Color(0x2552ac);
-        const accentColor = new THREE.Color(0x003cff);
+        textGeometry.center();
+        const textMaterial = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            roughness: 0.4,
+            metalness: 0.2
+        });
+        textMesh = new THREE.Mesh(textGeometry, textMaterial);
+        scene.add(textMesh);
+    });
 
-        function init() {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
+    window.addEventListener('resize', onWindowResize, false);
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    animate();
+}
 
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.z = 6;
+function onWindowResize() {
+    const container = document.getElementById('canvas-container');
+    if (!container) return;
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+}
 
-            renderer = new THREE.WebGLRenderer({
-                antialias: true,
-                alpha: true
-            });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setClearColor(0x000000, 0);
-            container.appendChild(renderer.domElement);
+function onDocumentMouseMove(event) {
+    const container = document.getElementById('canvas-container');
+    if (!container) return;
+    const rect = container.getBoundingClientRect();
+    mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+}
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
+function animate() {
+    requestAnimationFrame(animate);
+    if (textMesh) {
+        const tiltFactor = 0.05;
+        textMesh.rotation.y += (mouseX * tiltFactor - textMesh.rotation.y) * 0.02;
+        textMesh.rotation.x += (mouseY * tiltFactor - textMesh.rotation.x) * 0.02;
+        const tempColor = new THREE.Color();
+        tempColor.lerpColors(lightBlue, darkBlue, (mouseX + 1) / 2);
+        textMesh.material.color.lerpColors(tempColor, accentColor, (mouseY + 1) / 2);
+    }
+    if (renderer) {
+        renderer.render(scene, camera);
+    }
+}
 
-            const pointLight1 = new THREE.PointLight(0xff00ff, 1.5);
-            pointLight1.position.set(5, 5, 5);
-            scene.add(pointLight1);
+window.onload = function() {
+    init();
+    initStarfield();
+    const scrollContainer = document.querySelector('.sect2b');
+    if (scrollContainer) {
+        startAutoScroll();
+        scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+        scrollContainer.addEventListener('mouseleave', startAutoScroll);
+    }
+};
 
-            const pointLight2 = new THREE.PointLight(0x00ffff, 1.5);
-            pointLight2.position.set(-5, -5, -5);
-            scene.add(pointLight2);
+const scrollAmount = 18 * 18;
+let scrollTarget = 0;
+let currentScroll = 0;
+let isScrolling = false;
+let scrollInterval;
 
-            const fontLoader = new THREE.FontLoader();
-            fontLoader.load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/fonts/gentilis_regular.typeface.json', function(font) {
-                const textGeometry = new THREE.TextGeometry(textContent, {
-                    font: font,
-                    size: 2,
-                    height: 0.5,
-                    curveSegments: 12,
-                    bevelEnabled: true,
-                    bevelThickness: 0.1,
-                    bevelSize: 0.08,
-                    bevelOffset: 0,
-                    bevelSegments: 10
-                });
+function autoScroll() {
+    const scrollContainer = document.querySelector('.sect2b');
+    if (!scrollContainer) return;
+    isScrolling = true;
+    const targetScrollLeft = scrollTarget;
+    const animationDuration = 1000;
+    let startTime = null;
 
-                textGeometry.center();
-                const textMaterial = new THREE.MeshStandardMaterial({
-                    color: 0xffffff,
-                    roughness: 0.4,
-                    metalness: 0.2
-                });
-                textMesh = new THREE.Mesh(textGeometry, textMaterial);
-                scene.add(textMesh);
-            });
+    function animateScroll(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsedTime = timestamp - startTime;
+        const progress = Math.min(elapsedTime / animationDuration, 1);
+        const newScrollLeft = currentScroll + (targetScrollLeft - currentScroll) * progress;
+        scrollContainer.scrollLeft = newScrollLeft;
 
-            window.addEventListener('resize', onWindowResize, false);
-            document.addEventListener('mousemove', onDocumentMouseMove, false);
-            animate();
-        }
-
-        function onWindowResize() {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-
-        function onDocumentMouseMove(event) {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
-            const rect = container.getBoundingClientRect();
-            mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-            mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            if (textMesh) {
-                const tiltFactor = 0.05;
-                textMesh.rotation.y += (mouseX * tiltFactor - textMesh.rotation.y) * 0.02;
-                textMesh.rotation.x += (mouseY * tiltFactor - textMesh.rotation.x) * 0.02;
-                const tempColor = new THREE.Color();
-                tempColor.lerpColors(lightBlue, darkBlue, (mouseX + 1) / 2);
-                textMesh.material.color.lerpColors(tempColor, accentColor, (mouseY + 1) / 2);
-            }
-            if (renderer) {
-                renderer.render(scene, camera);
-            }
-        }
-
-        window.onload = function() {
-            init();
-            initStarfield();
-            const scrollContainer = document.querySelector('.sect2b');
-            if (scrollContainer) {
-                startAutoScroll();
-                scrollContainer.addEventListener('mouseenter', stopAutoScroll);
-                scrollContainer.addEventListener('mouseleave', startAutoScroll);
-            }
-        };
-
-        const scrollAmount = 18 * 18;
-        let scrollTarget = 0;
-        let currentScroll = 0;
-        let isScrolling = false;
-        let scrollInterval;
-
-        function autoScroll() {
-            const scrollContainer = document.querySelector('.sect2b');
-            if (!scrollContainer) return;
-            isScrolling = true;
-            const targetScrollLeft = scrollTarget;
-            const animationDuration = 1000;
-            let startTime = null;
-
-            function animateScroll(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const elapsedTime = timestamp - startTime;
-                const progress = Math.min(elapsedTime / animationDuration, 1);
-                const newScrollLeft = currentScroll + (targetScrollLeft - currentScroll) * progress;
-                scrollContainer.scrollLeft = newScrollLeft;
-
-                if (progress < 1) {
-                    requestAnimationFrame(animateScroll);
-                } else {
-                    currentScroll = scrollContainer.scrollLeft;
-                    isScrolling = false;
-                }
-            }
+        if (progress < 1) {
             requestAnimationFrame(animateScroll);
+        } else {
+            currentScroll = scrollContainer.scrollLeft;
+            isScrolling = false;
         }
+    }
+    requestAnimationFrame(animateScroll);
+}
 
-        function startAutoScroll() {
-            const scrollContainer = document.querySelector('.sect2b');
-            if (!scrollContainer) return;
-            scrollInterval = setInterval(() => {
-                if (isScrolling) return;
-                const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
+function startAutoScroll() {
+    const scrollContainer = document.querySelector('.sect2b');
+    if (!scrollContainer) return;
+    scrollInterval = setInterval(() => {
+        if (isScrolling) return;
+        const atEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1;
 
-                if (atEnd) {
-                    scrollTarget = 0;
-                } else {
-                    scrollTarget += scrollAmount;
-                }
-                autoScroll();
-            }, 5000);
+        if (atEnd) {
+            scrollTarget = 0;
+        } else {
+            scrollTarget += scrollAmount;
         }
+        autoScroll();
+    }, 5000);
+}
 
-        function stopAutoScroll() {
-            clearInterval(scrollInterval);
-        }
-    </script>
+function stopAutoScroll() {
+    clearInterval(scrollInterval);
+}
+</script>
+    <script src="contact.js"></script>
 </body>
 
 </html>

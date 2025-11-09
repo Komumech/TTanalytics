@@ -1,0 +1,302 @@
+:root {
+    --blue: rgb(21, 2, 143);
+    --blue-bright: rgb(0, 47, 255);
+    --grey-custom-options-bg: rgb(65, 65, 65);
+     --grey-custom-options-bg-hover: rgb(85, 85, 85);
+    --input-label-color: rgb(196, 195, 195);
+}
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    width: 100vw;
+}
+.contact-us{
+    margin-left: 4.3rem;
+    display: flex;
+    flex-direction: column;
+}
+.contact-us-text-under-header{
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* Space between form groups */
+}
+.contact{
+    /* Removed margin: 10px 0; to be handled by form-group and specific input margin-top */
+    width: 60vw;
+    min-height: 3rem; /* Ensure minimum height for inputs and selects */
+    border: none; /* Keep border: none for default, border on focus */
+    border-radius: 4px; /* Add slightly rounded corners */
+    color: rgb(196, 195, 195);
+    font-size: 1.2rem;
+    background-color:rgb(65, 65, 65);
+    padding: 0.5rem 1rem; /* Consistent padding */
+    box-sizing: border-box;
+    margin-top: 5px; /* Small space between label and input */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+.contact:focus{
+    outline:  none;
+    border: 1px solid var(--blue-bright);
+    box-shadow: 0 0 0 3px rgba(21, 2, 143, 0.3); /* Add a subtle glow on focus */
+}
+
+/* New style for invalid inputs */
+.contact.is-invalid {
+    border-color: #e53e3e; /* A clear red color */
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.4); /* A matching red glow */
+}
+
+/* Style for the error message text */
+.error-message {
+    color: #e53e3e;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    height: 0; /* Initially no height */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+/* Specific styles for textarea */
+textarea.contact {
+    height: auto; /* Allow textarea to grow based on content/rows */
+    min-height: 6rem; /* Set a reasonable minimum height for textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Specific styles for select */
+select.contact {
+    display: none; /* Hide the original select */
+    appearance: none; /* Remove default browser styling for select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23C4C3C3" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Custom arrow */
+    background-image: none; /* Remove the SVG background arrow */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem; /* Make space for the custom arrow */
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Add transform transition */
+}
+
+/* New wrapper for select elements to position the custom arrow */
+.custom-select-wrapper {
+    position: relative;
+    width: 60vw;
+}
+
+/* New styles for the custom dropdown */
+.custom-select {
+    position: relative;
+}
+
+.custom-select-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(196, 195, 195);
+    background-color: rgb(65, 65, 65);
+    border-radius: 4px;
+    cursor: pointer;
+    min-height: 3rem;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border: 1px solid transparent; /* Placeholder for smooth transition */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Arrow for the custom dropdown trigger */
+.custom-select-trigger::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-color: rgb(196, 195, 195);
+    border-width: 0 2px 2px 0;
+    transform: translateY(-60%) rotate(45deg); /* Adjusted for better centering */
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+.custom-select.is-open .custom-select-trigger {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(21, 2, 143, 0.3);
+}
+
+.custom-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background-color: rgb(65, 65, 65);
+    border-radius: 4px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden; /* Start hidden */
+    transform: scaleY(0); /* Start with zero height */
+    transform-origin: top;
+    transition: transform 0.3s ease-out, opacity 0.3s, visibility 0s 0.3s; /* Grow in 0.3s, hide visibility after animation */
+    max-height: 200px; /* Height limit for the dropdown */
+    overflow-y: auto; /* Make it scrollable */
+
+    /* --- Custom Scrollbar (Firefox) --- */
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue-bright) var(--blue);
+}
+
+.custom-select.is-open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1); /* Grow to full size */
+    transition: transform 0.3s ease-out, opacity 0s; /* No delay when opening */
+}
+/* --- Custom Scrollbar (Chrome, Safari, WebKit) --- */
+.custom-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-options::-webkit-scrollbar-track {
+    background: var(--blue);
+    border-radius: 4px;
+}
+
+.custom-options::-webkit-scrollbar-thumb {
+    background-color: var(--blue-bright);
+    border-radius: 4px;
+}
+
+.custom-options::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(50, 87, 255); /* A slightly lighter version of --blue-bright for hover */
+}
+
+.custom-option {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    position: relative;
+    padding-right: 2.5rem; /* Make space for the checkmark on the right */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.custom-option:hover, .custom-option.is-selected {
+    background-color: var(--grey-custom-options-bg-hover);
+    color: white;
+}
+
+/* Style for the checkmark icon on the selected option */
+.custom-option.is-selected::before {
+    content: '';
+    position: absolute;
+    right: 1.2rem;
+    top: 45%;
+    width: 5px; /* Width of the checkmark line */
+    height: 10px; /* Height of the checkmark line */
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.7); /* Dimmer color */
+    border-width: 0 2px 2px 0; /* Creates the 'L' shape */
+    transform: translateY(-50%) rotate(45deg); /* Rotates 'L' into a checkmark */
+}
+
+/* Animate the dropdown arrow on focus */
+.custom-select.is-open .custom-select-trigger::after {
+    transform: translateY(-25%) rotate(225deg); /* Rotate arrow to point up */
+}
+/* Style for the checkbox container */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start; /* Align text to the top of the checkbox */
+    margin-top: 15px;
+    width: 60vw;
+    cursor: pointer; /* Make the whole area clickable */
+}
+.checkbox-container input[type="checkbox"] {
+    appearance: none; /* Hide default checkbox */
+    -webkit-appearance: none;
+    background-color: rgb(65, 65, 65);
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 5px; /* Adjust vertical alignment */
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+/* Style for the checkmark */
+.checkbox-container input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px; /* Width of the checkmark line */
+    height: 10px; /* Height of the checkmark line */
+    border: solid white;
+    border-width: 0 2px 2px 0; /* Creates the 'L' shape */
+    transform: rotate(45deg); /* Rotates 'L' into a checkmark */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease-in-out;
+}
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+.checkbox-container input[type="checkbox"]:checked::before {
+    opacity: 1; /* Show checkmark when checked */
+}
+.input-label{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--input-label-color);
+    padding: 0px;
+    margin: 0;
+}
+/* New class for the checkbox label */
+.privacy-label {
+    color: var(--input-label-color); /* Inherit color from input-label */
+    font-size: 0.9rem; /* Smaller font for agreement text */
+    font-weight: normal; /* Less bold than other labels */
+    line-height: 1.2; /* Improve readability */
+    margin: 0; /* Remove default margins */
+    padding: 0;
+}
+/* Style for the submit button */
+.contact-form .learn-more-button {
+    margin-top: 20px;
+    width: fit-content; /* Adjust width as needed */
+    padding: 1rem 2rem;
+}
+
+/* --- Android/Mobile Formatting --- */
+@media (max-width: 768px) {
+    .contact-us {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: auto; /* Allow it to fill the available space */
+    }
+
+    .contact,
+    .custom-select-wrapper,
+    .checkbox-container {
+        width: 90vw; /* Make form elements wider on small screens */
+    }
+
+    .contact-us .header.big {
+        font-size: 3rem; /* Reduce header font size for mobile */
+        line-height: 3.5rem;
+    }
+}
