@@ -286,6 +286,7 @@ select.contact {
     .contact-us {
         margin-left: 1rem;
         margin-right: 1rem;
+        padding-bottom: 3rem;
         width: auto; /* Allow it to fill the available space */
     }
 
